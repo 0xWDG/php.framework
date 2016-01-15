@@ -60,7 +60,8 @@ public let STR_PAD_BOTH:Int         = 0
 public class PHPFramework {
     public let version:String = String(PHPFrameworkVersionNumber)
     public let product:String = "PHP.Framework"
-    public var isLoaded:Bool = false
+    private var isLoaded:Bool = false
+    private var isDebug:Bool  = false
 
     /**
      Init PHP
@@ -69,49 +70,11 @@ public class PHPFramework {
      */
     public init(_ debug:Bool = false) {
         if (!isLoaded) {
-            
-            if (debug) {
-                print("\(product) \(version) loaded")
-                #if os(iOS)
-                    print("Hello iOS")
-                #elseif os(OSX)
-                    print("Hello OS X")
-                #elseif os(watchOS)
-                    print("Hello  Watch")
-                #elseif os(tvOS)
-                    print("Hello  TV")
-                #endif
-            }
-            
+            isDebug=debug
             isLoaded=true
         }
     }
-    
-    /**
-     Return ASCII value of character
-     
-     - Parameter s: the character
-     
-     - Returns: the ascii number of the character
-     */
-    public func ord(s: String) -> Int {
-        return Int(String(s.unicodeScalars.first!.value))!
-    }
-    
-    /**
-     Return a specific character
-     
-     - Parameter s: the chr's number
-     
-     - Returns: the character as given in ascii
-     */
-    public func chr(s: Int) -> String {
-        guard let newS:Int = Int(s) else {
-            return "\(s)"
-        }
-        return String(UnicodeScalar(newS))
-    }
-    
+        
     /**
      Encode a string using Base64
      
@@ -166,36 +129,6 @@ public class PHPFramework {
         return String(str, radix: 2)
     }
     
-    /**
-     Newline to Break
-     
-     - Parameter html: the string
-     - Parameter isXML: is it XML (default: true)
-     
-     - Returns: the string with <br /> tags
-     */
-    public func nl2br(html: String, _ isXML:Bool=true) -> String {
-        if (isXML) {
-            return html.stringByReplacingOccurrencesOfString("\n", withString: "<br />\n")
-        }else{
-            return html.stringByReplacingOccurrencesOfString("\n", withString: "<br>\n")
-        }
-    }
-    
-    /**
-     Returns a string with backslashes before characters that need to be escaped. These characters are single quote ('), double quote ("), backslash (\) and NUL (the NULL byte).
-     
-     - Parameter str: the string
-     
-     - Returns: the string with backslashes
-     */
-    public func addslashes(str: String!) -> String {
-        return str.stringByReplacingOccurrencesOfString("\\", withString: "\\\\")
-                  .stringByReplacingOccurrencesOfString("'", withString: "\\'")
-                  .stringByReplacingOccurrencesOfString("\"", withString: "\\\"")
-                  .stringByReplacingOccurrencesOfString("\0", withString: "\\\0")
-    }
-
     //TODO: FIX
     /**
      Append padding to a string
