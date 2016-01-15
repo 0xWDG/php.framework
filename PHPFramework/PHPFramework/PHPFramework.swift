@@ -133,6 +133,22 @@ public class PHPFramework {
         return String(str, radix: 2)
     }
     
+    /**
+     Newline to Break (br)
+     
+     - Parameter html: the string
+     - Parameter isXML: is it XML (default: true)
+     
+     - Returns: the string with <br /> tags
+     */
+    public func nl2br(html: String, _ isXML:Bool=true) -> String {
+        if (isXML) {
+            return html.stringByReplacingOccurrencesOfString("\n", withString: "<br />\n")
+        }else{
+            return html.stringByReplacingOccurrencesOfString("\n", withString: "<br>\n")
+        }
+    }
+    
     //TODO: FIX
     /**
      Append padding to a string
