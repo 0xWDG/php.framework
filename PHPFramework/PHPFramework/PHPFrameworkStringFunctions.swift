@@ -548,18 +548,18 @@ extension PHPFramework {
         return str
     }
     
-    /**
-     Output a string (not done)
-     
-     - Parameter str: The String
-     
-     - Returns: The String
-     */
-    public func print(str: String) -> String {
-        print("Sorry this function is not done")
-        
-        return str
-    }
+//    /**
+//     Output a string (not done)
+//     
+//     - Parameter str: The String
+//     
+//     - Returns: The String
+//     */
+//    public func print(str: String) -> String {
+//        print("Sorry this function is not done")
+//        
+//        return str
+//    }
     
     /**
      Output a formatted string (not done)

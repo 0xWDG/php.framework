@@ -70,6 +70,18 @@ public class PHPFramework {
      */
     public init(_ debug:Bool = false) {
         if (!isLoaded) {
+            if (debug) {
+                print("\(product) \(version) loaded")
+                #if os(iOS)
+                    print("Hello iOS")
+                #elseif os(OSX)
+                    print("Hello OS X")
+                #elseif os(watchOS)
+                    print("Hello  Watch")
+                #elseif os(tvOS)
+                    print("Hello  TV")
+                #endif
+            }
             isDebug=debug
             isLoaded=true
         }
