@@ -9,15 +9,15 @@
 import Foundation
 
 // if Simulator then Debugmode = on
-#if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS)) /* { */
-  // Hi Simulator
-  // for usage like php.chr(64)
-  public let php = PHPFramework(true)
-/* } */ #else /* { */
-  // Hi Device
-  // for usage like php.chr(64)
-  public let php = PHPFramework(false)
-#endif /* } */
+#if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
+// Hi Simulator
+// for usage like php.chr(64)
+public let php = PHPFramework(true)
+#else
+// Hi Device
+// for usage like php.chr(64)
+public let php = PHPFramework(false)
+#endif
 
 public var isDebug: Bool = false
 
