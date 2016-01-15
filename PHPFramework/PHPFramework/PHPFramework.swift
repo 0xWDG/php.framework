@@ -19,38 +19,7 @@ import Foundation
     public let php = PHPFramework(false)
 #endif
 
-/**
-  Global usage for static constants
- */
-// http://php.net/manual/en/string.constants.php
-public let CRYPT_SALT_LENGTH:Int    = 0
-public let CRYPT_STD_DES:Int        = 0
-public let CRYPT_EXT_DES:Int        = 0
-public let CRYPT_MD5:Int            = 0
-public let CRYPT_BLOWFISH:Int       = 0
-public let HTML_SPECIALCHARS:Int    = 0
-public let HTML_ENTITIES:Int        = 0
-public let ENT_COMPAT:Int           = 0
-public let ENT_QUOTES:Int           = 0
-public let ENT_NOQUOTES:Int         = 0
-public let ENT_IGNORE:Int           = 0
-public let ENT_SUBSTITUTE:Int       = 0
-public let ENT_DISALLOWED:Int       = 0
-public let ENT_HTML401:Int          = 0
-public let ENT_XML1:Int             = 0
-public let ENT_XHTML:Int            = 0
-public let ENT_HTML5:Int            = 0
-public let CHAR_MAX:Int             = 0
-public let LC_CTYPE:Int             = 0
-public let LC_NUMERIC:Int           = 0
-public let LC_TIME:Int              = 0
-public let LC_COLLATE:Int           = 0
-public let LC_MONETARY:Int          = 0
-public let LC_ALL:Int               = 0
-public let LC_MESSAGES:Int          = 0
-public let STR_PAD_LEFT:Int         = 0
-public let STR_PAD_RIGHT:Int        = 0
-public let STR_PAD_BOTH:Int         = 0
+public var isDebug:Bool             = false
 
 /**
   PHPFramework
@@ -61,7 +30,6 @@ public class PHPFramework {
     public let version:String = String(PHPFrameworkVersionNumber)
     public let product:String = "PHP.Framework"
     private var isLoaded:Bool = false
-    private var isDebug:Bool  = false
 
     /**
      Init PHP

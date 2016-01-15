@@ -20,6 +20,8 @@ class FirstViewController: UIViewController {
         
         let backtest = php.addslashes("Hi i\'m Wesley \"de\" Groot! \0!") // Want: Hi i\'m Wesley \"de\" Groot! \^@@! (Removed NULL byte, cousing Xcode to crash?!)
         print(backtest)
+        
+        php.phpinfo()
     }
 
 
