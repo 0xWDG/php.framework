@@ -2439,39 +2439,30 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Return a list of .ini files parsed from the additional ini dir (Not done)
+	 Return a list of .ini files parsed from the additional ini dir
 
-	 - Parameter String: The input string
-
-	 - Returns: The input String
+	 - Returns: empty
 	 */
-	public func php_ini_scanned_files(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
+	public func php_ini_scanned_files() -> String {
+		return ""
 	}
 	
 	/**
-	 Gets the logo guid (Not done)
+	 Gets the logo guid
 
-	 - Parameter String: The input string
-
-	 - Returns: The input String
+	 - Returns: PHPE9568F34-D428-11d2-A769-00AA001ACF42
 	 */
-	public func php_logo_guid(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
+	public func php_logo_guid() -> String {
+		return "PHPE9568F34-D428-11d2-A769-00AA001ACF42"
 	}
 	
 	/**
-	 Returns the type of interface between web server and PHP (Not done)
+	 Returns the type of interface between web server and PHP
 
-	 - Parameter String: The input string
-
-	 - Returns: The input String
+	 - Returns: cli
 	 */
-	public func php_sapi_name(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
+	public func php_sapi_name() -> String {
+		return "cli"
 	}
 	
 	/**
@@ -2613,15 +2604,12 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Gets the Zend guid (Not done)
+	 Gets the Zend guid
 
-	 - Parameter String: The input string
-
-	 - Returns: The input String
+	 - Returns: PHPE9568F35-D428-11d2-A769-00AA001ACF42
 	 */
-	public func zend_logo_guid(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
+	public func zend_logo_guid() -> String {
+		return "PHPE9568F35-D428-11d2-A769-00AA001ACF42"
 	}
 	
 	/**
