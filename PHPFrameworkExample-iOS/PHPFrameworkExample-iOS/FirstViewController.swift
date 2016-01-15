@@ -17,6 +17,9 @@ class FirstViewController: UIViewController {
 
         let returnVal = php.chr(64)
         print("\(returnVal)")
+        
+        let backtest = php.addslashes("Hi i\'m Wesley \"de\" Groot! \0!") // Want: Hi i\'m Wesley \"de\" Groot! \^@@! (Removed NULL byte, cousing Xcode to crash?!)
+        print(backtest)
     }
 
     override func didReceiveMemoryWarning() {
