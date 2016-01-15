@@ -985,23 +985,23 @@ let PHP_URL_QUERY: Int = 6
 let PHP_URL_FRAGMENT: Int = 7
 let PHP_QUERY_RFC1738: Int = 1
 let PHP_QUERY_RFC3986: Int = 2
-let M_E: Int = 2.718281828459
-let M_LOG2E: Int = 1.442695040889
-let M_LOG10E: Int = 0.43429448190325
-let M_LN2: Int = 0.69314718055995
-let M_LN10: Int = 2.302585092994
-let M_PI: Int = 3.1415926535898
-let M_PI_2: Int = 1.5707963267949
-let M_PI_4: Int = 0.78539816339745
-let M_1_PI: Int = 0.31830988618379
-let M_2_PI: Int = 0.63661977236758
-let M_SQRTPI: Int = 1.7724538509055
-let M_2_SQRTPI: Int = 1.1283791670955
-let M_LNPI: Int = 1.1447298858494
-let M_EULER: Int = 0.57721566490153
-let M_SQRT2: Int = 1.4142135623731
-let M_SQRT1_2: Int = 0.70710678118655
-let M_SQRT3: Int = 1.7320508075689
+let M_E: Double = 2.718281828459
+let M_LOG2E: Double = 1.442695040889
+let M_LOG10E: Double = 0.43429448190325
+let M_LN2: Double = 0.69314718055995
+let M_LN10: Double = 2.302585092994
+let M_PI: Double = 3.1415926535898
+let M_PI_2: Double = 1.5707963267949
+let M_PI_4: Double = 0.78539816339745
+let M_1_PI: Double = 0.31830988618379
+let M_2_PI: Double = 0.63661977236758
+let M_SQRTPI: Double = 1.7724538509055
+let M_2_SQRTPI: Double = 1.1283791670955
+let M_LNPI: Double = 1.1447298858494
+let M_EULER: Double = 0.57721566490153
+let M_SQRT2: Double = 1.4142135623731
+let M_SQRT1_2: Double = 0.70710678118655
+let M_SQRT3: Double = 1.7320508075689
 let INF: String = "INF"
 let NAN: String = "NAN"
 let PHP_ROUND_HALF_UP: Int = 1
@@ -1978,662 +1978,662 @@ let STDERR: String = "Resource id #3"
  A Swift framework inspired by some PHP Functions.
  */
 extension PHPFramework {
-	// /**
-	// Checks if assertion is FALSE (Not done)
-	//
-	// - Parameter String: The input string
-	//
-	// - Returns: The input String
-	// */
-	// public func assert(str: String) -> String {
-	// print("Sorry this function is not supported yet!")
-	// return str
-	// }
-	
-	/**
-	 Returns the current process title
-
-	 - Returns: Returns the current process title
-	 */
-	public func cli_get_process_title() -> String {
-		return "Bash" // We will fake it (due Sandboxing)
-	}
-	
-	/**
-	 Sets the process title (Not done)
-
-	 - Returns: bool
-	 */
-	public func cli_set_process_title(str: String) -> Bool {
-		print("Sorry this function is not supported due Sandboxing")
-		return false
-	}
-	
-	/**
-	 Loads a PHP extension at runtime
-
-	 - Parameter str: Module name
-
-	 - Returns: false
-	 */
-	public func dl(str: String) -> Bool {
-		print("Sorry this function is not supported due Sandboxing")
-		return false
-	}
-	
-	/**
-	 Find out whether an extension is loaded
-
-	 - Parameter str: The module name
-
-	 - Returns: false
-	 */
-	public func extension_loaded(str: String) -> Bool {
-		print("Sorry this function is not supported due Sandboxing")
-		return false
-	}
-	
-	/**
-	 Forces collection of any existing garbage cycles (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func gc_collect_cycles(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Deactivates the circular reference collector (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func gc_disable(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Activates the circular reference collector (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func gc_enable(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Returns status of the circular reference collector (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func gc_enabled(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Reclaims memory used by the Zend Engine memory manager (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func gc_mem_caches(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets the value of a PHP configuration option (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func get_cfg_var(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets the name of the owner of the current PHP script
-
-	 - Returns: PHP.Framework
-	 */
-	public func get_current_user() -> String {
-		return "PHP.Framework"
-	}
-	
-	/**
-	 Returns an associative array with the names of all the constants and their values (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func get_defined_constants(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Returns an array with the names of the functions of a module (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func get_extension_funcs(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets the current include_path configuration option (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func get_include_path(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Returns an array with the names of included or required files (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func get_included_files(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Returns an array with the names of all modules compiled and loaded (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func get_loaded_extensions(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets the current configuration setting of magic_quotes_gpc (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func get_magic_quotes_gpc(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets the current active configuration setting of magic_quotes_runtime (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func get_magic_quotes_runtime(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Alias of get_included_files (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func get_required_files(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Returns active resources (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func get_resources(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets the value of an environment variable (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func getenv(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets time of last page modification (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func getlastmod(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Get PHP script owner's GID (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func getmygid(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets the inode of the current script (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func getmyinode(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets PHP's process ID (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func getmypid(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets PHP script owner's UID (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func getmyuid(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets options from the command line argument list (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func getopt(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets the current resource usages (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func getrusage(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Alias of ini_set (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func ini_alter(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets all configuration options (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func ini_get_all(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets the value of a configuration option (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func ini_get(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Restores the value of a configuration option (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func ini_restore(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Sets the value of a configuration option (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func ini_set(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Alias of set_magic_quotes_runtime (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func magic_quotes_runtime(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Dummy for main (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func main(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Returns the peak of memory allocated by PHP (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func memory_get_peak_usage(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Returns the amount of memory allocated to PHP (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func memory_get_usage(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Retrieve a path to the loaded php.ini file (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func php_ini_loaded_file(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Return a list of .ini files parsed from the additional ini dir
-
-	 - Returns: empty
-	 */
-	public func php_ini_scanned_files() -> String {
-		return ""
-	}
-	
-	/**
-	 Gets the logo guid
-
-	 - Returns: PHPE9568F34-D428-11d2-A769-00AA001ACF42
-	 */
-	public func php_logo_guid() -> String {
-		return "PHPE9568F34-D428-11d2-A769-00AA001ACF42"
-	}
-	
-	/**
-	 Returns the type of interface between web server and PHP
-
-	 - Returns: cli
-	 */
-	public func php_sapi_name() -> String {
-		return "cli"
-	}
-	
-	/**
-	 Returns information about the operating system PHP is running on
-
-	 - Returns: Your username
-	 */
-	public func php_uname(str: String) -> String {
-		#if os(iOS)
-		return "iOS"
-		#elseif os(OSX)
-		return "Mac OS X"
-		#elseif os(watchOS)
-		return " Watch"
-		#elseif os(tvOS)
-		return " TV"
-		#else
-		return "PHP.Framework" // Disabled due Sandboxing
-		#endif
-	}
-	
-	/**
-	 Prints out the credits for PHP
-
-	 - Returns: Prints out the credits for PHP
-	 */
-	public func phpcredits() -> String {
-		if (isDebug) {
-			print(credits)
-		}
-		return credits
-	}
-	
-	/**
-	 Outputs information about PHP's configuration
-
-	 - Returns: Outputs information about PHP's configuration
-	 */
-	public func phpinfo() -> String {
-		if (isDebug) {
-			print(credits)
-		}
-		return credits
-	}
-	
-	/**
-	 Gets the current PHP version (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func phpversion(str: String?) -> String {
-		return "7.0.0"
-	}
-	
-	/**
-	 Sets the value of an environment variable (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func putenv(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Restores the value of the include_path configuration option (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func restore_include_path(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Sets the include_path configuration option (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func set_include_path(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Sets the current active configuration setting of magic_quotes_runtime (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func set_magic_quotes_runtime(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Limits the maximum execution time (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func set_time_limit(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Returns directory path used for temporary files (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func sys_get_temp_dir(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Compares two "PHP-standardized" version number strings (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func version_compare(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets the Zend guid
-
-	 - Returns: PHPE9568F35-D428-11d2-A769-00AA001ACF42
-	 */
-	public func zend_logo_guid() -> String {
-		return "PHPE9568F35-D428-11d2-A769-00AA001ACF42"
-	}
-	
-	/**
-	 Returns a unique identifier for the current thread (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func zend_thread_id(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
-	/**
-	 Gets the version of the current Zend engine (Not done)
-
-	 - Parameter String: The input string
-
-	 - Returns: The input String
-	 */
-	public func zend_version(str: String) -> String {
-		print("Sorry this function is not supported yet!")
-		return str
-	}
-	
+  // /**
+  // Checks if assertion is FALSE (Not done)
+  //
+  // - Parameter String: The input string
+  //
+  // - Returns: The input String
+  // */
+  // public func assert(str: String) -> String {
+  // print("Sorry this function is not supported yet!")
+  // return str
+  // }
+  
+  /**
+   Returns the current process title
+
+   - Returns: Returns the current process title
+   */
+  public func cli_get_process_title() -> String {
+    return "Bash" // We will fake it (due Sandboxing)
+  }
+  
+  /**
+   Sets the process title (Not done)
+
+   - Returns: bool
+   */
+  public func cli_set_process_title(str: String) -> Bool {
+    print("Sorry this function is not supported due Sandboxing")
+    return false
+  }
+  
+  /**
+   Loads a PHP extension at runtime
+
+   - Parameter str: Module name
+
+   - Returns: false
+   */
+  public func dl(str: String) -> Bool {
+    print("Sorry this function is not supported due Sandboxing")
+    return false
+  }
+  
+  /**
+   Find out whether an extension is loaded
+
+   - Parameter str: The module name
+
+   - Returns: false
+   */
+  public func extension_loaded(str: String) -> Bool {
+    print("Sorry this function is not supported due Sandboxing")
+    return false
+  }
+  
+  /**
+   Forces collection of any existing garbage cycles (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func gc_collect_cycles(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Deactivates the circular reference collector (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func gc_disable(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Activates the circular reference collector (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func gc_enable(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Returns status of the circular reference collector (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func gc_enabled(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Reclaims memory used by the Zend Engine memory manager (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func gc_mem_caches(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets the value of a PHP configuration option (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func get_cfg_var(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets the name of the owner of the current PHP script
+
+   - Returns: PHP.Framework
+   */
+  public func get_current_user() -> String {
+    return "PHP.Framework"
+  }
+  
+  /**
+   Returns an associative array with the names of all the constants and their values (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func get_defined_constants(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Returns an array with the names of the functions of a module (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func get_extension_funcs(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets the current include_path configuration option (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func get_include_path(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Returns an array with the names of included or required files (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func get_included_files(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Returns an array with the names of all modules compiled and loaded (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func get_loaded_extensions(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets the current configuration setting of magic_quotes_gpc (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func get_magic_quotes_gpc(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets the current active configuration setting of magic_quotes_runtime (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func get_magic_quotes_runtime(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Alias of get_included_files (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func get_required_files(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Returns active resources (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func get_resources(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets the value of an environment variable (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func getenv(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets time of last page modification (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func getlastmod(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Get PHP script owner's GID (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func getmygid(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets the inode of the current script (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func getmyinode(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets PHP's process ID (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func getmypid(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets PHP script owner's UID (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func getmyuid(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets options from the command line argument list (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func getopt(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets the current resource usages (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func getrusage(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Alias of ini_set (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func ini_alter(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets all configuration options (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func ini_get_all(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets the value of a configuration option (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func ini_get(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Restores the value of a configuration option (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func ini_restore(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Sets the value of a configuration option (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func ini_set(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Alias of set_magic_quotes_runtime (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func magic_quotes_runtime(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Dummy for main (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func main(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Returns the peak of memory allocated by PHP (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func memory_get_peak_usage(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Returns the amount of memory allocated to PHP (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func memory_get_usage(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Retrieve a path to the loaded php.ini file (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func php_ini_loaded_file(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Return a list of .ini files parsed from the additional ini dir
+
+   - Returns: empty
+   */
+  public func php_ini_scanned_files() -> String {
+    return ""
+  }
+  
+  /**
+   Gets the logo guid
+
+   - Returns: PHPE9568F34-D428-11d2-A769-00AA001ACF42
+   */
+  public func php_logo_guid() -> String {
+    return "PHPE9568F34-D428-11d2-A769-00AA001ACF42"
+  }
+  
+  /**
+   Returns the type of interface between web server and PHP
+
+   - Returns: cli
+   */
+  public func php_sapi_name() -> String {
+    return "cli"
+  }
+  
+  /**
+   Returns information about the operating system PHP is running on
+
+   - Returns: Your username
+   */
+  public func php_uname(str: String) -> String {
+    #if os(iOS)
+    return "iOS"
+    #elseif os(OSX)
+    return "Mac OS X"
+    #elseif os(watchOS)
+    return " Watch"
+    #elseif os(tvOS)
+    return " TV"
+    #else
+    return "PHP.Framework" // Disabled due Sandboxing
+    #endif
+  }
+  
+  /**
+   Prints out the credits for PHP
+
+   - Returns: Prints out the credits for PHP
+   */
+  public func phpcredits() -> String {
+    if (isDebug) {
+      print(credits)
+    }
+    return credits
+  }
+  
+  /**
+   Outputs information about PHP's configuration
+
+   - Returns: Outputs information about PHP's configuration
+   */
+  public func phpinfo() -> String {
+    if (isDebug) {
+      print(credits)
+    }
+    return credits
+  }
+  
+  /**
+   Gets the current PHP version (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func phpversion(str: String?) -> String {
+    return "7.0.0"
+  }
+  
+  /**
+   Sets the value of an environment variable (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func putenv(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Restores the value of the include_path configuration option (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func restore_include_path(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Sets the include_path configuration option (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func set_include_path(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Sets the current active configuration setting of magic_quotes_runtime (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func set_magic_quotes_runtime(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Limits the maximum execution time (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func set_time_limit(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Returns directory path used for temporary files (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func sys_get_temp_dir(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Compares two "PHP-standardized" version number strings (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func version_compare(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets the Zend guid
+
+   - Returns: PHPE9568F35-D428-11d2-A769-00AA001ACF42
+   */
+  public func zend_logo_guid() -> String {
+    return "PHPE9568F35-D428-11d2-A769-00AA001ACF42"
+  }
+  
+  /**
+   Returns a unique identifier for the current thread (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func zend_thread_id(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
+  /**
+   Gets the version of the current Zend engine (Not done)
+
+   - Parameter String: The input string
+
+   - Returns: The input String
+   */
+  public func zend_version(str: String) -> String {
+    print("Sorry this function is not supported yet!")
+    return str
+  }
+  
 }
