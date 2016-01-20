@@ -5,10 +5,13 @@ if [ -e ".git/hooks/pre-commit" ]; then
 	TAGVER=`expr $VER + 1`
 	MYVERS=`cat _ver`
 	TAGVER=`echo $MYVERS.$TAGVER`
+	git tag $TAGVER
+	git add .
 
 	#Need to update Xcode version for framework...
 	cd PHPFramework
 	xcrun agvtool new-version -all $TAGVER &> /dev/null
+
 	# ok
 else
 	echo 'Creating pre-commit git hook...'
