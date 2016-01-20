@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Extensions for Strings
+*/
 public extension String {
 	/**
 	 get string length

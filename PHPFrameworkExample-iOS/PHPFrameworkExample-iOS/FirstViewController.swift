@@ -13,7 +13,6 @@ class FirstViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
 		
 		let backtest = php.addslashes("Hi i\'m Wesley \"de\" Groot!") // Want: Hi i\'m Wesley \"de\" Groot!
 		print(backtest)
