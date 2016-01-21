@@ -559,16 +559,17 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Parses the string into variables (not done)
+	 Parses the string into variables (**not supported**)
 
-	 - Parameter str: The String
+	 # **not supported**
+	 ### Unsafe behaviour & no addition to swift.
 
-	 - Returns: The String
+	 - Parameter str: the query string
+
+	 - Returns: false
 	 */
-	public func parse_str(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func parse_str(str: String) -> Array<String> {
+		return ["false", "Not supported"]
 	}
 	
 	/**
