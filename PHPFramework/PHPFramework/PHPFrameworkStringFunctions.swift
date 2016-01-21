@@ -1140,16 +1140,26 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Find the last occurrence of a character in a string (not done)
+	 Find the last occurrence of a character in a string
 
-	 - Parameter str: The String
+	 *Please note that we need at least 2 components, otherwise it will fail*
 
-	 - Returns: The String
+	 - Parameter str: input string
+	 - Parameter needle: what do we need
+
+	 - Returns: **Pass:** String\
+	 **Fail:** Boolean (false)
 	 */
-	public func strrchr(str: String) -> String {
-		print("Sorry this function is not done")
+	public func strrchr(str: String, _ needle: String) -> Any {
+		// string strrchr ( string $haystack , mixed $needle )
+		// Explode & get end
+		let exploded: Array<String> = php.explode(str, needle) ;
 		
-		return str
+		if (exploded.count > 1) {
+			return exploded[exploded.count - 1] ;
+		} else {
+			return false
+		}
 	}
 	
 	/**
