@@ -19,6 +19,7 @@ class FirstViewController: UIViewController {
 		
 		php.phpinfo()
 		
+        php.echo("What","ever","You","Want")
 	}
 	
 	

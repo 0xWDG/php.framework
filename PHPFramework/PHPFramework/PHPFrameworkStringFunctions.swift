@@ -225,16 +225,14 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Output one or more strings (not done)
+	 **PHP.Framework**\
+	 Output one or more strings\
+	 *via swift's print function*
 
-	 - Parameter str: The String
-
-	 - Returns: The String
+	 - Parameter ob: the object
 	 */
-	public func echo(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func echo(ob: AnyObject...) -> Void {
+		print(ob)
 	}
 	
 	/**
@@ -255,16 +253,16 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Write a formatted string to a stream (not done)
+	 **PHP.Framework**\
+	 Write a formatted string to a stream
+	 *via swift's print function*
 
-	 - Parameter str: The String
+	 **WARNING: use String(format:...)**
 
-	 - Returns: The String
+	 - Parameter ob: the object
 	 */
-	public func fprintf(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func fprintf(ob: AnyObject...) -> Void {
+		print(ob)
 	}
 	
 	/**
@@ -573,30 +571,30 @@ extension PHPFramework {
 		return str
 	}
 	
-	// /**
-	// Output a string (not done)
-	//
-	// - Parameter str: The String
-	//
-	// - Returns: The String
-	// */
-	// public func print(str: String) -> String {
-	// print("Sorry this function is not done")
-	//
-	// return str
-	// }
+	/**
+	 **PHP.Framework**\
+	 Write a formatted string to a stream
+	 *via swift's print function*
+
+	 **WARNING: use String(format:...)**
+
+	 - Parameter ob: the object
+	 */
+	public func print(ob: Any...) -> Void {
+		print(ob)
+	}
 	
 	/**
-	 Output a formatted string (not done)
+	 **PHP.Framework**\
+	 Output a formatted string
+	 *via swift's print function*
 
-	 - Parameter str: The String
+	 **WARNING: use String(format:...)**
 
-	 - Returns: The String
+	 - Parameter ob: the object
 	 */
-	public func printf(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func printf(ob: AnyObject...) -> Void {
+		print(ob)
 	}
 	
 	/**
@@ -732,16 +730,16 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Return a formatted string (not done)
+	 **PHP.Framework**\
+	 Return a formatted string\
+	 *via swift's print function*
 
-	 - Parameter str: The String
+	 **WARNING: use String(format:...)**
 
-	 - Returns: The String
+	 - Parameter ob: the object
 	 */
-	public func sprintf(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func sprintf(ob: AnyObject...) -> Void {
+		print(ob)
 	}
 	
 	/**
@@ -1363,42 +1361,42 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Write a formatted string to a stream (not done)
+	 **PHP.Framework**\
+	 Write a formatted string to a stream
+	 *via swift's print function*
 
-	 - Parameter str: The String
+	 **WARNING: use String(format:...)**
 
-	 - Returns: The String
+	 - Parameter ob: the object
 	 */
-	public func vfprintf(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func vfprintf(ob: Any...) -> Void {
+		print(ob)
 	}
 	
 	/**
-	 Output a formatted string (not done)
+	 **PHP.Framework**\
+	 Output a formatted string
+	 *via swift's print function*
 
-	 - Parameter str: The String
+	 **WARNING: use String(format:...)**
 
-	 - Returns: The String
+	 - Parameter ob: the object
 	 */
-	public func vprintf(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func vprintf(ob: Any...) -> Void {
+		print(ob)
 	}
 	
 	/**
-	 Return a formatted string (not done)
+	 **PHP.Framework**\
+	 Return a formatted string
+	 *via swift's print function*
 
-	 - Parameter str: The String
+	 **WARNING: use String(format:...)**
 
-	 - Returns: The String
+	 - Parameter ob: the object
 	 */
-	public func vsprintf(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func vsprintf(ob: Any...) -> Void {
+		print(ob)
 	}
 	
 	/**
