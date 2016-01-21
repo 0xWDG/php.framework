@@ -18,8 +18,6 @@ class FirstViewController: UIViewController {
 		print(backtest)
 		
 		php.phpinfo()
-		
-        php.echo("What","ever","You","Want")
 	}
 	
 	
