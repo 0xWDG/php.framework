@@ -19,7 +19,6 @@ class FirstViewController: UIViewController {
 		
 		php.phpinfo()
 		
-		
 	}
 	
 	

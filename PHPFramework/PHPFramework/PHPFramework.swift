@@ -11,6 +11,7 @@ import Foundation
 // if Simulator then Debugmode = on
 #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
 /**
+ **PHP.Framework**\
  global php variable **(Simulator version)**
  *with debugging enabled*
 
@@ -19,6 +20,7 @@ import Foundation
 public let php = PHPFramework(true)
 #else
 /**
+ **PHP.Framework**\
  global php variable **(Production version)**
  *with debugging disabled*
 
@@ -28,30 +30,35 @@ public let php = PHPFramework(false)
 #endif
 
 /**
+ **PHP.Framework**\
  global php debug variable
  */
 public var isDebug: Bool = false
 
 /**
- PHPFramework
+ **PHP.Framework**
 
  A Swift framework inspired by some PHP Functions.
  */
 public class PHPFramework {
 	/**
+	 **PHP.Framework**\
 	 PHPFramework version
 	 */
 	public let version: String = String(PHPFrameworkVersionNumber)
 	/**
+	 **PHP.Framework**\
 	 PHPFramework name
 	 */
 	public let product: String = "PHP.Framework"
 	/**
+	 **PHP.Framework**\
 	 PHPFramework loaded?
 	 */
 	private var isLoaded: Bool = false
 	
 	/**
+	 **PHP.Framework**\
 	 Init PHP
 
 	 - Parameter debug: Enable debug?
@@ -76,6 +83,7 @@ public class PHPFramework {
 	}
 	
 	/**
+	 **PHP.Framework**\
 	 Encode a string using Base64
 
 	 - Parameter s: the plain string
@@ -93,6 +101,7 @@ public class PHPFramework {
 	}
 	
 	/**
+	 **PHP.Framework**\
 	 Decode a string using Base64
 
 	 - Parameter s: the encoded string
@@ -108,6 +117,7 @@ public class PHPFramework {
 	}
 	
 	/**
+	 **PHP.Framework**\
 	 Binary to Decimal
 
 	 - Parameter str: the binary
@@ -119,6 +129,7 @@ public class PHPFramework {
 	}
 	
 	/**
+	 **PHP.Framework**\
 	 Decimal to Binary
 
 	 - Parameter str: the decimal
@@ -130,6 +141,7 @@ public class PHPFramework {
 	}
 	
 	/**
+	 **PHP.Framework**\
 	 Append padding to a string (Not done)
 
 	 - Parameter str: The string
