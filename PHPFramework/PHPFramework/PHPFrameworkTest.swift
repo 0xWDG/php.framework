@@ -8,8 +8,27 @@
 
 import Foundation
 
+/**
+ **PHP.Framework** \
+ *PHP In Swift*
+
+ PHPTest is a alias of PHPFrameworkTests()
+ */
 public let PHPTest = PHPFrameworkTests() ;
 
+/**
+ **PHP.Framework** \
+ *PHP In Swift*
+
+ Test class
+
+ With this class you can run tests for PHP.Framework.
+
+ Use `PHPTest.Test(val1, val2)` Or
+
+ Please see a `.swift` file for more information about how it works
+
+ */
 public class PHPFrameworkTests {
 	let E: String = php.getcwd()
 	let PASS: String = "Tend"
@@ -22,6 +41,7 @@ public class PHPFrameworkTests {
 
 	 - Paramter Tin: test input 1
 	 - Parameter Tend: test input 2
+	 - Parameter deb: debug (default: false)
 	 */
 	public func Test(Tin: Any = "Tin", _ Tend: Any = "Tend", _ deb: Bool = false) -> String {
 		var _retVal: String = String()
@@ -64,6 +84,11 @@ public class PHPFrameworkTests {
 		return _retVal
 	}
 	
+	/**
+	 Test all
+
+	 - Paramter asDict: make a nice output?
+	 */
 	public func All(asDict: Bool = true) -> Any {
 		if (asDict) {
 			let tempOb: Dictionary<String, Any> = [
@@ -130,6 +155,11 @@ public class PHPFrameworkTests {
 		}
 	}
 	
+	/**
+	 Test all of the Array Functions
+
+	 - Returns: Dictionary<String, Any>
+	 */
 	public func ArrayFunctions() -> Dictionary<String, Any> {
 		let tempDict: Dictionary<String, Any> = [
 			"val1": true,
@@ -139,6 +169,11 @@ public class PHPFrameworkTests {
 		return tempDict
 	}
 	
+	/**
+	 Test all of the Variable Functions
+
+	 - Returns: Dictionary<String, Any>
+	 */
 	public func VariableFunctions() -> Dictionary<String, Any> {
 		let tempDict: Dictionary<String, Any> = [
 			"val1": true,
@@ -148,6 +183,11 @@ public class PHPFrameworkTests {
 		return tempDict
 	}
 	
+	/**
+	 Test all of the FileSystem Functions
+
+	 - Returns: Dictionary<String, Any>
+	 */
 	public func FileSystem() -> Dictionary<String, Any> {
 		let tempDict: Dictionary<String, Any> = [
 			"val1": true,
@@ -157,6 +197,11 @@ public class PHPFrameworkTests {
 		return tempDict
 	}
 	
+	/**
+	 Test all of the PHP-Constants (1/2) [Defines]
+
+	 - Returns: Dictionary<String, Any>
+	 */
 	public func PHPConstants() -> Dictionary<String, Any> {
 		let tempDict: Dictionary<String, Any> = [
 			"Constants": self.Test(PASS)
@@ -165,6 +210,11 @@ public class PHPFrameworkTests {
 		return tempDict
 	}
 	
+	/**
+	 Test all of the PHP-Constants (2/2) [Dictionary]
+
+	 - Returns: Dictionary<String, Any>
+	 */
 	public func PHPConstantsDictionary() -> Dictionary<String, Any> {
 		let tempDict: Dictionary<String, Any> = [
 			"Constants": self.Test(PASS)
@@ -173,6 +223,11 @@ public class PHPFrameworkTests {
 		return tempDict
 	}
 	
+	/**
+	 Test all of the Date & Time / DateTime Functions
+
+	 - Returns: Dictionary<String, Any>
+	 */
 	public func DateTime() -> Dictionary<String, Any> {
 		let tempDict: Dictionary<String, Any> = [
 			"val1": true,

@@ -491,6 +491,110 @@ extension PHPFramework {
 	 - Returns: the serialized object
 	 */
 	private func serializeType(objects: Any) -> String {
+		// We must support Strings and Arrays.
+		// Example Array-in-Array (3 deep): [! SWIFT CALL THIS A DICTIONARY !]
+		// php -r "echo serialize(array('x' => array('xx' => array('xxx', 'xxy', 'xxz'), 'xy' => array('xyx', 'xyy', 'xyz'), 'xz' => array('xzx', 'xzy', 'xzz')), 'y' => array('yx' => array('yxx', 'yxy', 'yxz'), 'yy' => array('yyx', 'yyy', 'yyz'), 'yz' => array('yzx', 'yzy', 'yzz')), 'z' => array('zx' => array('zxx', 'zxy', 'zxz'), 'zy' => array('zyx', 'zyy', 'zyz'), 'zz' => array('zzx', 'zzy', 'zzz'))));"
+		// a:3:{s:1:"x";a:3:{s:2:"xx";a:3:{i:0;s:3:"xxx";i:1;s:3:"xxy";i:2;s:3:"xxz";}s:2:"xy";a:3:{i:0;s:3:"xyx";i:1;s:3:"xyy";i:2;s:3:"xyz";}s:2:"xz";a:3:{i:0;s:3:"xzx";i:1;s:3:"xzy";i:2;s:3:"xzz";}}s:1:"y";a:3:{s:2:"yx";a:3:{i:0;s:3:"yxx";i:1;s:3:"yxy";i:2;s:3:"yxz";}s:2:"yy";a:3:{i:0;s:3:"yyx";i:1;s:3:"yyy";i:2;s:3:"yyz";}s:2:"yz";a:3:{i:0;s:3:"yzx";i:1;s:3:"yzy";i:2;s:3:"yzz";}}s:1:"z";a:3:{s:2:"zx";a:3:{i:0;s:3:"zxx";i:1;s:3:"zxy";i:2;s:3:"zxz";}s:2:"zy";a:3:{i:0;s:3:"zyx";i:1;s:3:"zyy";i:2;s:3:"zyz";}s:2:"zz";a:3:{i:0;s:3:"zzx";i:1;s:3:"zzy";i:2;s:3:"zzz";}}}
+		// Array: 3 subitems: {
+		// ..String: 1: "x"
+		// ..Array 3 subitems: {
+		// ....String: 2 characters: "xx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xxx"
+		// ......index:1; String: 3 characters: "xxy"
+		// ......index:2; String: 3 characters: "xxz"
+		// ....}
+		// ....String: 2 characters: "xy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xyx"
+		// ......index:1; String: 3 characters: "xyy"
+		// ......index:2; String: 3 characters: "xyz"
+		// ....}
+		// ....String: 2 characters: "xz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xzx"
+		// ......index:1; String: 3 characters: "xzy"
+		// ......index:2; String: 3 characters: "xzz"
+		// ....}
+		// ..}
+		// ..String: 1: "y"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "yx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yxx"
+		// ......index:1; String: 3 characters: "yxy"
+		// ......index:2; String: 3 characters: "yxz"
+		// ....}
+		// ....String: 2 characters: "yy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yyx"
+		// ......index:1; String: 3 characters: "yyy"
+		// ......index:2; String: 3 characters: "yyz"
+		// ....}
+		// ....String: 2 characters: "yz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yzx"
+		// ......index:1; String: 3 characters: "yzy"
+		// ......index:2; String: 3 characters: "yzz"
+		// ....}
+		// ..}
+		// ..String: 1: "z"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "zx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zxx"
+		// ......index:1; String: 3 characters: "zxy"
+		// ......index:2; String: 3 characters: "zxz"
+		// ....}
+		// ....String: 2 characters: "zy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zyx"
+		// ......index:1; String: 3 characters: "zyy"
+		// ......index:2; String: 3 characters: "zyz"
+		// ....}
+		// ....String: 2 characters: "zz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zzx"
+		// ......index:1; String: 3 characters: "zzy"
+		// ......index:2; String: 3 characters: "zzz"
+		// ....}
+		// ..}
+		// }
+		//
+		// Example Array:
+		// php -r "echo serialize(array('x','y','z'));"
+		// a:3:{i:0;s:1:"x";i:1;s:1:"y";i:2;s:1:"z";}
+		// Array: 3 subitems:{
+		// ..index:0; String: 1 Character: "x"
+		// ..index:1; String: 1 Character: "y"
+		// ..index:2; String: 1 Character: "z"
+		// }
+		//
+		// Example String (Hoi, means Hi in dutch):
+		// php -r "echo serialize('Hoi');"
+		// s:3:"Hoi";
+		// String: 3 Characters:"Hoi"
+		//
+		// Conclusion:
+		// Basic idea:
+		// If has a { } then it is a array
+		// b:1;                                 // true
+		// b:0;                                 // false
+		// N;                                   // null
+		// i:...;                               // intreger
+		// d:...;                               // double
+		// s:count:...;                         // string
+		// a:count:{...};                       // array
+		// O:countname:name:countitems:items;   // Object (we will not support that)
+		
+		// print(self.serializeDictionary([
+		// "hello": ["cool": ["another", "dictionary"]],
+		// "or": ["hello", "another", "array"],
+		// "this": "is",
+		// "a": true,
+		// "test": 23
+		// ]))
+		
 		var retValue = ""
 		
 		switch (String(objects.dynamicType)) {
@@ -532,6 +636,110 @@ extension PHPFramework {
 	 - Returns: the serialized array
 	 */
 	private func serializeArray(objects: Array<String>) -> String {
+		// We must support Strings and Arrays.
+		// Example Array-in-Array (3 deep): [! SWIFT CALL THIS A DICTIONARY !]
+		// php -r "echo serialize(array('x' => array('xx' => array('xxx', 'xxy', 'xxz'), 'xy' => array('xyx', 'xyy', 'xyz'), 'xz' => array('xzx', 'xzy', 'xzz')), 'y' => array('yx' => array('yxx', 'yxy', 'yxz'), 'yy' => array('yyx', 'yyy', 'yyz'), 'yz' => array('yzx', 'yzy', 'yzz')), 'z' => array('zx' => array('zxx', 'zxy', 'zxz'), 'zy' => array('zyx', 'zyy', 'zyz'), 'zz' => array('zzx', 'zzy', 'zzz'))));"
+		// a:3:{s:1:"x";a:3:{s:2:"xx";a:3:{i:0;s:3:"xxx";i:1;s:3:"xxy";i:2;s:3:"xxz";}s:2:"xy";a:3:{i:0;s:3:"xyx";i:1;s:3:"xyy";i:2;s:3:"xyz";}s:2:"xz";a:3:{i:0;s:3:"xzx";i:1;s:3:"xzy";i:2;s:3:"xzz";}}s:1:"y";a:3:{s:2:"yx";a:3:{i:0;s:3:"yxx";i:1;s:3:"yxy";i:2;s:3:"yxz";}s:2:"yy";a:3:{i:0;s:3:"yyx";i:1;s:3:"yyy";i:2;s:3:"yyz";}s:2:"yz";a:3:{i:0;s:3:"yzx";i:1;s:3:"yzy";i:2;s:3:"yzz";}}s:1:"z";a:3:{s:2:"zx";a:3:{i:0;s:3:"zxx";i:1;s:3:"zxy";i:2;s:3:"zxz";}s:2:"zy";a:3:{i:0;s:3:"zyx";i:1;s:3:"zyy";i:2;s:3:"zyz";}s:2:"zz";a:3:{i:0;s:3:"zzx";i:1;s:3:"zzy";i:2;s:3:"zzz";}}}
+		// Array: 3 subitems: {
+		// ..String: 1: "x"
+		// ..Array 3 subitems: {
+		// ....String: 2 characters: "xx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xxx"
+		// ......index:1; String: 3 characters: "xxy"
+		// ......index:2; String: 3 characters: "xxz"
+		// ....}
+		// ....String: 2 characters: "xy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xyx"
+		// ......index:1; String: 3 characters: "xyy"
+		// ......index:2; String: 3 characters: "xyz"
+		// ....}
+		// ....String: 2 characters: "xz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xzx"
+		// ......index:1; String: 3 characters: "xzy"
+		// ......index:2; String: 3 characters: "xzz"
+		// ....}
+		// ..}
+		// ..String: 1: "y"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "yx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yxx"
+		// ......index:1; String: 3 characters: "yxy"
+		// ......index:2; String: 3 characters: "yxz"
+		// ....}
+		// ....String: 2 characters: "yy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yyx"
+		// ......index:1; String: 3 characters: "yyy"
+		// ......index:2; String: 3 characters: "yyz"
+		// ....}
+		// ....String: 2 characters: "yz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yzx"
+		// ......index:1; String: 3 characters: "yzy"
+		// ......index:2; String: 3 characters: "yzz"
+		// ....}
+		// ..}
+		// ..String: 1: "z"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "zx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zxx"
+		// ......index:1; String: 3 characters: "zxy"
+		// ......index:2; String: 3 characters: "zxz"
+		// ....}
+		// ....String: 2 characters: "zy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zyx"
+		// ......index:1; String: 3 characters: "zyy"
+		// ......index:2; String: 3 characters: "zyz"
+		// ....}
+		// ....String: 2 characters: "zz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zzx"
+		// ......index:1; String: 3 characters: "zzy"
+		// ......index:2; String: 3 characters: "zzz"
+		// ....}
+		// ..}
+		// }
+		//
+		// Example Array:
+		// php -r "echo serialize(array('x','y','z'));"
+		// a:3:{i:0;s:1:"x";i:1;s:1:"y";i:2;s:1:"z";}
+		// Array: 3 subitems:{
+		// ..index:0; String: 1 Character: "x"
+		// ..index:1; String: 1 Character: "y"
+		// ..index:2; String: 1 Character: "z"
+		// }
+		//
+		// Example String (Hoi, means Hi in dutch):
+		// php -r "echo serialize('Hoi');"
+		// s:3:"Hoi";
+		// String: 3 Characters:"Hoi"
+		//
+		// Conclusion:
+		// Basic idea:
+		// If has a { } then it is a array
+		// b:1;                                 // true
+		// b:0;                                 // false
+		// N;                                   // null
+		// i:...;                               // intreger
+		// d:...;                               // double
+		// s:count:...;                         // string
+		// a:count:{...};                       // array
+		// O:countname:name:countitems:items;   // Object (we will not support that)
+		
+		// print(self.serializeDictionary([
+		// "hello": ["cool": ["another", "dictionary"]],
+		// "or": ["hello", "another", "array"],
+		// "this": "is",
+		// "a": true,
+		// "test": 23
+		// ]))
+		
 		var retValue: String = "a:\(objects.count):{"
 		
 		for (var i = 0; i < objects.count; i++) {
@@ -551,6 +759,110 @@ extension PHPFramework {
 	 - Returns: the serialized Dictionary
 	 */
 	private func serializeDictionary(objects: Dictionary<String, AnyObject>) -> String {
+		// We must support Strings and Arrays.
+		// Example Array-in-Array (3 deep): [! SWIFT CALL THIS A DICTIONARY !]
+		// php -r "echo serialize(array('x' => array('xx' => array('xxx', 'xxy', 'xxz'), 'xy' => array('xyx', 'xyy', 'xyz'), 'xz' => array('xzx', 'xzy', 'xzz')), 'y' => array('yx' => array('yxx', 'yxy', 'yxz'), 'yy' => array('yyx', 'yyy', 'yyz'), 'yz' => array('yzx', 'yzy', 'yzz')), 'z' => array('zx' => array('zxx', 'zxy', 'zxz'), 'zy' => array('zyx', 'zyy', 'zyz'), 'zz' => array('zzx', 'zzy', 'zzz'))));"
+		// a:3:{s:1:"x";a:3:{s:2:"xx";a:3:{i:0;s:3:"xxx";i:1;s:3:"xxy";i:2;s:3:"xxz";}s:2:"xy";a:3:{i:0;s:3:"xyx";i:1;s:3:"xyy";i:2;s:3:"xyz";}s:2:"xz";a:3:{i:0;s:3:"xzx";i:1;s:3:"xzy";i:2;s:3:"xzz";}}s:1:"y";a:3:{s:2:"yx";a:3:{i:0;s:3:"yxx";i:1;s:3:"yxy";i:2;s:3:"yxz";}s:2:"yy";a:3:{i:0;s:3:"yyx";i:1;s:3:"yyy";i:2;s:3:"yyz";}s:2:"yz";a:3:{i:0;s:3:"yzx";i:1;s:3:"yzy";i:2;s:3:"yzz";}}s:1:"z";a:3:{s:2:"zx";a:3:{i:0;s:3:"zxx";i:1;s:3:"zxy";i:2;s:3:"zxz";}s:2:"zy";a:3:{i:0;s:3:"zyx";i:1;s:3:"zyy";i:2;s:3:"zyz";}s:2:"zz";a:3:{i:0;s:3:"zzx";i:1;s:3:"zzy";i:2;s:3:"zzz";}}}
+		// Array: 3 subitems: {
+		// ..String: 1: "x"
+		// ..Array 3 subitems: {
+		// ....String: 2 characters: "xx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xxx"
+		// ......index:1; String: 3 characters: "xxy"
+		// ......index:2; String: 3 characters: "xxz"
+		// ....}
+		// ....String: 2 characters: "xy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xyx"
+		// ......index:1; String: 3 characters: "xyy"
+		// ......index:2; String: 3 characters: "xyz"
+		// ....}
+		// ....String: 2 characters: "xz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xzx"
+		// ......index:1; String: 3 characters: "xzy"
+		// ......index:2; String: 3 characters: "xzz"
+		// ....}
+		// ..}
+		// ..String: 1: "y"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "yx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yxx"
+		// ......index:1; String: 3 characters: "yxy"
+		// ......index:2; String: 3 characters: "yxz"
+		// ....}
+		// ....String: 2 characters: "yy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yyx"
+		// ......index:1; String: 3 characters: "yyy"
+		// ......index:2; String: 3 characters: "yyz"
+		// ....}
+		// ....String: 2 characters: "yz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yzx"
+		// ......index:1; String: 3 characters: "yzy"
+		// ......index:2; String: 3 characters: "yzz"
+		// ....}
+		// ..}
+		// ..String: 1: "z"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "zx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zxx"
+		// ......index:1; String: 3 characters: "zxy"
+		// ......index:2; String: 3 characters: "zxz"
+		// ....}
+		// ....String: 2 characters: "zy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zyx"
+		// ......index:1; String: 3 characters: "zyy"
+		// ......index:2; String: 3 characters: "zyz"
+		// ....}
+		// ....String: 2 characters: "zz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zzx"
+		// ......index:1; String: 3 characters: "zzy"
+		// ......index:2; String: 3 characters: "zzz"
+		// ....}
+		// ..}
+		// }
+		//
+		// Example Array:
+		// php -r "echo serialize(array('x','y','z'));"
+		// a:3:{i:0;s:1:"x";i:1;s:1:"y";i:2;s:1:"z";}
+		// Array: 3 subitems:{
+		// ..index:0; String: 1 Character: "x"
+		// ..index:1; String: 1 Character: "y"
+		// ..index:2; String: 1 Character: "z"
+		// }
+		//
+		// Example String (Hoi, means Hi in dutch):
+		// php -r "echo serialize('Hoi');"
+		// s:3:"Hoi";
+		// String: 3 Characters:"Hoi"
+		//
+		// Conclusion:
+		// Basic idea:
+		// If has a { } then it is a array
+		// b:1;                                 // true
+		// b:0;                                 // false
+		// N;                                   // null
+		// i:...;                               // intreger
+		// d:...;                               // double
+		// s:count:...;                         // string
+		// a:count:{...};                       // array
+		// O:countname:name:countitems:items;   // Object (we will not support that)
+		
+		// print(self.serializeDictionary([
+		// "hello": ["cool": ["another", "dictionary"]],
+		// "or": ["hello", "another", "array"],
+		// "this": "is",
+		// "a": true,
+		// "test": 23
+		// ]))
+		
 		var retValue = "a:\(objects.count):{"
 		var count: Int = 0
 		
@@ -579,6 +891,110 @@ extension PHPFramework {
 	 - Returns: the serialized object (*not supported*)
 	 */
 	private func serializeObjects(objects: Any) -> String {
+		// We must support Strings and Arrays.
+		// Example Array-in-Array (3 deep): [! SWIFT CALL THIS A DICTIONARY !]
+		// php -r "echo serialize(array('x' => array('xx' => array('xxx', 'xxy', 'xxz'), 'xy' => array('xyx', 'xyy', 'xyz'), 'xz' => array('xzx', 'xzy', 'xzz')), 'y' => array('yx' => array('yxx', 'yxy', 'yxz'), 'yy' => array('yyx', 'yyy', 'yyz'), 'yz' => array('yzx', 'yzy', 'yzz')), 'z' => array('zx' => array('zxx', 'zxy', 'zxz'), 'zy' => array('zyx', 'zyy', 'zyz'), 'zz' => array('zzx', 'zzy', 'zzz'))));"
+		// a:3:{s:1:"x";a:3:{s:2:"xx";a:3:{i:0;s:3:"xxx";i:1;s:3:"xxy";i:2;s:3:"xxz";}s:2:"xy";a:3:{i:0;s:3:"xyx";i:1;s:3:"xyy";i:2;s:3:"xyz";}s:2:"xz";a:3:{i:0;s:3:"xzx";i:1;s:3:"xzy";i:2;s:3:"xzz";}}s:1:"y";a:3:{s:2:"yx";a:3:{i:0;s:3:"yxx";i:1;s:3:"yxy";i:2;s:3:"yxz";}s:2:"yy";a:3:{i:0;s:3:"yyx";i:1;s:3:"yyy";i:2;s:3:"yyz";}s:2:"yz";a:3:{i:0;s:3:"yzx";i:1;s:3:"yzy";i:2;s:3:"yzz";}}s:1:"z";a:3:{s:2:"zx";a:3:{i:0;s:3:"zxx";i:1;s:3:"zxy";i:2;s:3:"zxz";}s:2:"zy";a:3:{i:0;s:3:"zyx";i:1;s:3:"zyy";i:2;s:3:"zyz";}s:2:"zz";a:3:{i:0;s:3:"zzx";i:1;s:3:"zzy";i:2;s:3:"zzz";}}}
+		// Array: 3 subitems: {
+		// ..String: 1: "x"
+		// ..Array 3 subitems: {
+		// ....String: 2 characters: "xx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xxx"
+		// ......index:1; String: 3 characters: "xxy"
+		// ......index:2; String: 3 characters: "xxz"
+		// ....}
+		// ....String: 2 characters: "xy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xyx"
+		// ......index:1; String: 3 characters: "xyy"
+		// ......index:2; String: 3 characters: "xyz"
+		// ....}
+		// ....String: 2 characters: "xz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xzx"
+		// ......index:1; String: 3 characters: "xzy"
+		// ......index:2; String: 3 characters: "xzz"
+		// ....}
+		// ..}
+		// ..String: 1: "y"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "yx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yxx"
+		// ......index:1; String: 3 characters: "yxy"
+		// ......index:2; String: 3 characters: "yxz"
+		// ....}
+		// ....String: 2 characters: "yy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yyx"
+		// ......index:1; String: 3 characters: "yyy"
+		// ......index:2; String: 3 characters: "yyz"
+		// ....}
+		// ....String: 2 characters: "yz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yzx"
+		// ......index:1; String: 3 characters: "yzy"
+		// ......index:2; String: 3 characters: "yzz"
+		// ....}
+		// ..}
+		// ..String: 1: "z"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "zx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zxx"
+		// ......index:1; String: 3 characters: "zxy"
+		// ......index:2; String: 3 characters: "zxz"
+		// ....}
+		// ....String: 2 characters: "zy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zyx"
+		// ......index:1; String: 3 characters: "zyy"
+		// ......index:2; String: 3 characters: "zyz"
+		// ....}
+		// ....String: 2 characters: "zz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zzx"
+		// ......index:1; String: 3 characters: "zzy"
+		// ......index:2; String: 3 characters: "zzz"
+		// ....}
+		// ..}
+		// }
+		//
+		// Example Array:
+		// php -r "echo serialize(array('x','y','z'));"
+		// a:3:{i:0;s:1:"x";i:1;s:1:"y";i:2;s:1:"z";}
+		// Array: 3 subitems:{
+		// ..index:0; String: 1 Character: "x"
+		// ..index:1; String: 1 Character: "y"
+		// ..index:2; String: 1 Character: "z"
+		// }
+		//
+		// Example String (Hoi, means Hi in dutch):
+		// php -r "echo serialize('Hoi');"
+		// s:3:"Hoi";
+		// String: 3 Characters:"Hoi"
+		//
+		// Conclusion:
+		// Basic idea:
+		// If has a { } then it is a array
+		// b:1;                                 // true
+		// b:0;                                 // false
+		// N;                                   // null
+		// i:...;                               // intreger
+		// d:...;                               // double
+		// s:count:...;                         // string
+		// a:count:{...};                       // array
+		// O:countname:name:countitems:items;   // Object (we will not support that)
+		
+		// print(self.serializeDictionary([
+		// "hello": ["cool": ["another", "dictionary"]],
+		// "or": ["hello", "another", "array"],
+		// "this": "is",
+		// "a": true,
+		// "test": 23
+		// ]))
+		
 		return "O:13:\"NOT SUPPORTED\":1:{s:13:\"NOT SUPPORTED\"};"
 	}
 	
@@ -590,6 +1006,110 @@ extension PHPFramework {
 	 - Returns: the serialized bool
 	 */
 	private func serializeBools(objects: Bool) -> String {
+		// We must support Strings and Arrays.
+		// Example Array-in-Array (3 deep): [! SWIFT CALL THIS A DICTIONARY !]
+		// php -r "echo serialize(array('x' => array('xx' => array('xxx', 'xxy', 'xxz'), 'xy' => array('xyx', 'xyy', 'xyz'), 'xz' => array('xzx', 'xzy', 'xzz')), 'y' => array('yx' => array('yxx', 'yxy', 'yxz'), 'yy' => array('yyx', 'yyy', 'yyz'), 'yz' => array('yzx', 'yzy', 'yzz')), 'z' => array('zx' => array('zxx', 'zxy', 'zxz'), 'zy' => array('zyx', 'zyy', 'zyz'), 'zz' => array('zzx', 'zzy', 'zzz'))));"
+		// a:3:{s:1:"x";a:3:{s:2:"xx";a:3:{i:0;s:3:"xxx";i:1;s:3:"xxy";i:2;s:3:"xxz";}s:2:"xy";a:3:{i:0;s:3:"xyx";i:1;s:3:"xyy";i:2;s:3:"xyz";}s:2:"xz";a:3:{i:0;s:3:"xzx";i:1;s:3:"xzy";i:2;s:3:"xzz";}}s:1:"y";a:3:{s:2:"yx";a:3:{i:0;s:3:"yxx";i:1;s:3:"yxy";i:2;s:3:"yxz";}s:2:"yy";a:3:{i:0;s:3:"yyx";i:1;s:3:"yyy";i:2;s:3:"yyz";}s:2:"yz";a:3:{i:0;s:3:"yzx";i:1;s:3:"yzy";i:2;s:3:"yzz";}}s:1:"z";a:3:{s:2:"zx";a:3:{i:0;s:3:"zxx";i:1;s:3:"zxy";i:2;s:3:"zxz";}s:2:"zy";a:3:{i:0;s:3:"zyx";i:1;s:3:"zyy";i:2;s:3:"zyz";}s:2:"zz";a:3:{i:0;s:3:"zzx";i:1;s:3:"zzy";i:2;s:3:"zzz";}}}
+		// Array: 3 subitems: {
+		// ..String: 1: "x"
+		// ..Array 3 subitems: {
+		// ....String: 2 characters: "xx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xxx"
+		// ......index:1; String: 3 characters: "xxy"
+		// ......index:2; String: 3 characters: "xxz"
+		// ....}
+		// ....String: 2 characters: "xy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xyx"
+		// ......index:1; String: 3 characters: "xyy"
+		// ......index:2; String: 3 characters: "xyz"
+		// ....}
+		// ....String: 2 characters: "xz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xzx"
+		// ......index:1; String: 3 characters: "xzy"
+		// ......index:2; String: 3 characters: "xzz"
+		// ....}
+		// ..}
+		// ..String: 1: "y"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "yx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yxx"
+		// ......index:1; String: 3 characters: "yxy"
+		// ......index:2; String: 3 characters: "yxz"
+		// ....}
+		// ....String: 2 characters: "yy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yyx"
+		// ......index:1; String: 3 characters: "yyy"
+		// ......index:2; String: 3 characters: "yyz"
+		// ....}
+		// ....String: 2 characters: "yz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yzx"
+		// ......index:1; String: 3 characters: "yzy"
+		// ......index:2; String: 3 characters: "yzz"
+		// ....}
+		// ..}
+		// ..String: 1: "z"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "zx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zxx"
+		// ......index:1; String: 3 characters: "zxy"
+		// ......index:2; String: 3 characters: "zxz"
+		// ....}
+		// ....String: 2 characters: "zy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zyx"
+		// ......index:1; String: 3 characters: "zyy"
+		// ......index:2; String: 3 characters: "zyz"
+		// ....}
+		// ....String: 2 characters: "zz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zzx"
+		// ......index:1; String: 3 characters: "zzy"
+		// ......index:2; String: 3 characters: "zzz"
+		// ....}
+		// ..}
+		// }
+		//
+		// Example Array:
+		// php -r "echo serialize(array('x','y','z'));"
+		// a:3:{i:0;s:1:"x";i:1;s:1:"y";i:2;s:1:"z";}
+		// Array: 3 subitems:{
+		// ..index:0; String: 1 Character: "x"
+		// ..index:1; String: 1 Character: "y"
+		// ..index:2; String: 1 Character: "z"
+		// }
+		//
+		// Example String (Hoi, means Hi in dutch):
+		// php -r "echo serialize('Hoi');"
+		// s:3:"Hoi";
+		// String: 3 Characters:"Hoi"
+		//
+		// Conclusion:
+		// Basic idea:
+		// If has a { } then it is a array
+		// b:1;                                 // true
+		// b:0;                                 // false
+		// N;                                   // null
+		// i:...;                               // intreger
+		// d:...;                               // double
+		// s:count:...;                         // string
+		// a:count:{...};                       // array
+		// O:countname:name:countitems:items;   // Object (we will not support that)
+		
+		// print(self.serializeDictionary([
+		// "hello": ["cool": ["another", "dictionary"]],
+		// "or": ["hello", "another", "array"],
+		// "this": "is",
+		// "a": true,
+		// "test": 23
+		// ]))
+		
 		return (objects) ? "b:1;" : "b:0;"
 	}
 	
@@ -601,6 +1121,110 @@ extension PHPFramework {
 	 - Returns: the serialized int
 	 */
 	private func serializeInts(objects: Int) -> String {
+		// We must support Strings and Arrays.
+		// Example Array-in-Array (3 deep): [! SWIFT CALL THIS A DICTIONARY !]
+		// php -r "echo serialize(array('x' => array('xx' => array('xxx', 'xxy', 'xxz'), 'xy' => array('xyx', 'xyy', 'xyz'), 'xz' => array('xzx', 'xzy', 'xzz')), 'y' => array('yx' => array('yxx', 'yxy', 'yxz'), 'yy' => array('yyx', 'yyy', 'yyz'), 'yz' => array('yzx', 'yzy', 'yzz')), 'z' => array('zx' => array('zxx', 'zxy', 'zxz'), 'zy' => array('zyx', 'zyy', 'zyz'), 'zz' => array('zzx', 'zzy', 'zzz'))));"
+		// a:3:{s:1:"x";a:3:{s:2:"xx";a:3:{i:0;s:3:"xxx";i:1;s:3:"xxy";i:2;s:3:"xxz";}s:2:"xy";a:3:{i:0;s:3:"xyx";i:1;s:3:"xyy";i:2;s:3:"xyz";}s:2:"xz";a:3:{i:0;s:3:"xzx";i:1;s:3:"xzy";i:2;s:3:"xzz";}}s:1:"y";a:3:{s:2:"yx";a:3:{i:0;s:3:"yxx";i:1;s:3:"yxy";i:2;s:3:"yxz";}s:2:"yy";a:3:{i:0;s:3:"yyx";i:1;s:3:"yyy";i:2;s:3:"yyz";}s:2:"yz";a:3:{i:0;s:3:"yzx";i:1;s:3:"yzy";i:2;s:3:"yzz";}}s:1:"z";a:3:{s:2:"zx";a:3:{i:0;s:3:"zxx";i:1;s:3:"zxy";i:2;s:3:"zxz";}s:2:"zy";a:3:{i:0;s:3:"zyx";i:1;s:3:"zyy";i:2;s:3:"zyz";}s:2:"zz";a:3:{i:0;s:3:"zzx";i:1;s:3:"zzy";i:2;s:3:"zzz";}}}
+		// Array: 3 subitems: {
+		// ..String: 1: "x"
+		// ..Array 3 subitems: {
+		// ....String: 2 characters: "xx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xxx"
+		// ......index:1; String: 3 characters: "xxy"
+		// ......index:2; String: 3 characters: "xxz"
+		// ....}
+		// ....String: 2 characters: "xy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xyx"
+		// ......index:1; String: 3 characters: "xyy"
+		// ......index:2; String: 3 characters: "xyz"
+		// ....}
+		// ....String: 2 characters: "xz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xzx"
+		// ......index:1; String: 3 characters: "xzy"
+		// ......index:2; String: 3 characters: "xzz"
+		// ....}
+		// ..}
+		// ..String: 1: "y"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "yx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yxx"
+		// ......index:1; String: 3 characters: "yxy"
+		// ......index:2; String: 3 characters: "yxz"
+		// ....}
+		// ....String: 2 characters: "yy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yyx"
+		// ......index:1; String: 3 characters: "yyy"
+		// ......index:2; String: 3 characters: "yyz"
+		// ....}
+		// ....String: 2 characters: "yz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yzx"
+		// ......index:1; String: 3 characters: "yzy"
+		// ......index:2; String: 3 characters: "yzz"
+		// ....}
+		// ..}
+		// ..String: 1: "z"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "zx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zxx"
+		// ......index:1; String: 3 characters: "zxy"
+		// ......index:2; String: 3 characters: "zxz"
+		// ....}
+		// ....String: 2 characters: "zy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zyx"
+		// ......index:1; String: 3 characters: "zyy"
+		// ......index:2; String: 3 characters: "zyz"
+		// ....}
+		// ....String: 2 characters: "zz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zzx"
+		// ......index:1; String: 3 characters: "zzy"
+		// ......index:2; String: 3 characters: "zzz"
+		// ....}
+		// ..}
+		// }
+		//
+		// Example Array:
+		// php -r "echo serialize(array('x','y','z'));"
+		// a:3:{i:0;s:1:"x";i:1;s:1:"y";i:2;s:1:"z";}
+		// Array: 3 subitems:{
+		// ..index:0; String: 1 Character: "x"
+		// ..index:1; String: 1 Character: "y"
+		// ..index:2; String: 1 Character: "z"
+		// }
+		//
+		// Example String (Hoi, means Hi in dutch):
+		// php -r "echo serialize('Hoi');"
+		// s:3:"Hoi";
+		// String: 3 Characters:"Hoi"
+		//
+		// Conclusion:
+		// Basic idea:
+		// If has a { } then it is a array
+		// b:1;                                 // true
+		// b:0;                                 // false
+		// N;                                   // null
+		// i:...;                               // intreger
+		// d:...;                               // double
+		// s:count:...;                         // string
+		// a:count:{...};                       // array
+		// O:countname:name:countitems:items;   // Object (we will not support that)
+		
+		// print(self.serializeDictionary([
+		// "hello": ["cool": ["another", "dictionary"]],
+		// "or": ["hello", "another", "array"],
+		// "this": "is",
+		// "a": true,
+		// "test": 23
+		// ]))
+		
 		return "i:\(objects);"
 	}
 	
@@ -612,6 +1236,110 @@ extension PHPFramework {
 	 - Returns: the serialized double
 	 */
 	private func serializeDoubles(objects: Double) -> String {
+		// We must support Strings and Arrays.
+		// Example Array-in-Array (3 deep): [! SWIFT CALL THIS A DICTIONARY !]
+		// php -r "echo serialize(array('x' => array('xx' => array('xxx', 'xxy', 'xxz'), 'xy' => array('xyx', 'xyy', 'xyz'), 'xz' => array('xzx', 'xzy', 'xzz')), 'y' => array('yx' => array('yxx', 'yxy', 'yxz'), 'yy' => array('yyx', 'yyy', 'yyz'), 'yz' => array('yzx', 'yzy', 'yzz')), 'z' => array('zx' => array('zxx', 'zxy', 'zxz'), 'zy' => array('zyx', 'zyy', 'zyz'), 'zz' => array('zzx', 'zzy', 'zzz'))));"
+		// a:3:{s:1:"x";a:3:{s:2:"xx";a:3:{i:0;s:3:"xxx";i:1;s:3:"xxy";i:2;s:3:"xxz";}s:2:"xy";a:3:{i:0;s:3:"xyx";i:1;s:3:"xyy";i:2;s:3:"xyz";}s:2:"xz";a:3:{i:0;s:3:"xzx";i:1;s:3:"xzy";i:2;s:3:"xzz";}}s:1:"y";a:3:{s:2:"yx";a:3:{i:0;s:3:"yxx";i:1;s:3:"yxy";i:2;s:3:"yxz";}s:2:"yy";a:3:{i:0;s:3:"yyx";i:1;s:3:"yyy";i:2;s:3:"yyz";}s:2:"yz";a:3:{i:0;s:3:"yzx";i:1;s:3:"yzy";i:2;s:3:"yzz";}}s:1:"z";a:3:{s:2:"zx";a:3:{i:0;s:3:"zxx";i:1;s:3:"zxy";i:2;s:3:"zxz";}s:2:"zy";a:3:{i:0;s:3:"zyx";i:1;s:3:"zyy";i:2;s:3:"zyz";}s:2:"zz";a:3:{i:0;s:3:"zzx";i:1;s:3:"zzy";i:2;s:3:"zzz";}}}
+		// Array: 3 subitems: {
+		// ..String: 1: "x"
+		// ..Array 3 subitems: {
+		// ....String: 2 characters: "xx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xxx"
+		// ......index:1; String: 3 characters: "xxy"
+		// ......index:2; String: 3 characters: "xxz"
+		// ....}
+		// ....String: 2 characters: "xy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xyx"
+		// ......index:1; String: 3 characters: "xyy"
+		// ......index:2; String: 3 characters: "xyz"
+		// ....}
+		// ....String: 2 characters: "xz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xzx"
+		// ......index:1; String: 3 characters: "xzy"
+		// ......index:2; String: 3 characters: "xzz"
+		// ....}
+		// ..}
+		// ..String: 1: "y"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "yx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yxx"
+		// ......index:1; String: 3 characters: "yxy"
+		// ......index:2; String: 3 characters: "yxz"
+		// ....}
+		// ....String: 2 characters: "yy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yyx"
+		// ......index:1; String: 3 characters: "yyy"
+		// ......index:2; String: 3 characters: "yyz"
+		// ....}
+		// ....String: 2 characters: "yz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yzx"
+		// ......index:1; String: 3 characters: "yzy"
+		// ......index:2; String: 3 characters: "yzz"
+		// ....}
+		// ..}
+		// ..String: 1: "z"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "zx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zxx"
+		// ......index:1; String: 3 characters: "zxy"
+		// ......index:2; String: 3 characters: "zxz"
+		// ....}
+		// ....String: 2 characters: "zy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zyx"
+		// ......index:1; String: 3 characters: "zyy"
+		// ......index:2; String: 3 characters: "zyz"
+		// ....}
+		// ....String: 2 characters: "zz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zzx"
+		// ......index:1; String: 3 characters: "zzy"
+		// ......index:2; String: 3 characters: "zzz"
+		// ....}
+		// ..}
+		// }
+		//
+		// Example Array:
+		// php -r "echo serialize(array('x','y','z'));"
+		// a:3:{i:0;s:1:"x";i:1;s:1:"y";i:2;s:1:"z";}
+		// Array: 3 subitems:{
+		// ..index:0; String: 1 Character: "x"
+		// ..index:1; String: 1 Character: "y"
+		// ..index:2; String: 1 Character: "z"
+		// }
+		//
+		// Example String (Hoi, means Hi in dutch):
+		// php -r "echo serialize('Hoi');"
+		// s:3:"Hoi";
+		// String: 3 Characters:"Hoi"
+		//
+		// Conclusion:
+		// Basic idea:
+		// If has a { } then it is a array
+		// b:1;                                 // true
+		// b:0;                                 // false
+		// N;                                   // null
+		// i:...;                               // intreger
+		// d:...;                               // double
+		// s:count:...;                         // string
+		// a:count:{...};                       // array
+		// O:countname:name:countitems:items;   // Object (we will not support that)
+		
+		// print(self.serializeDictionary([
+		// "hello": ["cool": ["another", "dictionary"]],
+		// "or": ["hello", "another", "array"],
+		// "this": "is",
+		// "a": true,
+		// "test": 23
+		// ]))
+		
 		return "d:\(objects);"
 	}
 	
@@ -623,6 +1351,110 @@ extension PHPFramework {
 	 - Returns: the serialized string
 	 */
 	private func serializeStrings(objects: String) -> String {
+		// We must support Strings and Arrays.
+		// Example Array-in-Array (3 deep): [! SWIFT CALL THIS A DICTIONARY !]
+		// php -r "echo serialize(array('x' => array('xx' => array('xxx', 'xxy', 'xxz'), 'xy' => array('xyx', 'xyy', 'xyz'), 'xz' => array('xzx', 'xzy', 'xzz')), 'y' => array('yx' => array('yxx', 'yxy', 'yxz'), 'yy' => array('yyx', 'yyy', 'yyz'), 'yz' => array('yzx', 'yzy', 'yzz')), 'z' => array('zx' => array('zxx', 'zxy', 'zxz'), 'zy' => array('zyx', 'zyy', 'zyz'), 'zz' => array('zzx', 'zzy', 'zzz'))));"
+		// a:3:{s:1:"x";a:3:{s:2:"xx";a:3:{i:0;s:3:"xxx";i:1;s:3:"xxy";i:2;s:3:"xxz";}s:2:"xy";a:3:{i:0;s:3:"xyx";i:1;s:3:"xyy";i:2;s:3:"xyz";}s:2:"xz";a:3:{i:0;s:3:"xzx";i:1;s:3:"xzy";i:2;s:3:"xzz";}}s:1:"y";a:3:{s:2:"yx";a:3:{i:0;s:3:"yxx";i:1;s:3:"yxy";i:2;s:3:"yxz";}s:2:"yy";a:3:{i:0;s:3:"yyx";i:1;s:3:"yyy";i:2;s:3:"yyz";}s:2:"yz";a:3:{i:0;s:3:"yzx";i:1;s:3:"yzy";i:2;s:3:"yzz";}}s:1:"z";a:3:{s:2:"zx";a:3:{i:0;s:3:"zxx";i:1;s:3:"zxy";i:2;s:3:"zxz";}s:2:"zy";a:3:{i:0;s:3:"zyx";i:1;s:3:"zyy";i:2;s:3:"zyz";}s:2:"zz";a:3:{i:0;s:3:"zzx";i:1;s:3:"zzy";i:2;s:3:"zzz";}}}
+		// Array: 3 subitems: {
+		// ..String: 1: "x"
+		// ..Array 3 subitems: {
+		// ....String: 2 characters: "xx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xxx"
+		// ......index:1; String: 3 characters: "xxy"
+		// ......index:2; String: 3 characters: "xxz"
+		// ....}
+		// ....String: 2 characters: "xy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xyx"
+		// ......index:1; String: 3 characters: "xyy"
+		// ......index:2; String: 3 characters: "xyz"
+		// ....}
+		// ....String: 2 characters: "xz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "xzx"
+		// ......index:1; String: 3 characters: "xzy"
+		// ......index:2; String: 3 characters: "xzz"
+		// ....}
+		// ..}
+		// ..String: 1: "y"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "yx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yxx"
+		// ......index:1; String: 3 characters: "yxy"
+		// ......index:2; String: 3 characters: "yxz"
+		// ....}
+		// ....String: 2 characters: "yy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yyx"
+		// ......index:1; String: 3 characters: "yyy"
+		// ......index:2; String: 3 characters: "yyz"
+		// ....}
+		// ....String: 2 characters: "yz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "yzx"
+		// ......index:1; String: 3 characters: "yzy"
+		// ......index:2; String: 3 characters: "yzz"
+		// ....}
+		// ..}
+		// ..String: 1: "z"
+		// ....Array 3 subitems: {
+		// ....String: 2 characters: "zx" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zxx"
+		// ......index:1; String: 3 characters: "zxy"
+		// ......index:2; String: 3 characters: "zxz"
+		// ....}
+		// ....String: 2 characters: "zy" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zyx"
+		// ......index:1; String: 3 characters: "zyy"
+		// ......index:2; String: 3 characters: "zyz"
+		// ....}
+		// ....String: 2 characters: "zz" (note the no index)
+		// ....Array: 3 subitems: {
+		// ......index:0; String: 3 characters: "zzx"
+		// ......index:1; String: 3 characters: "zzy"
+		// ......index:2; String: 3 characters: "zzz"
+		// ....}
+		// ..}
+		// }
+		//
+		// Example Array:
+		// php -r "echo serialize(array('x','y','z'));"
+		// a:3:{i:0;s:1:"x";i:1;s:1:"y";i:2;s:1:"z";}
+		// Array: 3 subitems:{
+		// ..index:0; String: 1 Character: "x"
+		// ..index:1; String: 1 Character: "y"
+		// ..index:2; String: 1 Character: "z"
+		// }
+		//
+		// Example String (Hoi, means Hi in dutch):
+		// php -r "echo serialize('Hoi');"
+		// s:3:"Hoi";
+		// String: 3 Characters:"Hoi"
+		//
+		// Conclusion:
+		// Basic idea:
+		// If has a { } then it is a array
+		// b:1;                                 // true
+		// b:0;                                 // false
+		// N;                                   // null
+		// i:...;                               // intreger
+		// d:...;                               // double
+		// s:count:...;                         // string
+		// a:count:{...};                       // array
+		// O:countname:name:countitems:items;   // Object (we will not support that)
+		
+		// print(self.serializeDictionary([
+		// "hello": ["cool": ["another", "dictionary"]],
+		// "or": ["hello", "another", "array"],
+		// "this": "is",
+		// "a": true,
+		// "test": 23
+		// ]))
+		
 		return "s:\(objects.characters.count):\"\(objects)\";"
 	}
 	

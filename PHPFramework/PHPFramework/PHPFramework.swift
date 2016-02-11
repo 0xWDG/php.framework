@@ -11,7 +11,8 @@ import Foundation
 // if Simulator then Debugmode = on
 #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
 /**
- **PHP.Framework**\
+ **PHP.Framework** \
+ *PHP In Swift*\
  global php variable **(Simulator version)**
  *with debugging enabled*
 
@@ -20,7 +21,8 @@ import Foundation
 public let php = PHPFramework(true)
 #else
 /**
- **PHP.Framework**\
+ **PHP.Framework** \
+ *PHP In Swift*
  global php variable **(Production version)**
  *with debugging disabled*
 
@@ -30,29 +32,40 @@ public let php = PHPFramework(false)
 #endif
 
 /**
- **PHP.Framework**\
+ **PHP.Framework** \
+ *PHP In Swift*
  global php debug variable
  */
 public var isDebug: Bool = false
 
 /**
- **PHP.Framework**
+ **PHP.Framework** \
+ *PHP In Swift*
 
  A Swift framework inspired by some PHP Functions.
  */
 public class PHPFramework {
 	
 	/**
+	 **PHP.Framework** \
+	 *PHP In Swift*
+
 	 PHPFramework version
 	 */
 	public let version: String = String(PHPFrameworkVersionNumber)
 	
 	/**
+	 **PHP.Framework** \
+	 *PHP In Swift*
+
 	 PHPFramework name
 	 */
 	public let product: String = "PHP.Framework"
 	
 	/**
+	 **PHP.Framework** \
+	 *PHP In Swift*
+
 	 PHPFramework loaded?
 	 */
 	private var isLoaded: Bool = false
@@ -63,6 +76,9 @@ public class PHPFramework {
 	private var _PHP_TestCount: Int = 1
 	
 	/**
+	 **PHP.Framework** \
+	 *PHP In Swift*
+
 	 Init PHP
 
 	 - Parameter debug: Enable debug?
@@ -159,6 +175,9 @@ public class PHPFramework {
 	}
 	
 	/**
+	 **PHP.Framework** \
+	 *PHP In Swift*
+
 	 Noop, does actually nothing, but i hate erros like\
 	 this is never used...
 
@@ -168,6 +187,9 @@ public class PHPFramework {
 	// @available( *, unavailable, message = "This function is not yet done")
 	
 	/**
+	 **PHP.Framework** \
+	 *PHP In Swift*
+
 	 Our internal test function.
 
 	 - Paramter Tin: test input 1

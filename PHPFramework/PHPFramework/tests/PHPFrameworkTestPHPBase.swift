@@ -8,7 +8,25 @@
 
 import Foundation
 
+/**
+ **PHP.Framework** \
+ *PHP In Swift*
+ 
+ Test class extension
+ 
+ With this class you can run tests for PHP.Framework.
+ 
+ Use `PHPTest.Test(val1, val2)` Or
+ 
+ Please see a `.swift` file for more information about how it works
+ 
+ */
 extension PHPFrameworkTests {
+    /**
+     Test all of the PHP.Framework Base system
+     
+     - Returns: Dictionary<String, Any>
+     */
 	public func PHPBase() -> Dictionary<String, Any> {
 		// Check for not crash if untestable.
 		
