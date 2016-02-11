@@ -1,11 +1,12 @@
 if [ -e ".git/hooks/pre-commit" ]; then
 	#get version string
 
-	VER=`git log --oneline | wc -l`
-	TAGVER=`expr $VER + 1`
-	MYVERS=`cat _ver`
-	TAGVER=`echo $MYVERS.$TAGVER`
-	git tag $TAGVER
+	# VER=`git log --oneline | wc -l`
+	# TAGVER=`expr $VER + 1`
+	TAGVER=`date +"%Y.%m.%d"`
+	# MYVERS=`cat _ver`
+	# TAGVER=`echo $MYVERS.$TAGVER`
+	git tag $TAGVER &> /dev/null #Sometimes say does already exists.
 	git add .
 
 	#Need to update Xcode version for framework...

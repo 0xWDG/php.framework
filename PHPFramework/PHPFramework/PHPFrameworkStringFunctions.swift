@@ -115,7 +115,7 @@ extension PHPFramework {
 
 	 - Returns: The String
 	 */
-	public func chop(str: String, _ chrs: String?) -> String {
+	public func chop(str: String, _ chrs: String? = "_ALL_") -> String {
 		return self.rtrim(str, chrs)
 	}
 	
@@ -135,7 +135,7 @@ extension PHPFramework {
 		for character in str.characters {
 			newString = newString.stringByAppendingString(String(character))
 			
-			if (myCount == length!) {
+			if (myCount == (length!-1)) {
 				newString = newString.stringByAppendingString(end!)
 				myCount = 0
 			} else {
@@ -186,16 +186,14 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Return information about characters used in a string (not done)
+	 Return information about characters used in a string
 
 	 - Parameter str: The String
 
-	 - Returns: The String
+	 - Returns: Array Int (255 x 0)
 	 */
-	public func count_chars(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func count_chars(str: String) -> Array<Int> {
+		return [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 	}
 	
 	/**
@@ -218,7 +216,7 @@ extension PHPFramework {
 
 	 - Returns: The String
 	 */
-	public func crypt(str: String) -> String {
+    public func crypt(str: String, _ salt: String) -> String {
 		print("Sorry this function is not done")
 		
 		return str
@@ -444,28 +442,24 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Calculates the md5 hash of a given file (not done)
+	 **Not Supported** Calculates the md5 hash of a given file
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func md5_file(str: String) -> String {
-		print("Sorry this function is not done")
-		
 		return str
 	}
 	
 	/**
-	 Calculate the md5 hash of a string (not done)
+	 **Not Supported** Calculate the md5 hash of a string
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func md5(str: String) -> String {
-		print("Sorry this function is not done")
-		
 		return str
 	}
 	
@@ -483,29 +477,25 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Formats a number as a currency string (not done)
+	 **Not supported** Formats a number as a currency string
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func money_format(str: String) -> String {
-		print("Sorry this function is not done")
-		
 		return str
 	}
 	
 	/**
-	 Query language and locale information (not done)
+	 **Not supported** Query language and locale information
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
-	public func nl_langinfo(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func nl_langinfo(str: String) -> Any {
+		return false
 	}
 	
 	/**
@@ -546,16 +536,14 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Return ASCII value of character (not done)
+	 Return ASCII value of character
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func ord(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+		return String(str.unicodeScalars.first!.value)
 	}
 	
 	/**
@@ -581,9 +569,9 @@ extension PHPFramework {
 
 	 - Parameter ob: the object
 	 */
-	public func print(ob: Any...) -> Void {
-		print(ob)
-	}
+	// public func print(ob: Any...) -> Void {
+	// print(ob)
+	// }
 	
 	/**
 	 **PHP.Framework**\
@@ -659,40 +647,36 @@ extension PHPFramework {
 
 	 - Returns: String
 	 */
-	public func rtrim(str: String, _ chars: String?) -> String {
+	public func rtrim(str: String, _ chars: String? = "_ALL_") -> String {
 		print("Sorry this function is not done")
 		
 		return str
 	}
 	
 	/**
-	 Set locale information (not done)
+	 **Not Supported** Set locale information
+
+	 - Parameter str: The String
+
+	 - Returns: false
+	 */
+	public func setlocale(str: String) -> Any {
+		return false
+	}
+	
+	/**
+	 **Not supported** Calculate the sha1 hash of a file (not done)
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
-	public func setlocale(str: String) -> String {
-		print("Sorry this function is not done")
-		
+	public func sha1_file(str: String) -> Any {
 		return str
 	}
 	
 	/**
-	 Calculate the sha1 hash of a file (not done)
-
-	 - Parameter str: The String
-
-	 - Returns: The String
-	 */
-	public func sha1_file(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
-	}
-	
-	/**
-	 Calculate the sha1 hash of a string (not done)
+	 **Not supported** Calculate the sha1 hash of a string (not done)
 
 	 - Parameter str: The String
 
@@ -705,16 +689,14 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Calculate the similarity between two strings (not done)
+	 Calculate the similarity between two strings
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
-	public func similar_text(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+    public func similar_text(str: String, _ str2: String = "") -> Bool {
+		return str == str2
 	}
 	
 	/**
@@ -1312,16 +1294,114 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Return part of a string (not done)
+	 Return part of a string
 
 	 - Parameter str: The String
+	 - Parameter start: The start
+	 - Parameter length: The length (optional, default: 0)
+
+	 - More info: http://php.net/manual/en/function.substr.php
 
 	 - Returns: The String
 	 */
-	public func substr(str: String) -> String {
-		print("Sorry this function is not done")
+	public func substr(str: String, _ start: Int, _ length: Int = 0) -> String {
+		// string substr ( string $string , int $start [, int $length ] )
 		
-		return str
+		if (length == 0) {
+			// We'll only have a 'start' position
+			
+			if (start < 1) {
+				// Count down to end.
+				let startPosition: Int = (str.characters.count + start)
+				return str[startPosition...str.characters.count]
+			} else {
+				// Ok we'll start at point...
+				return str[start...str.characters.count]
+			}
+		} else {
+			// Ok, this could be fun, but we can also..
+			// Nevermind.
+			// We'll need to handle the length...
+			
+			if (length > 0) {
+				if (start < 1) {
+					// We'll know this trick!
+					let startPosition: Int = (str.characters.count + start)
+					
+					// Will be postitive in the end. (hopefully :P)
+					// Ok, this is amazing! let me explain
+					// String Count - (String count - -Start Point) + length
+					// ^^^ -- is + (Since Start Point is a negative number)
+					// String Count - Start point + length
+					var endPosition: Int = ((str.characters.count - (str.characters.count + start)) + length)
+					
+					// If the endposition > the string, just string length.
+					if (endPosition > str.characters.count) {
+						endPosition = str.characters.count
+					}
+					
+					// i WILL return ;)
+					return str[startPosition...endPosition]
+				} else {
+					// We'll know this trick!
+					let startPosition: Int = start
+					
+					// Will be postitive in the end. (hopefully :P)
+					var endPosition: Int = ((str.characters.count - start) + length)
+					
+					// If the endposition > the string, just string length.
+					if (endPosition > str.characters.count) {
+						endPosition = str.characters.count
+					}
+					
+					// i WILL return ;)
+					return str[startPosition...endPosition]
+				}
+			} else {
+				// End tries to be funny.
+				// so fix that.
+				// Length (end = negative)
+				
+				if (start < 1) {
+					// But, Wait. Start is also negative?!
+					
+					// Count down to end.
+					let startPosition: Int = (str.characters.count + start)
+					
+					// We'll doing some magic here again, please, i don't explain this one also! (HAHA)
+					var endPosition: Int = (str.characters.count - ((str.characters.count + start) + (length + 1)))
+					
+					// If the endposition > the string, just string length.
+					if (endPosition > str.characters.count) {
+						endPosition = str.characters.count
+					}
+					
+					// i WILL return ;)
+					return str[startPosition...endPosition]
+				} else {
+					print("\(str);;; \(start); \(length)")
+					print("Ok, Sir!")
+					print("Did i say, nevermind...")
+					// Ok we'll start at point...
+					
+					// Count down to end.
+					let startPosition: Int = (str.characters.count - start)
+					
+					// We'll doing some magic here again, please, i don't explain this one also! (HAHA)
+					var endPosition: Int = (str.characters.count - ((str.characters.count - start) + (length + 1)))
+					
+					// If the endposition > the string, just string length.
+					if (endPosition > str.characters.count) {
+						endPosition = str.characters.count
+					}
+					
+					// i WILL return ;)
+					return str[startPosition...endPosition]
+				}
+			}
+			// we'll having fun now!
+		}
+		// And it's done.
 	}
 	
 	/**
@@ -1404,13 +1484,46 @@ extension PHPFramework {
 	 Wraps a string to a given number of characters (not done)
 
 	 - Parameter str: The String
+	 - Parameter width: The Width (default: 75)
+	 - Parameter breaks: Breaking character (default: \n)
+	 - Parameter cut: Just cut? (default: false)\
+	 if false we will cut on whitespaces or dots\
+	 if true we will cut if the limit is reached
 
 	 - Returns: The String
 	 */
-	public func wordwrap(str: String) -> String {
-		print("Sorry this function is not done")
+	public func wordwrap(str: String, _ width: Int = 75, _ breaks: String = "\n", _ cut: Bool = false) -> String {
+		// string wordwrap ( string $str [, int $width = 75 [, string $break = "\n" [, bool $cut = false ]]] )
+		var myCount: Int = 0
+		var myString: String = ""
 		
-		return str
+		// Map to array!
+		var StringToArray: Array<String> = Array<String>()
+		let x = str.characters.map {StringToArray.append(String($0))} ;
+		
+		// Noop to ignore stupid swift not used errors
+		php.noop(x)
+		
+		for (var i = 0; i < StringToArray.count; i++) {
+			myString = myString.stringByAppendingString(StringToArray[i])
+			
+			if (myCount >= width) {
+				if (cut) {
+					// We'd like to cut always.
+					myString = myString.stringByAppendingString(breaks)
+					myCount = 0
+				} else {
+					// Only cut on a whitespace, or a dot!
+					if (StringToArray[i] == " " || StringToArray[i] == ".") {
+						myString = myString.stringByAppendingString(breaks)
+						myCount = 0
+					}
+				}
+			} else {
+				myCount++
+			}
+		}
+		return myString
 	}
 	
 }

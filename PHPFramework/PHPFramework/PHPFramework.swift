@@ -41,24 +41,28 @@ public var isDebug: Bool = false
  A Swift framework inspired by some PHP Functions.
  */
 public class PHPFramework {
+	
 	/**
-	 **PHP.Framework**\
 	 PHPFramework version
 	 */
 	public let version: String = String(PHPFrameworkVersionNumber)
+	
 	/**
-	 **PHP.Framework**\
 	 PHPFramework name
 	 */
 	public let product: String = "PHP.Framework"
+	
 	/**
-	 **PHP.Framework**\
 	 PHPFramework loaded?
 	 */
 	private var isLoaded: Bool = false
 	
 	/**
-	 **PHP.Framework**\
+	 PHPFramework test function count
+	 */
+	private var _PHP_TestCount: Int = 1
+	
+	/**
 	 Init PHP
 
 	 - Parameter debug: Enable debug?
@@ -83,7 +87,6 @@ public class PHPFramework {
 	}
 	
 	/**
-	 **PHP.Framework**\
 	 Encode a string using Base64
 
 	 - Parameter s: the plain string
@@ -101,7 +104,6 @@ public class PHPFramework {
 	}
 	
 	/**
-	 **PHP.Framework**\
 	 Decode a string using Base64
 
 	 - Parameter s: the encoded string
@@ -117,7 +119,6 @@ public class PHPFramework {
 	}
 	
 	/**
-	 **PHP.Framework**\
 	 Binary to Decimal
 
 	 - Parameter str: the binary
@@ -129,7 +130,6 @@ public class PHPFramework {
 	}
 	
 	/**
-	 **PHP.Framework**\
 	 Decimal to Binary
 
 	 - Parameter str: the decimal
@@ -141,7 +141,6 @@ public class PHPFramework {
 	}
 	
 	/**
-	 **PHP.Framework**\
 	 Append padding to a string (Not done)
 
 	 - Parameter str: The string
@@ -159,5 +158,27 @@ public class PHPFramework {
 		return padded
 	}
 	
+	/**
+	 Noop, does actually nothing, but i hate erros like\
+	 this is never used...
+
+	 - Parameter ob: Any!
+	 */
+	public func noop(ob: Any...) -> Void {}
 	// @available( *, unavailable, message = "This function is not yet done")
+	
+	/**
+	 Our internal test function.
+
+	 - Paramter Tin: test input 1
+	 - Parameter Tend: test input 2
+	 */
+	public func _Test(Tin: String, _ Tend: String) -> Bool {
+		let _test = (Tin == Tend) ? "✅" : "❌"
+		let _func = (Tin == Tend) ? "==" : "!="
+		print("Test #\(_PHP_TestCount) \(_test): \"\(Tin)\" \(_func) \"\(Tend)\"")
+		
+		_PHP_TestCount++
+		return Tin == Tend
+	}
 }

@@ -105,7 +105,10 @@ extension PHPFramework {
 
 	 - Returns: A Static list, a *Dictionary*
 	 */
-	public func get_defined_constants(cat : Bool = false) -> Dictionary<String, Any> {
+	public func get_defined_constants(cat: Bool = false) -> Dictionary<String, Any> {
+        if (cat) {
+            print("parameter not supported")
+        }
 		return PHPAllConstants
 	}
 	
@@ -114,17 +117,17 @@ extension PHPFramework {
 
 	 - Returns: Array ["Not", "Supported"]
 	 */
-	public func get_extension_funcs(str: String) -> Array<String> {
+	public func get_extension_funcs(str: String? = "") -> Array<String> {
 		return ["Not", "Supported"]
 	}
 	
 	/**
-	 **Dummy** Gets the current include_path configuration option
+	 Gets the current include_path configuration option
 
-	 - Returns: .
+	 - Returns: current directory
 	 */
-	public func get_include_path(str: String) -> String {
-		return "."
+	public func get_include_path() -> String {
+		return self.getcwd()
 	}
 	
 	/**
@@ -141,7 +144,7 @@ extension PHPFramework {
 
 	 - Returns: Array ["Not", "Supported"]
 	 */
-	public func get_loaded_extensions(str: String) -> Array<String> {
+	public func get_loaded_extensions() -> Array<String> {
 		return ["Not", "Supported"]
 	}
 	
@@ -177,7 +180,7 @@ extension PHPFramework {
 
 	 - Returns: 1
 	 */
-	public func get_resources(str: String) -> Int {
+	public func get_resources(str: String? = "") -> Int {
 		return 1
 	}
 	
@@ -195,7 +198,7 @@ extension PHPFramework {
 
 	 - Parameter file: The file
 	 */
-	public func getlastmod(file: String) -> Bool {
+	public func getlastmod(file: String? = "") -> Bool {
 		return false
 	}
 	
@@ -264,7 +267,7 @@ extension PHPFramework {
 	 - Parameter someThing: Any
 	 - Parameter someOtherThing: Any
 	 */
-	public func ini_alter(someThing: Any?, _ SomeOtherThing: Any?) -> Void {}
+	public func ini_alter(someThing: Any? = "", _ SomeOtherThing: Any? = "") -> Void {}
 	
 	/**
 	 **Dummy** Gets all configuration options
@@ -282,7 +285,7 @@ extension PHPFramework {
 
 	 - Returns: true
 	 */
-	public func ini_get(someThing: Any, _ SomeOtherThing: Any?) -> Bool {
+	public func ini_get(someThing: Any? = "", _ SomeOtherThing: Any? = "") -> Bool {
 		return true
 	}
 	
@@ -292,7 +295,7 @@ extension PHPFramework {
 	 - Parameter someThing: Any
 	 - Parameter someOtherThing: Any
 	 */
-	public func ini_restore(someThing: Any, _ SomeOtherThing: Any?) -> Void {}
+	public func ini_restore(someThing: Any? = "", _ SomeOtherThing: Any? = "") -> Void {}
 	
 	/**
 	 **Dummy** Sets the value of a configuration option
@@ -300,14 +303,16 @@ extension PHPFramework {
 	 - Parameter someThing: Any
 	 - Parameter someOtherThing: Any
 	 */
-	public func ini_set(someThing: Any, _ SomeOtherThing: Any?) -> Void {}
+	public func ini_set(someThing: Any? = "", _ SomeOtherThing: Any? = "") -> Void {}
 	
 	/**
 	 **Dummy** Alias of set_magic_quotes_runtime
 
 	 - Parameter someThing: Any
 	 */
-	public func magic_quotes_runtime(someThing: Any) -> Void {}
+	public func magic_quotes_runtime(someThing: Any = "") -> Void {
+        set_magic_quotes_runtime(someThing)
+    }
 	
 	/**
 	 **Dummy** Dummy for main
@@ -337,9 +342,7 @@ extension PHPFramework {
 	/**
 	 **Dummy** Retrieve a path to the loaded php.ini file
 	 */
-	public func php_ini_loaded_file() -> Void {
-		print("We don't load anything")
-	}
+	public func php_ini_loaded_file() -> Void { }
 	
 	/**
 	 **Dummy** Return a list of .ini files parsed from the additional ini dir
@@ -428,7 +431,7 @@ extension PHPFramework {
 	 - Parameter someThing: Any
 	 - Parameter someOtherThing: Any
 	 */
-	public func putenv(someThing: Any, _ SomeOtherThing: Any?) -> Void {}
+	public func putenv(someThing: Any = "", _ SomeOtherThing: Any? = "") -> Void {}
 	
 	/**
 	 **Dummy** Restores the value of the include_path configuration option (Not done)
@@ -447,7 +450,7 @@ extension PHPFramework {
 
 	 - Parameter ob: Any
 	 */
-	public func set_magic_quotes_runtime(ob: Any) -> Void {}
+	public func set_magic_quotes_runtime(ob: Any = "") -> Void {}
 	
 	/**
 	 **Dummy** Limits the maximum execution time
@@ -456,7 +459,7 @@ extension PHPFramework {
 
 	 - Returns: The input String
 	 */
-	public func set_time_limit(count: Int) -> Void {}
+	public func set_time_limit(count: Int = 30) -> Void {}
 	
 	/**
 	 Returns directory path used for temporary files
@@ -476,7 +479,7 @@ extension PHPFramework {
 
 	 - Returns: Bool true/false
 	 */
-	public func version_compare(minorVersion smallerVersion: String, largerVersion: String, _ compareOperator: String = "==") -> Bool {
+	public func version_compare(smallerVersion: String, _ largerVersion: String, _ compareOperator: String = "==") -> Bool {
 		if (compareOperator != "==") {
 			print("Compare operator is not supported")
 		}
