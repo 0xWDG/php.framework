@@ -636,18 +636,18 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Quote meta characters (not done)
+	 Quote meta characters
 	 Puts a backslash before one of those characters: **. \ + * ? [ ^ ] ( $ )**
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
-	public func quotemeta(str: String) -> String {		
+	public func quotemeta(str: String) -> String {
 		return str.replace("\\", withString: "\\\\")
 			.replace(".", withString: "\\.")
 			.replace("+", withString: "\\+")
-            .replace("*", withString: "\\*")
+			.replace("*", withString: "\\*")
 			.replace("?", withString: "\\?")
 			.replace("[", withString: "\\[")
 			.replace("^", withString: "\\^")
