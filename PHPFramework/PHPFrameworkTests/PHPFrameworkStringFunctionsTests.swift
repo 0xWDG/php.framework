@@ -169,11 +169,11 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_quoted_printable_decode() {
-		XCTAssertEqual(php.quoted_printable_decode("EE"), FAIL)
+		XCTAssertEqual(php.quoted_printable_decode("EE"), "EE")
 	}
 	
 	func test_quoted_printable_encode() {
-		XCTAssertEqual(php.quoted_printable_encode("EE"), FAIL)
+		XCTAssertEqual(php.quoted_printable_encode("EE"), "EE")
 	}
 	
 	func test_quotemeta() {

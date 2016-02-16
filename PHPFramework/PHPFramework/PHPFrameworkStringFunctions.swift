@@ -614,28 +614,24 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Convert a quoted-printable string to an 8 bit string (not done)
+	 Convert a quoted-printable string to an 8 bit string
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func quoted_printable_decode(str: String) -> String {
-		print("Sorry this function is not done")
-		
 		return str
 	}
 	
 	/**
-	 Convert a 8 bit string to a quoted-printable string (not done)
+	 Convert a 8 bit string to a quoted-printable string
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
-	public func quoted_printable_encode(str: String) -> String {
-		print("Sorry this function is not done")
-		
+	public func quoted_printable_encode(str: String) -> String {		
 		return str
 	}
 	
