@@ -177,7 +177,7 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_quotemeta() {
-		XCTAssertEqual(php.quotemeta("ABCDEF"), FAIL)
+        XCTAssertEqual(php.quotemeta(". \\ + * ? [ ^ ] ( $ )"), "\\. \\\\ \\+ \\* \\? \\[ \\^ \\] \\( \\$ \\)")
 	}
 	
 	func test_rtrim() {

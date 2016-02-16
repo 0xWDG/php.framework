@@ -138,7 +138,7 @@ extension PHPFramework {
 		for character in str.characters {
 			newString = newString.stringByAppendingString(String(character))
 			
-			if (myCount == (length-1)) {
+			if (myCount == (length - 1)) {
 				newString = newString.stringByAppendingString(end!)
 				myCount = 0
 			} else {
@@ -412,11 +412,11 @@ extension PHPFramework {
 
 	 - Parameter aStr: The First String
 	 - Parameter bStr: The Second String
-     
+
 	 - Returns: The String
 	 */
-    public func levenshtein(aStr: String, _ bStr: String) -> Int {
-        return calculateLevenshtein().calc(aStr, bStr)
+	public func levenshtein(aStr: String, _ bStr: String) -> Int {
+		return calculateLevenshtein().calc(aStr, bStr)
 	}
 	
 	/**
@@ -631,21 +631,30 @@ extension PHPFramework {
 
 	 - Returns: The String
 	 */
-	public func quoted_printable_encode(str: String) -> String {		
+	public func quoted_printable_encode(str: String) -> String {
 		return str
 	}
 	
 	/**
 	 Quote meta characters (not done)
+	 Puts a backslash before one of those characters: **. \ + * ? [ ^ ] ( $ )**
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
-	public func quotemeta(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func quotemeta(str: String) -> String {		
+		return str.replace("\\", withString: "\\\\")
+			.replace(".", withString: "\\.")
+			.replace("+", withString: "\\+")
+            .replace("*", withString: "\\*")
+			.replace("?", withString: "\\?")
+			.replace("[", withString: "\\[")
+			.replace("^", withString: "\\^")
+			.replace("]", withString: "\\]")
+			.replace("(", withString: "\\(")
+			.replace("$", withString: "\\$")
+			.replace(")", withString: "\\)")
 	}
 	
 	/**
@@ -993,16 +1002,16 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func strip_tags(str: String) -> String {
-        do {
-            let regex:NSRegularExpression = try NSRegularExpression(pattern: "<.*?>", options: NSRegularExpressionOptions.CaseInsensitive)
-            let range = NSMakeRange(0, str.characters.count)
-            let htmlLessString :String = regex.stringByReplacingMatchesInString(str, options: [], range:range, withTemplate: "")
-            return htmlLessString
-        }
-        catch {
-            print("Failed to parse HTML String")
-            return str
-        }
+		do {
+			let regex: NSRegularExpression = try NSRegularExpression(pattern: "<.*?>", options: NSRegularExpressionOptions.CaseInsensitive)
+			let range = NSMakeRange(0, str.characters.count)
+			let htmlLessString : String = regex.stringByReplacingMatchesInString(str, options: [], range: range, withTemplate: "")
+			return htmlLessString
+		}
+		catch {
+			print("Failed to parse HTML String")
+			return str
+		}
 	}
 	
 	/**
