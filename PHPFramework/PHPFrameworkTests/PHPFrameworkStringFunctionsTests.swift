@@ -266,7 +266,7 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strip_tags() {
-		XCTAssertEqual(PASS, FAIL)
+		XCTAssertEqual(php.strip_tags("<b>Hello</b> this is <a href='http://github.com/wdg/php.framework' target='_blank'>php.framework</a>"), "Hello this is php.framework")
 	}
 	
 	func test_stripcslashes() {

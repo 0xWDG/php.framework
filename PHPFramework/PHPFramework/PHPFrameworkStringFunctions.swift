@@ -131,14 +131,14 @@ extension PHPFramework {
 
 	 - Returns: The String
 	 */
-	public func chunk_split(str: String, _ length: Int? = 76, _ end: String? = "\r\n") -> String {
+	public func chunk_split(str: String, _ length: Int = 76, _ end: String? = "\r\n") -> String {
 		var myCount: Int = 0
 		var newString: String = ""
 		
 		for character in str.characters {
 			newString = newString.stringByAppendingString(String(character))
 			
-			if (myCount == (length! -1)) {
+			if (myCount == (length-1)) {
 				newString = newString.stringByAppendingString(end!)
 				myCount = 0
 			} else {
@@ -1001,16 +1001,23 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Strip HTML and PHP tags from a string (not done)
+	 Strip HTML and PHP tags from a string
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func strip_tags(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+        do {
+            let regex:NSRegularExpression = try NSRegularExpression(pattern: "<.*?>", options: NSRegularExpressionOptions.CaseInsensitive)
+            let range = NSMakeRange(0, str.characters.count)
+            let htmlLessString :String = regex.stringByReplacingMatchesInString(str, options: [], range:range, withTemplate: "")
+            return htmlLessString
+        }
+        catch {
+            print("Failed to parse HTML String")
+            return str
+        }
 	}
 	
 	/**
