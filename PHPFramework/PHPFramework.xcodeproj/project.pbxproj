@@ -31,6 +31,7 @@
 		6E7DE6981C498A7A002574EA /* PHPFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE6971C498A7A002574EA /* PHPFramework.swift */; };
 		6E9375C51C6FAD8B00A3E112 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9375BC1C6FAD6D00A3E112 /* CryptoSwift.framework */; };
 		6EE823C21C4C2AF2003F7361 /* PHPFrameworkSwiftStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE823C11C4C2AF2003F7361 /* PHPFrameworkSwiftStringExtensions.swift */; };
+		6EE8F8621C73C9A300DD357A /* levenshtein.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8F8611C73C9A300DD357A /* levenshtein.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		6E7DE6971C498A7A002574EA /* PHPFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHPFramework.swift; path = PHPFramework/PHPFramework.swift; sourceTree = "<group>"; };
 		6E9375B31C6FAD6D00A3E112 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = External/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
 		6EE823C11C4C2AF2003F7361 /* PHPFrameworkSwiftStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHPFrameworkSwiftStringExtensions.swift; path = PHPFramework/PHPFrameworkSwiftStringExtensions.swift; sourceTree = "<group>"; };
+		6EE8F8611C73C9A300DD357A /* levenshtein.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = levenshtein.swift; path = PHPFramework/Specials/levenshtein.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				6E3469151C517257000A526B /* crc32.swift */,
+				6EE8F8611C73C9A300DD357A /* levenshtein.swift */,
 			);
 			name = Specials;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				6E3469191C518081000A526B /* PHPFrameworkArrayFunctions.swift in Sources */,
 				6E3469161C517257000A526B /* crc32.swift in Sources */,
 				6E3056451C556640002E1115 /* PHPFrameworkFileSystem.swift in Sources */,
+				6EE8F8621C73C9A300DD357A /* levenshtein.swift in Sources */,
 				6EE823C21C4C2AF2003F7361 /* PHPFrameworkSwiftStringExtensions.swift in Sources */,
 				6E0D4FB51C4999BD005C64E7 /* PHPFrameworkStringFunctions.swift in Sources */,
 				6E0D4FB71C499E88005C64E7 /* PHPFrameworkPHPBase.swift in Sources */,

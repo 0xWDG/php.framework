@@ -150,15 +150,13 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Convert from one Cyrillic character set to another (not done)
+	 **Not Supported** Convert from one Cyrillic character set to another
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func convert_cyr_string(str: String) -> String {
-		print("Sorry this function is not done")
-		
 		return str
 	}
 	
@@ -274,28 +272,24 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Convert logical Hebrew text to visual text (not done)
+	 **Not Supported** Convert logical Hebrew text to visual text
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func hebrev(str: String) -> String {
-		print("Sorry this function is not done")
-		
 		return str
 	}
 	
 	/**
-	 Convert logical Hebrew text to visual text with newline conversion (not done)
+	 **Not supported** Convert logical Hebrew text to visual text with newline conversion
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func hebrevc(str: String) -> String {
-		print("Sorry this function is not done")
-		
 		return str
 	}
 	
@@ -414,29 +408,24 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Calculate Levenshtein distance between two strings (not done)
+	 Calculate Levenshtein distance between two strings
 
-	 - Parameter str: The String
-
+	 - Parameter aStr: The First String
+	 - Parameter bStr: The Second String
+     
 	 - Returns: The String
 	 */
-	public func levenshtein(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+    public func levenshtein(aStr: String, _ bStr: String) -> Int {
+        return calculateLevenshtein().calc(aStr, bStr)
 	}
 	
 	/**
-	 Get numeric formatting information (not done)
+	 Get numeric formatting information
 
-	 - Parameter str: The String
-
-	 - Returns: The String
+	 - Returns: False
 	 */
-	public func localeconv(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func localeconv() -> Bool {
+		return false
 	}
 	
 	/**

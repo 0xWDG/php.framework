@@ -40,7 +40,7 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_convert_cyr_string() {
-		XCTAssertEqual(php.convert_cyr_string("S"), FAIL)
+		XCTAssertEqual(php.convert_cyr_string(E), E)
 	}
 	
 	func test_convert_uudecode() {
@@ -82,11 +82,11 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_hebrev() {
-		XCTAssertEqual(php.hebrev(E), FAIL)
+		XCTAssertEqual(php.hebrev(E), E)
 	}
 	
 	func test_hebrevc() {
-		XCTAssertEqual(php.hebrevc(E), FAIL)
+		XCTAssertEqual(php.hebrevc(E), E)
 	}
 	
 	func test_hex2bin() {
@@ -122,7 +122,7 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_levenshtein() {
-		XCTAssertEqual(php.levenshtein("35"), FAIL)
+		XCTAssertEqual(php.levenshtein("Hello", "ello"), 1)
 	}
 	
 	func test_ltrim() {
@@ -183,7 +183,11 @@ extension PHPFrameworkTests {
 	func test_rtrim() {
 		XCTAssertEqual(php.rtrim("wdg      "), "wdg")
 	}
-	
+
+    func test_localeconv() {
+        XCTAssertEqual(php.localeconv(), false)
+    }
+    
 	func test_setlocale() {
 		XCTAssertEqual(php.setlocale("nl_NL") as? Bool, false)
 	}
