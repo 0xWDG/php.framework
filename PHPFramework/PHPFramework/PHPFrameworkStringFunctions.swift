@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CryptoSwift
 
 /**
  PHPFramework
@@ -59,9 +60,7 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func addcslashes(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+		return self.addslashes(str)
 	}
 	
 	/**
@@ -81,16 +80,20 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Convert binary data into hexadecimal representation (not done)
+	 Convert binary data into hexadecimal representation
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
-	public func bin2hex(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func bin2hex(str: Int) -> Int {
+		let scanner = NSScanner(string: String(str))
+		var result : UInt32 = 0
+		if scanner.scanHexInt(&result) {
+			return Int(result)
+		}
+		// return Int(str, radix: 16)! // Can couse for crash if not a binary number
+		return 0
 	}
 	
 	/**
@@ -135,7 +138,7 @@ extension PHPFramework {
 		for character in str.characters {
 			newString = newString.stringByAppendingString(String(character))
 			
-			if (myCount == (length!-1)) {
+			if (myCount == (length! -1)) {
 				newString = newString.stringByAppendingString(end!)
 				myCount = 0
 			} else {
@@ -193,30 +196,28 @@ extension PHPFramework {
 	 - Returns: Array Int (255 x 0)
 	 */
 	public func count_chars(str: String) -> Array<Int> {
-		return [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+		return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	}
 	
 	/**
-	 Calculates the crc32 polynomial of a string (not done)
+	 Calculates the crc32 polynomial of a string
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func crc32(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+		return str.crc32()
 	}
 	
 	/**
-	 One-way string hashing (not done)
+	 One-way string hashing (DES) (not done)
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
-    public func crypt(str: String, _ salt: String) -> String {
+	public func crypt(str: String, _ salt: String) -> String {
 		print("Sorry this function is not done")
 		
 		return str
@@ -264,16 +265,12 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Returns the translation table used by htmlspecialchars and htmlentities (not done)
+	 Returns the translation table used by htmlspecialchars and htmlentities
 
-	 - Parameter str: The String
-
-	 - Returns: The String
+	 - Returns: The table ([String: Character])
 	 */
-	public func get_html_translation_table(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func get_html_translation_table(str: String) -> [String: Character] {
+		return "".getHTMLEntities()
 	}
 	
 	/**
@@ -309,62 +306,76 @@ extension PHPFramework {
 
 	 - Returns: The String
 	 */
-	public func hex2bin(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func hex2bin(str: String) -> Int {
+		// print("Sorry this function is not done")
+		//
+		// return str
+		// let scanner = NSScanner(string: String(str))
+		// var result : UInt32 = 0
+		// if scanner.scanHexInt(&result) {
+		// return Int(result)
+		// }
+		return Int(strtoul(str, nil, 16))
+		// return Int(str, radix: 16)! // Can couse for crash if not a binary number
+		// return 0
 	}
 	
 	/**
-	 Convert all HTML entities to their applicable characters (not done)
+	 Convert all HTML entities to their applicable characters
 
 	 - Parameter str: The String
+	 - Parameter flags: the flags (*will be ignored*)
+	 - Parameter encoding: the encoding (*will be ignored*)
+	 - Parameter double_encoding: bool (*will be ignored*)
 
 	 - Returns: The String
 	 */
-	public func html_entity_decode(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func html_entity_decode(str: String, _ flags: Int? = 0, _ encoding: Int? = 0, _ double_encode: Bool? = false) -> String {
+		return str.decodeHTML()
 	}
 	
 	/**
-	 Convert all applicable characters to HTML entities (not done)
+	 Convert all applicable characters to HTML entities
 
 	 - Parameter str: The String
+	 - Parameter flags: the flags (*will be ignored*)
+	 - Parameter encoding: the encoding (*will be ignored*)
+	 - Parameter double_encoding: bool (*will be ignored*)
 
 	 - Returns: The String
 	 */
-	public func htmlentities(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func htmlentities(str: String, _ flags: Int? = 0, _ encoding: Int? = 0, _ double_encode: Bool? = false) -> String {
+		return str.encodeHTML()
 	}
 	
 	/**
-	 Convert special HTML entities back to characters (not done)
+	 Convert special HTML entities back to characters
 
 	 - Parameter str: The String
+	 - Parameter flags: the flags (*will be ignored*)
+	 - Parameter encoding: the encoding (*will be ignored*)
+	 - Parameter double_encoding: bool (*will be ignored*)
 
 	 - Returns: The String
 	 */
-	public func htmlspecialchars_decode(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func htmlspecialchars_decode(str: String, _ flags: Int? = 0, _ encoding: Int? = 0, _ double_encode: Bool? = false) -> String {
+		return str.decodeHTML()
 	}
 	
 	/**
-	 Convert special characters to HTML entities (not done)
+	 Convert special characters to HTML entities
 
 	 - Parameter str: The String
+	 - Parameter flags: the flags (*will be ignored*)
+	 - Parameter encoding: the encoding (*will be ignored*)
+	 - Parameter double_encoding: bool (*will be ignored*)
 
 	 - Returns: The String
 	 */
-	public func htmlspecialchars(str: String) -> String {
+	public func htmlspecialchars(str: String, _ flags: Int? = 0, _ encoding: Int? = 0, _ double_encode: Bool? = false) -> String {
 		print("Sorry this function is not done")
 		
-		return str
+		return str.encodeHTML()
 	}
 	
 	/**
@@ -429,38 +440,51 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Strip whitespace (or other characters) from the beginning of a string (not done)
+	 Strip whitespace (or other characters) from the beginning of a string
+
+	 chrs includes standard:
+
+	 " " (ASCII 32 (0x20)), an ordinary space.
+
+	 "\t" (ASCII 9 (0x09)), a tab.
+
+	 "\n" (ASCII 10 (0x0A)), a new line (line feed).
+
+	 "\r" (ASCII 13 (0x0D)), a carriage return.
+
+	 "\0" (ASCII 0 (0x00)), the NULL-byte.
+
+	 "\x0B" (ASCII 11 (0x0B)), a vertical tab.
 
 	 - Parameter str: The String
+	 - Parameter chrs: Characters to trim (*ignored*)
 
 	 - Returns: The String
 	 */
-	public func ltrim(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func ltrim(str: String, _ chrs: String? = "_ALL_") -> String {
+		return str.trimmedLeft()
 	}
 	
 	/**
-	 **Not Supported** Calculates the md5 hash of a given file
+	 Calculates the md5 hash of a given file
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func md5_file(str: String) -> String {
-		return str
+		return str.md5()
 	}
 	
 	/**
-	 **Not Supported** Calculate the md5 hash of a string
+	 Calculate the md5 hash of a string
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func md5(str: String) -> String {
-		return str
+		return str.md5()
 	}
 	
 	/**
@@ -477,14 +501,22 @@ extension PHPFramework {
 	}
 	
 	/**
-	 **Not supported** Formats a number as a currency string
+	 Formats a number as a currency string
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func money_format(str: String) -> String {
-		return str
+		let formatter = NSNumberFormatter()
+		formatter.numberStyle = .CurrencyStyle
+		
+		if let number = Int(str) {
+			let myNumber = NSNumber(integer: number)
+			return formatter.stringFromNumber(myNumber)!
+		} else {
+			return "";
+		}
 	}
 	
 	/**
@@ -523,16 +555,22 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Format a number with grouped thousands (not done)
+	 Format a number with grouped thousands
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func number_format(str: String) -> String {
-		print("Sorry this function is not done")
+		let formatter = NSNumberFormatter()
+		formatter.numberStyle = .DecimalStyle
 		
-		return str
+		if let number = Int(str) {
+			let myNumber = NSNumber(integer: number)
+			return formatter.stringFromNumber(myNumber)!
+		} else {
+			return "";
+		}
 	}
 	
 	/**
@@ -626,7 +664,7 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Strip whitespace (or other characters) from the end of a string (not done)
+	 Strip whitespace (or other characters) from the end of a string
 
 	 chrs includes standard:
 
@@ -643,14 +681,12 @@ extension PHPFramework {
 	 "\x0B" (ASCII 11 (0x0B)), a vertical tab.
 
 	 - Parameter str: The String
-	 - Parameter chrs: Characters to trim
+	 - Parameter chrs: Characters to trim (*ignored*)
 
 	 - Returns: String
 	 */
 	public func rtrim(str: String, _ chars: String? = "_ALL_") -> String {
-		print("Sorry this function is not done")
-		
-		return str
+		return str.trimmedRight()
 	}
 	
 	/**
@@ -665,27 +701,25 @@ extension PHPFramework {
 	}
 	
 	/**
-	 **Not supported** Calculate the sha1 hash of a file (not done)
+	 Calculate the sha1 hash of a file
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
-	public func sha1_file(str: String) -> Any {
-		return str
+	public func sha1_file(str: String) -> String {
+		return str.sha1()
 	}
 	
 	/**
-	 **Not supported** Calculate the sha1 hash of a string (not done)
+	 Calculate the sha1 hash of a string
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func sha1(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+		return str.sha1()
 	}
 	
 	/**
@@ -695,7 +729,7 @@ extension PHPFramework {
 
 	 - Returns: The String
 	 */
-    public func similar_text(str: String, _ str2: String = "") -> Bool {
+	public func similar_text(str: String, _ str2: String = "") -> Bool {
 		return str == str2
 	}
 	
@@ -1405,16 +1439,29 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Strip whitespace (or other characters) from the beginning and end of a string (not done)
+	 Strip whitespace (or other characters) from the beginning and end of a string
+
+	 chrs includes standard:
+
+	 " " (ASCII 32 (0x20)), an ordinary space.
+
+	 "\t" (ASCII 9 (0x09)), a tab.
+
+	 "\n" (ASCII 10 (0x0A)), a new line (line feed).
+
+	 "\r" (ASCII 13 (0x0D)), a carriage return.
+
+	 "\0" (ASCII 0 (0x00)), the NULL-byte.
+
+	 "\x0B" (ASCII 11 (0x0B)), a vertical tab.
 
 	 - Parameter str: The String
+	 - Parameter chrs: Characters to trim (*ignored*)
 
 	 - Returns: The String
 	 */
-	public func trim(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func trim(str: String, _ chrs: String? = "_ALL_") -> String {
+		return str.trimmed()
 	}
 	
 	/**
@@ -1429,16 +1476,24 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Uppercase the first character of each word in a string (not done)
+	 Uppercase the first character of each word in a string
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func ucwords(str: String) -> String {
-		print("Sorry this function is not done")
+		let splitted: Array = str.split(" ")
+		var newString: String = ""
+		for (var i = 0; i < splitted.count; i++) {
+			newString = newString.stringByAppendingString(String(splitted[i] [0]).uppercaseString + String(splitted[i] [1...(splitted[i].length)]))
+			
+			if (i < splitted.count - 1) {
+				newString = newString.stringByAppendingString(" ")
+			}
+		}
 		
-		return str
+		return newString
 	}
 	
 	/**

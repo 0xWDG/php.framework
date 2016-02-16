@@ -26,8 +26,6 @@ class FirstViewController: UIViewController {
 
         print(php.scandir("\(php.getcwd())/../")) // parent ;)
         
-        print(PHPTest.All(false))
-
         //print(php.serialize(["h","e","l","l","o","!"]))
         
 	}

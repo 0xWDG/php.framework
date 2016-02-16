@@ -398,9 +398,6 @@ extension PHPFramework {
 	 - Returns: Prints out the credits for PHP
 	 */
 	public func phpcredits() -> String {
-		if (isDebug) {
-			print(credits)
-		}
 		return credits
 	}
 	
@@ -410,9 +407,6 @@ extension PHPFramework {
 	 - Returns: Outputs information about PHP's configuration
 	 */
 	public func phpinfo() -> String {
-		if (isDebug) {
-			print(credits)
-		}
 		return credits
 	}
 	
