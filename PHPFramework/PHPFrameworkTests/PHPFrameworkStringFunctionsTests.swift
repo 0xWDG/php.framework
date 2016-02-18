@@ -257,7 +257,8 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strchr() {
-		XCTAssertEqual(php.strchr("hello äåö", "äåö", "aao"), "hello aao")
+		XCTAssertEqual(php.strchr("hello@wdg", "@"), "wdg")
+		XCTAssertEqual(php.strchr("hello@wdg", "@", true), "hello")
 	}
 	
 	func test_strcmp() {
@@ -341,7 +342,8 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strstr() {
-		XCTAssertEqual(php.strstr("hello äåö", "äåö", "aao"), "hello aao")
+		XCTAssertEqual(php.strstr("hello@wdg", "@"), "wdg")
+		XCTAssertEqual(php.strstr("hello@wdg", "@", true), "hello")
 	}
 	
 	func test_strtok() {
@@ -357,7 +359,7 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strtr() {
-		XCTAssertEqual(PASS, FAIL)
+		XCTAssertEqual(FAIL, "hello aao")
 	}
 	
 	func test_substr_compare() {

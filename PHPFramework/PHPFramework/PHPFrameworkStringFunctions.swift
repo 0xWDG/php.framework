@@ -985,13 +985,13 @@ extension PHPFramework {
 	 Alias of strstr
 
      - Parameter str: The String
-     - Parameter from: from
-     - Parameter to: to
-
-     - Returns: The changed String
+     - Parameter find: find
+     - Parameter before: before?
+     
+     - Returns: The part String
      */
-    public func strchr(str: String, _ from: String, _ to: String) -> String {
-        return php.strstr(str, from, to)
+    public func strchr(str: String, _ find: String, _ before: Bool? = false) -> String {
+        return php.strstr(str, find, before)
 	}
 	
 	/**
@@ -1271,23 +1271,28 @@ extension PHPFramework {
 	 Find the first occurrence of a string
 
 	 - Parameter str: The String
-     - Parameter from: from
-     - Parameter to: to
+     - Parameter find: find
+     - Parameter before: before?
      
-	 - Returns: The changed String
+	 - Returns: The part String
 	 */
-    public func strstr(str: String, _ from: String, _ to: String) -> String {
-        if (from.length != to.length) {
+    public func strstr(str: String, _ find: String, var _ before: Bool? = false) -> String {
+
+        var exploded = php.explode(str, find)
+        
+        if (exploded.count < 1) {
             return str
         }
         
-        var _str = str
-        
-        for (var i=0; i<from.length; i++) {
-            _str = _str.replace(String(from[i]), withString: String(to[i]))
+        if (before == nil) {
+            before = false
         }
         
-        return _str
+        if (before!) {
+            return exploded[0]
+        } else {
+            return exploded[1]
+        }
 	}
 	
 	/**
@@ -1327,17 +1332,26 @@ extension PHPFramework {
 	
 	/**
 	 Translate characters or replace substrings (not done)
-
-	 - Parameter str: The String
-
-	 - Returns: The String
+     
+     - Parameter str: The String
+     - Parameter from: from
+     - Parameter to: to
+     
+     - Returns: The changed String
 	 */
-	public func strtr(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
-	}
-	
+    public func strtr(str: String, _ from: String, _ to: String) -> String {
+        if (from.length != to.length) {
+            return str
+        }
+        
+        var _str = str
+        
+        for (var i=0; i<from.length; i++) {
+            _str = _str.replace(String(from[i]), withString: String(to[i]))
+        }
+        
+        return _str
+    }
 	/**
 	 Binary safe comparison of two strings from an offset, up to length characters (not done)
 
