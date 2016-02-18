@@ -31,6 +31,8 @@
 		6E7DE6981C498A7A002574EA /* PHPFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE6971C498A7A002574EA /* PHPFramework.swift */; };
 		6E9375C51C6FAD8B00A3E112 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9375BC1C6FAD6D00A3E112 /* CryptoSwift.framework */; };
 		6E9B752A1C76467B0013200F /* ROT13.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9B75291C76467B0013200F /* ROT13.swift */; };
+		6E9B75381C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9B75371C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift */; };
+		6E9B75391C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9B75371C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift */; };
 		6EE823C21C4C2AF2003F7361 /* PHPFrameworkSwiftStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE823C11C4C2AF2003F7361 /* PHPFrameworkSwiftStringExtensions.swift */; };
 		6EE8F8621C73C9A300DD357A /* levenshtein.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8F8611C73C9A300DD357A /* levenshtein.swift */; };
 /* End PBXBuildFile section */
@@ -106,6 +108,7 @@
 		6E7DE6971C498A7A002574EA /* PHPFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHPFramework.swift; path = PHPFramework/PHPFramework.swift; sourceTree = "<group>"; };
 		6E9375B31C6FAD6D00A3E112 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = External/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
 		6E9B75291C76467B0013200F /* ROT13.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ROT13.swift; path = PHPFramework/Specials/ROT13.swift; sourceTree = "<group>"; };
+		6E9B75371C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHPFrameworkSwiftArrayExtensions.swift; path = PHPFramework/Specials/PHPFrameworkSwiftArrayExtensions.swift; sourceTree = "<group>"; };
 		6EE823C11C4C2AF2003F7361 /* PHPFrameworkSwiftStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHPFrameworkSwiftStringExtensions.swift; path = PHPFramework/PHPFrameworkSwiftStringExtensions.swift; sourceTree = "<group>"; };
 		6EE8F8611C73C9A300DD357A /* levenshtein.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = levenshtein.swift; path = PHPFramework/Specials/levenshtein.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +139,8 @@
 				6E3469151C517257000A526B /* crc32.swift */,
 				6EE8F8611C73C9A300DD357A /* levenshtein.swift */,
 				6E9B75291C76467B0013200F /* ROT13.swift */,
+				6EE823C11C4C2AF2003F7361 /* PHPFrameworkSwiftStringExtensions.swift */,
+				6E9B75371C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift */,
 			);
 			name = Specials;
 			sourceTree = "<group>";
@@ -200,7 +205,6 @@
 				6E611B171C4EE8810053CAFF /* PHPFrameworkPHPConstantsDictionary.swift */,
 				6E30563E1C5563AF002E1115 /* PHPFrameworkDateTime.swift */,
 				6E0D4FB41C4999BD005C64E7 /* PHPFrameworkStringFunctions.swift */,
-				6EE823C11C4C2AF2003F7361 /* PHPFrameworkSwiftStringExtensions.swift */,
 			);
 			name = "PHPFramework files";
 			sourceTree = "<group>";
@@ -374,6 +378,7 @@
 				6E611B181C4EE8810053CAFF /* PHPFrameworkPHPConstantsDictionary.swift in Sources */,
 				6E0D4FB91C49A3B5005C64E7 /* PHPFrameworkCredits.swift in Sources */,
 				6E413B901C4C27BC003C7951 /* PHPFrameworkPHPConstants.swift in Sources */,
+				6E9B75381C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift in Sources */,
 				6E34691C1C5182FE000A526B /* PHPFrameworkVariableFunctions.swift in Sources */,
 				6E3469191C518081000A526B /* PHPFrameworkArrayFunctions.swift in Sources */,
 				6E3469161C517257000A526B /* crc32.swift in Sources */,
@@ -395,6 +400,7 @@
 			files = (
 				6E41BD5C1C6F84D40092075A /* PHPFrameworkCreditsTests.swift in Sources */,
 				6E7DE68D1C498A6B002574EA /* PHPFrameworkTests.swift in Sources */,
+				6E9B75391C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift in Sources */,
 				6E41BD631C6F966A0092075A /* PHPFrameworkStringFunctionsTests.swift in Sources */,
 				6E41BD5F1C6F870D0092075A /* PHPFrameworkDirectoryTests.swift in Sources */,
 				6E41BD611C6F88BE0092075A /* PHPFrameworkPHPBaseTests.swift in Sources */,

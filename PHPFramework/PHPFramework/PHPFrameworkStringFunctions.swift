@@ -857,7 +857,10 @@ extension PHPFramework {
 	public func str_shuffle(str: String) -> String {
 		print("Sorry this function is not done")
 		
-		return str
+        var arr:Array<String> = php.str_split(str)
+        arr.shuffle()
+
+		return php.implode("", arr)
 	}
 	
 	/**

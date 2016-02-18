@@ -242,7 +242,7 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_str_shuffle() {
-		XCTAssertEqual(PASS, FAIL)
+		XCTAssertNotEqual(php.str_shuffle("Hello you!"), "Hello you!")
 	}
 	
 	func test_str_split() {
