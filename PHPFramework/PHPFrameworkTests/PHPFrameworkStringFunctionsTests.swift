@@ -177,17 +177,17 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_quotemeta() {
-        XCTAssertEqual(php.quotemeta(". \\ + * ? [ ^ ] ( $ )"), "\\. \\\\ \\+ \\* \\? \\[ \\^ \\] \\( \\$ \\)")
+		XCTAssertEqual(php.quotemeta(". \\ + * ? [ ^ ] ( $ )"), "\\. \\\\ \\+ \\* \\? \\[ \\^ \\] \\( \\$ \\)")
 	}
 	
 	func test_rtrim() {
 		XCTAssertEqual(php.rtrim("wdg      "), "wdg")
 	}
-
-    func test_localeconv() {
-        XCTAssertEqual(php.localeconv(), false)
-    }
-    
+	
+	func test_localeconv() {
+		XCTAssertEqual(php.localeconv(), false)
+	}
+	
 	func test_setlocale() {
 		XCTAssertEqual(php.setlocale("nl_NL") as? Bool, false)
 	}
@@ -226,7 +226,12 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_str_pad() {
-		XCTAssertEqual(PASS, FAIL)
+        XCTAssertEqual(php.str_pad("@wdg", 10, " ", pad_type: STR_PAD_RIGHT), "@wdg      ")
+        XCTAssertEqual(php.str_pad("@wdg", 10, " ", pad_type: STR_PAD_LEFT), "      @wdg")
+        XCTAssertEqual(php.str_pad("@wdg", 10, " ", pad_type: STR_PAD_BOTH), "   @wdg   ")
+        XCTAssertEqual(php.str_pad("@wdg", 11, " ", pad_type: STR_PAD_BOTH), "   @wdg    ")
+        
+		// str_pad(input: String, _ length: Int, _ pad_string: String? = " ", pad_type: Int? = STR_PAD_RIGHT)
 	}
 	
 	func test_str_repeat() {

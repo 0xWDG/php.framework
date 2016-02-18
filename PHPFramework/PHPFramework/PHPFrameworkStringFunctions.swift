@@ -795,14 +795,51 @@ extension PHPFramework {
 	/**
 	 Pad a string to a certain length with another string (not done)
 
-	 - Parameter str: The String
+	 - Parameter input: The String
 
 	 - Returns: The String
 	 */
-	public func str_pad(str: String) -> String {
-		print("Sorry this function is not done")
+	// string str_pad ( string $input , int $pad_length [, string $pad_string = " " [, int $pad_type = STR_PAD_RIGHT ]] )
+	
+	public func str_pad(input: String, _ length: Int, _ pad_string: String? = " ", pad_type: Int? = STR_PAD_RIGHT) -> String {
+		var _mutated: String = input
 		
-		return str
+		switch (pad_type!) {
+		case STR_PAD_BOTH:
+			let steps = length - ((pad_string?.length)! + input.length) + 1
+			let steps_left = Int(steps / 2) // Remove .xx
+			let steps_right = Int(steps / 2) // Remove .xx
+			
+			// Add padding before...
+			for (var i = 0; i < steps_left; i++) {
+				_mutated = "\(pad_string!)\(_mutated)"
+			}
+			// Add padding afterwards...
+			// (steps % 2 == 0) checks if it is even or odd, if odd then right +1
+			for (var i = 0; i < steps_right + ((steps % 2 == 0) ? 0 : 1) ; i++) {
+				_mutated = _mutated.stringByAppendingString(pad_string!)
+			}
+			break
+		case STR_PAD_LEFT:
+			let steps = length - ((pad_string?.length)! + input.length) + 1
+			
+			for (var i = 0; i < steps; i++) {
+				_mutated = "\(pad_string!)\(_mutated)"
+			}
+			break
+		case STR_PAD_RIGHT:
+			let steps = length - ((pad_string?.length)! + input.length) + 1
+			
+			for (var i = 0; i < steps; i++) {
+				_mutated = _mutated.stringByAppendingString(pad_string!)
+			}
+			break
+		
+		default:
+			print("ERROR")
+			break
+		}
+		return _mutated
 	}
 	
 	/**
@@ -826,13 +863,13 @@ extension PHPFramework {
 	/**
 	 Replace all occurrences of the search string with the replacement string (*we only support strings*)
 
-     - Parameter search: string to search for
-     - Parameter replace: replace with
+	 - Parameter search: string to search for
+	 - Parameter replace: replace with
 	 - Parameter subject: The String
 
 	 - Returns: The replaced String
 	 */
-    public func str_replace(search: String, _ replace: String, _ subject: String) -> String {
+	public func str_replace(search: String, _ replace: String, _ subject: String) -> String {
 		
 		return subject.replace(search, withString: replace)
 	}
@@ -858,9 +895,9 @@ extension PHPFramework {
 	public func str_shuffle(str: String) -> String {
 		print("Sorry this function is not done")
 		
-        var arr:Array<String> = php.str_split(str)
-        arr.shuffle()
-
+		var arr: Array<String> = php.str_split(str)
+		arr.shuffle()
+		
 		return php.implode("", arr)
 	}
 	
