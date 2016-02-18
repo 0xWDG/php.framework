@@ -837,16 +837,14 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Perform the rot13 transform on a string (not done)
+	 Perform the rot13 transform on a string
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func str_rot13(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+		return ROT13().encrypt(str)
 	}
 	
 	/**

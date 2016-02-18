@@ -238,7 +238,7 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_str_rot13() {
-		XCTAssertEqual(PASS, FAIL)
+		XCTAssertEqual(php.str_rot13("wdg"), "jqt")
 	}
 	
 	func test_str_shuffle() {
