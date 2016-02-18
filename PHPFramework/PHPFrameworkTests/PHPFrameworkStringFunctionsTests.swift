@@ -230,9 +230,7 @@ extension PHPFrameworkTests {
         XCTAssertEqual(php.str_pad("@wdg", 10, " ", pad_type: STR_PAD_LEFT), "      @wdg")
         XCTAssertEqual(php.str_pad("@wdg", 10, " ", pad_type: STR_PAD_BOTH), "   @wdg   ")
         XCTAssertEqual(php.str_pad("@wdg", 11, " ", pad_type: STR_PAD_BOTH), "   @wdg    ")
-        
-		// str_pad(input: String, _ length: Int, _ pad_string: String? = " ", pad_type: Int? = STR_PAD_RIGHT)
-	}
+    }
 	
 	func test_str_repeat() {
 		XCTAssertEqual(php.str_repeat("Hi", 2), "HiHi")
@@ -259,7 +257,7 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strchr() {
-		XCTAssertEqual(PASS, FAIL)
+		XCTAssertEqual(php.strchr("hello äåö", "äåö", "aao"), "hello aao")
 	}
 	
 	func test_strcmp() {
@@ -343,7 +341,7 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strstr() {
-		XCTAssertEqual(PASS, FAIL)
+		XCTAssertEqual(php.strstr("hello äåö", "äåö", "aao"), "hello aao")
 	}
 	
 	func test_strtok() {

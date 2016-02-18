@@ -982,16 +982,16 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Alias of strstr (not done)
+	 Alias of strstr
 
-	 - Parameter str: The String
+     - Parameter str: The String
+     - Parameter from: from
+     - Parameter to: to
 
-	 - Returns: The String
-	 */
-	public func strchr(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+     - Returns: The changed String
+     */
+    public func strchr(str: String, _ from: String, _ to: String) -> String {
+        return php.strstr(str, from, to)
 	}
 	
 	/**
@@ -1268,16 +1268,26 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Find the first occurrence of a string (not done)
+	 Find the first occurrence of a string
 
 	 - Parameter str: The String
-
-	 - Returns: The String
+     - Parameter from: from
+     - Parameter to: to
+     
+	 - Returns: The changed String
 	 */
-	public func strstr(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+    public func strstr(str: String, _ from: String, _ to: String) -> String {
+        if (from.length != to.length) {
+            return str
+        }
+        
+        var _str = str
+        
+        for (var i=0; i<from.length; i++) {
+            _str = _str.replace(String(from[i]), withString: String(to[i]))
+        }
+        
+        return _str
 	}
 	
 	/**
