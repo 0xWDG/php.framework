@@ -1,11 +1,12 @@
 # php.framework
 
-[![Join the chat at https://gitter.im/wdg/php.framework](https://badges.gitter.im/wdg/php.framework.svg)](https://gitter.im/wdg/php.framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 <img src='https://raw.githubusercontent.com/wdg/php.framework/master/PHPFramework/PHPFramework/Assets/phpswift.png'>
 
 A Swift framework to use the most common PHP functions (Based on PHP7)
 
 For <a target='_blank' href='http://wdg.github.io/php.framework/'>documentation click here</a>
+
+[![Join the chat at https://gitter.im/wdg/php.framework](https://badges.gitter.im/wdg/php.framework.svg)](https://gitter.im/wdg/php.framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 See:
 
