@@ -824,16 +824,17 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Replace all occurrences of the search string with the replacement string (not done)
+	 Replace all occurrences of the search string with the replacement string (*we only support strings*)
 
-	 - Parameter str: The String
+     - Parameter search: string to search for
+     - Parameter replace: replace with
+	 - Parameter subject: The String
 
-	 - Returns: The String
+	 - Returns: The replaced String
 	 */
-	public func str_replace(str: String) -> String {
-		print("Sorry this function is not done")
+    public func str_replace(search: String, _ replace: String, _ subject: String) -> String {
 		
-		return str
+		return subject.replace(search, withString: replace)
 	}
 	
 	/**

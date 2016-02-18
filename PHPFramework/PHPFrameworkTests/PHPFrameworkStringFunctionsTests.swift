@@ -234,7 +234,7 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_str_replace() {
-		XCTAssertEqual(PASS, FAIL)
+		XCTAssertEqual(php.str_replace("abc", "wdg", "@abc"), "@wdg")
 	}
 	
 	func test_str_rot13() {
