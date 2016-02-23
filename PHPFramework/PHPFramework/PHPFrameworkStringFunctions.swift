@@ -1,10 +1,41 @@
-//
-//  PHPFrameworkStringFunctions.swift
-//  PHPFramework
-//
-//  Created by Wesley de Groot on 15-01-16.
-//  Copyright © 2016 WDGWV. All rights reserved.
-//
+/**
+ _____    _    _   _____    ______                                           _
+ |  __ \  | |  | | |  __ \  |  ____|                                         | |
+ | |__) | | |__| | | |__) | | |__ _ __ __ _ _ __ ___   _____      _____  _ __| | __
+ |  ___/  |  __  | |  ___/  |  __| '__/ _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
+ | |      | |  | | | |  _   | |  | | | (_| | | | | | |  __/\ V  V / (_) | |  |   <
+ |_|      |_|  |_| |_| (_)  |_|  |_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
+ 
+ 
+ Copyright (c) 2016 Wesley de Groot (http://www.wesleydegroot.nl), WDGWV (http://www.wdgwv.com)
+ 
+ 
+ Variable prefixes:
+ PFS = PHP.Framework Shared
+ PFT = PHP.Framework Tests (internal)
+ PFI = PHP.Framework Internal
+ PFU = PHP.Framework Unspecified
+ 
+ usage:
+ php.the_php_function(and, parameters, ofcourse)
+ 
+ documentation:
+ http://wdg.github.io/php.framework/
+ 
+ wiki:
+ https://github.com/wdg/php.framework/wiki
+ 
+ questions/bugs:
+ https://github.com/wdg/php.framework/issues
+ 
+ ---------------------------------------------------
+ File:    PHPFrameworkStringFunctions.swift
+ Created: 15-JAN-2016
+ Creator: Wesley de Groot | g: @wdg | t: @wesdegroot
+ Issue:   #1 (String Functions)
+ Prefix:  PFS
+ ---------------------------------------------------
+ */
 
 import Foundation
 import CryptoSwift
@@ -754,29 +785,29 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Parses input from a string according to a format (not done)
+	 Parses input from a string according to a format\
+	 **Use swift's String, this will only return the string!**
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func sscanf(str: String) -> String {
-		print("Sorry this function is not done")
-		
 		return str
 	}
 	
 	/**
-	 Parse a CSV string into an array (not done)
+	 Parse a CSV string into an array
 
-	 - Parameter str: The String
+	 - Parameter str: The input String
+	 - Parameter delimiter: ","
+	 - Parameter enclosure: "\""
+	 - Parameter escape: "\\"
 
 	 - Returns: The String
 	 */
-	public func str_getcsv(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func str_getcsv(str: String, _ delimiter: String? = ",", enclosure: String? = "\"", escape: String? = "\\") -> Array<String> {
+		return php.explode(str, delimiter!)
 	}
 	
 	/**
@@ -793,7 +824,7 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Pad a string to a certain length with another string (not done)
+	 Pad a string to a certain length with another string
 
 	 - Parameter input: The String
 
@@ -984,14 +1015,14 @@ extension PHPFramework {
 	/**
 	 Alias of strstr
 
-     - Parameter str: The String
-     - Parameter find: find
-     - Parameter before: before?
-     
-     - Returns: The part String
-     */
-    public func strchr(str: String, _ find: String, _ before: Bool? = false) -> String {
-        return php.strstr(str, find, before)
+	 - Parameter str: The String
+	 - Parameter find: find
+	 - Parameter before: before?
+
+	 - Returns: The part String
+	 */
+	public func strchr(str: String, _ find: String, _ before: Bool? = false) -> String {
+		return php.strstr(str, find, before)
 	}
 	
 	/**
@@ -1008,15 +1039,13 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Locale based string comparison (not done)
+	 **Not supported** Locale based string comparison
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func strcoll(str: String) -> String {
-		print("Sorry this function is not done")
-		
 		return str
 	}
 	
@@ -1061,9 +1090,10 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func stripcslashes(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+        return str.stringByReplacingOccurrencesOfString("\\\\", withString: "\\")
+            .stringByReplacingOccurrencesOfString("\\'", withString: "'")
+            .stringByReplacingOccurrencesOfString("\\\"", withString: "\"")
+            .stringByReplacingOccurrencesOfString("\\\0", withString: "\0")
 	}
 	
 	/**
@@ -1080,29 +1110,38 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Un-quotes a quoted string (not done)
+	 Un-quotes a quoted string
 
 	 - Parameter str: The String
 
 	 - Returns: The String
 	 */
 	public func stripslashes(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+        return str.stringByReplacingOccurrencesOfString("\\\\", withString: "\\")
+            .stringByReplacingOccurrencesOfString("\\'", withString: "'")
+            .stringByReplacingOccurrencesOfString("\\\"", withString: "\"")
+            .stringByReplacingOccurrencesOfString("\\\0", withString: "\0")
 	}
 	
 	/**
-	 Case-insensitive strstr (not done)
+	 Case-insensitive strstr
 
-	 - Parameter str: The String
-
-	 - Returns: The String
+     - Parameter str: The String
+     - Parameter find: find
+     - Parameter before: before?
+     
+     - Returns: The part String
 	 */
-	public func stristr(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+    public func stristr(str: String, _ needle: String) -> Any {
+        // string strrchr ( string $haystack , mixed $needle )
+        // Explode & get end
+        let exploded: Array<String> = php.explode(str, needle) ;
+        
+        if (exploded.count > 1) {
+            return exploded[exploded.count - 1] ;
+        } else {
+            return false
+        }
 	}
 	
 	/**
@@ -1271,41 +1310,45 @@ extension PHPFramework {
 	 Find the first occurrence of a string
 
 	 - Parameter str: The String
-     - Parameter find: find
-     - Parameter before: before?
-     
+	 - Parameter find: find
+	 - Parameter before: before?
+
 	 - Returns: The part String
 	 */
-    public func strstr(str: String, _ find: String, var _ before: Bool? = false) -> String {
-
-        var exploded = php.explode(str, find)
-        
-        if (exploded.count < 1) {
-            return str
-        }
-        
-        if (before == nil) {
-            before = false
-        }
-        
-        if (before!) {
-            return exploded[0]
-        } else {
-            return exploded[1]
-        }
+	public func strstr(str: String, _ find: String, var _ before: Bool? = false) -> String {
+		
+		var exploded = php.explode(str, find)
+		
+		if (exploded.count < 1) {
+			return str
+		}
+		
+		if (before == nil) {
+			before = false
+		}
+		
+		if (before!) {
+			return exploded[0]
+		} else {
+			return exploded[1]
+		}
 	}
 	
 	/**
-	 Tokenize string (not done)
+	 Tokenize string
 
 	 - Parameter str: The String
+	 - Parameter delimiter: The delimiter
 
 	 - Returns: The String
 	 */
-	public func strtok(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func strtok(str: String, _ delimiter: String? = "\n\r") -> Any {
+		let _returnIfAny = php.explode(str, delimiter!)
+		if (_returnIfAny.count > 1) {
+			return _returnIfAny
+		} else {
+			return false
+		}
 	}
 	
 	/**
@@ -1331,27 +1374,27 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Translate characters or replace substrings (not done)
-     
-     - Parameter str: The String
-     - Parameter from: from
-     - Parameter to: to
-     
-     - Returns: The changed String
+	 Translate characters or replace substrings
+
+	 - Parameter str: The String
+	 - Parameter from: from
+	 - Parameter to: to
+
+	 - Returns: The changed String
 	 */
-    public func strtr(str: String, _ from: String, _ to: String) -> String {
-        if (from.length != to.length) {
-            return str
-        }
-        
-        var _str = str
-        
-        for (var i=0; i<from.length; i++) {
-            _str = _str.replace(String(from[i]), withString: String(to[i]))
-        }
-        
-        return _str
-    }
+	public func strtr(str: String, _ from: String, _ to: String) -> String {
+		if (from.length != to.length) {
+			return str
+		}
+		
+		var _str = str
+		
+		for (var i = 0; i < from.length; i++) {
+			_str = _str.replace(String(from[i]), withString: String(to[i]))
+		}
+		
+		return _str
+	}
 	/**
 	 Binary safe comparison of two strings from an offset, up to length characters (not done)
 

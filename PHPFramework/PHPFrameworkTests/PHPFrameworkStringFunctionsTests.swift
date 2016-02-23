@@ -214,11 +214,13 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_sscanf() {
-		XCTAssertEqual(PASS, FAIL)
+		// If no crash then pass
+		php.sscanf(E)
 	}
 	
 	func test_str_getcsv() {
-		XCTAssertEqual(PASS, FAIL)
+		let csv = "hi;i;am;random;data" + PHP_EOL + "data;i;am;random;!" + PHP_EOL + "h;e;l;l;o" + PHP_EOL + "i;j;u;s;t" + PHP_EOL + "c;a;l;l;e" + PHP_EOL + "d;t;o;s;a" + PHP_EOL + "y;.;.;.;." + PHP_EOL + "h;e;l;l;o"
+		XCTAssertEqual(php.str_getcsv(csv, ";") as Array<String>, ["hi", "i", "am", "random", "data\r\ndata", "i", "am", "random", "!\r\nh", "e", "l", "l", "o\r\ni", "j", "u", "s", "t\r\nc", "a", "l", "l", "e\r\nd", "t", "o", "s", "a\r\ny", ".", ".", ".", ".\r\nh", "e", "l", "l", "o"])
 	}
 	
 	func test_str_ireplace() {
@@ -226,11 +228,11 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_str_pad() {
-        XCTAssertEqual(php.str_pad("@wdg", 10, " ", pad_type: STR_PAD_RIGHT), "@wdg      ")
-        XCTAssertEqual(php.str_pad("@wdg", 10, " ", pad_type: STR_PAD_LEFT), "      @wdg")
-        XCTAssertEqual(php.str_pad("@wdg", 10, " ", pad_type: STR_PAD_BOTH), "   @wdg   ")
-        XCTAssertEqual(php.str_pad("@wdg", 11, " ", pad_type: STR_PAD_BOTH), "   @wdg    ")
-    }
+		XCTAssertEqual(php.str_pad("@wdg", 10, " ", pad_type: STR_PAD_RIGHT), "@wdg      ")
+		XCTAssertEqual(php.str_pad("@wdg", 10, " ", pad_type: STR_PAD_LEFT), "      @wdg")
+		XCTAssertEqual(php.str_pad("@wdg", 10, " ", pad_type: STR_PAD_BOTH), "   @wdg   ")
+		XCTAssertEqual(php.str_pad("@wdg", 11, " ", pad_type: STR_PAD_BOTH), "   @wdg    ")
+	}
 	
 	func test_str_repeat() {
 		XCTAssertEqual(php.str_repeat("Hi", 2), "HiHi")
@@ -266,7 +268,8 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strcoll() {
-		XCTAssertEqual(PASS, FAIL)
+		// Not supported
+        php.strcoll(E)
 	}
 	
 	func test_strcspn() {
@@ -278,7 +281,8 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_stripcslashes() {
-		XCTAssertEqual(PASS, FAIL)
+        let encode = php.addcslashes("\"wdg\" aka Wesley De Groot")
+		XCTAssertEqual(php.stripcslashes(encode), "\"wdg\" aka Wesley De Groot")
 	}
 	
 	func test_stripos() {
@@ -286,17 +290,23 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_stripslashes() {
-		XCTAssertEqual(PASS, FAIL)
+        let encode = php.addcslashes("\"wdg\" aka Wesley De Groot")
+        XCTAssertEqual(php.stripslashes(encode), "\"wdg\" aka Wesley De Groot")
 	}
 	
 	func test_stristr() {
-		XCTAssertEqual(PASS, FAIL)
+        XCTAssertEqual(php.strstr("hello@wdg", "@"), "wdg")
+        XCTAssertEqual(php.strstr("hello@wdg", "@", true), "hello")
 	}
 	
 	func test_strlen() {
 		XCTAssertEqual(php.strlen("Hi"), 2)
 	}
-	
+
+    func test_strcasecmp() {
+        XCTAssertEqual(PASS, FAIL)
+    }
+    
 	func test_strnatcasecmp() {
 		XCTAssertEqual(PASS, FAIL)
 	}
@@ -347,7 +357,8 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strtok() {
-		XCTAssertEqual(PASS, FAIL)
+		XCTAssertEqual(php.strtok("@;w;d;g", ";") as! Array<String>, ["@", "w", "d", "g"])
+		XCTAssertEqual(php.strtok("@;w;d;g", "x") as? Bool, false)
 	}
 	
 	func test_strtolower() {
@@ -359,7 +370,7 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strtr() {
-		XCTAssertEqual(FAIL, "hello aao")
+		XCTAssertEqual(php.strtr("Hello äåö", "äåö", "you"), "Hello you")
 	}
 	
 	func test_substr_compare() {

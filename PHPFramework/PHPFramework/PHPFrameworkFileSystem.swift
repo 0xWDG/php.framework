@@ -1,11 +1,41 @@
-//
-//  PHPFrameworkFileSystem.swift
-//  PHPFramework
-//
-//  Created by Wesley de Groot on 24-01-16.
-//  Copyright © 2016 WDGWV. All rights reserved.
-//
-//  Element #8
+/**
+ _____    _    _   _____    ______                                           _
+ |  __ \  | |  | | |  __ \  |  ____|                                         | |
+ | |__) | | |__| | | |__) | | |__ _ __ __ _ _ __ ___   _____      _____  _ __| | __
+ |  ___/  |  __  | |  ___/  |  __| '__/ _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
+ | |      | |  | | | |  _   | |  | | | (_| | | | | | |  __/\ V  V / (_) | |  |   <
+ |_|      |_|  |_| |_| (_)  |_|  |_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
+ 
+ 
+ Copyright (c) 2016 Wesley de Groot (http://www.wesleydegroot.nl), WDGWV (http://www.wdgwv.com)
+ 
+ 
+ Variable prefixes:
+ PFS = PHP.Framework Shared
+ PFT = PHP.Framework Tests (internal)
+ PFI = PHP.Framework Internal
+ PFU = PHP.Framework Unspecified
+ 
+ usage:
+ php.the_php_function(and, parameters, ofcourse)
+ 
+ documentation:
+ http://wdg.github.io/php.framework/
+ 
+ wiki:
+ https://github.com/wdg/php.framework/wiki
+ 
+ questions/bugs:
+ https://github.com/wdg/php.framework/issues
+ 
+ ---------------------------------------------------
+ File:    PHPFrameworkFileSystem.swift
+ Created: 21-JAN-2016
+ Creator: Wesley de Groot | g: @wdg | t: @wesdegroot
+ Issue:   #8 (File System Functions)
+ Prefix:  PFFS
+ ---------------------------------------------------
+ */
 
 import Foundation
 
@@ -36,10 +66,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func chgrp(fh: String) -> String {
+	public func chgrp(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -49,10 +79,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func chmod(fh: String) -> String {
+	public func chmod(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -62,10 +92,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func chown(fh: String) -> String {
+	public func chown(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -75,10 +105,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func clearstatcache(fh: String) -> String {
+	public func clearstatcache(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -88,10 +118,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func copy(fh: String) -> String {
+	public func copy(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -101,10 +131,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func delete(fh: String) -> String {
+	public func delete(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -166,10 +196,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func fclose(fh: String) -> String {
+	public func fclose(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -179,10 +209,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func feof(fh: String) -> String {
+	public func feof(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -192,10 +222,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func fflush(fh: String) -> String {
+	public func fflush(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -257,10 +287,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func file_exists(fh: String) -> String {
+	public func file_exists(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -283,10 +313,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func file_put_contents(fh: String) -> String {
+	public func file_put_contents(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -426,10 +456,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func flock(fh: String) -> String {
+	public func flock(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -455,7 +485,7 @@ extension PHPFramework {
 	public func fopen(fh: String) -> String {
 		print("Not done")
 		
-		return "Not done"
+		return fh
 	}
 	
 	/**
@@ -465,10 +495,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func fpassthru(fh: String) -> String {
+	public func fpassthru(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -478,10 +508,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func fputcsv(fh: String) -> String {
+	public func fputcsv(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -491,10 +521,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func fputs(fh: String) -> String {
+	public func fputs(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -569,10 +599,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func ftruncate(fh: String) -> String {
+	public func ftruncate(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -582,10 +612,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func fwrite(fh: String) -> String {
+	public func fwrite(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -608,10 +638,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func is_dir(fh: String) -> String {
+	public func is_dir(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -621,10 +651,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func is_executable(fh: String) -> String {
+	public func is_executable(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -634,10 +664,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func is_file(fh: String) -> String {
+	public func is_file(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -647,10 +677,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func is_link(fh: String) -> String {
+	public func is_link(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -660,10 +690,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func is_readable(fh: String) -> String {
+	public func is_readable(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -673,10 +703,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func is_uploaded_file(fh: String) -> String {
+	public func is_uploaded_file(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -686,10 +716,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func is_writable(fh: String) -> String {
+	public func is_writeable(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -699,10 +729,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func is_writeable(fh: String) -> String {
+	public func iswriteable(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -712,10 +742,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func lchgrp(fh: String) -> String {
+	public func lchgrp(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -725,10 +755,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func lchown(fh: String) -> String {
+	public func lchown(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -738,10 +768,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func link(fh: String) -> String {
+	public func link(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -777,23 +807,23 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func mkdir(fh: String) -> String {
+	public func mkdir(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
-	 Moves an uploaded file to a new location (**Not done**)
+	 **Unsupported** Moves an uploaded file to a new location
 
 	 - Parameter fh: String
 
 	 - Returns: Any
 	 */
-	public func move_uploaded_file(fh: String) -> String {
+	public func move_uploaded_file(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -881,10 +911,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func readlink(fh: String) -> String {
+	public func readlink(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -894,10 +924,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func realpath_cache_get(fh: String) -> String {
+	public func realpath_cache_get(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -907,10 +937,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func realpath_cache_size(fh: String) -> String {
+	public func realpath_cache_size(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -933,10 +963,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func rename(fh: String) -> String {
+	public func rename(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -946,10 +976,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func rewind(fh: String) -> String {
+	public func rewind(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -959,23 +989,21 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func rmdir(fh: String) -> String {
+	public func rmdir(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
-	 Alias of stream_set_write_buffer (**Not done**)
+	 **Unsupported** Alias of stream_set_write_buffer
 
-	 - Parameter fh: String
+	 - Parameter fh: Any...
 
-	 - Returns: Any
+	 - Returns: false
 	 */
-	public func set_file_buffer(fh: String) -> String {
-		print("Not done")
-		
-		return "Not done"
+	public func set_file_buffer(fh: Any...) -> Bool {
+		return false
 	}
 	
 	/**
@@ -992,16 +1020,15 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Creates a symbolic link (**Not done**)
+	 **Unsupported** Creates a symbolic link
 
-	 - Parameter fh: String
+	 - Parameter fh: String = ""
+	 - Parameter f2: String = ""
 
-	 - Returns: Any
+	 - Returns: false
 	 */
-	public func symlink(fh: String) -> String {
-		print("Not done")
-		
-		return "Not done"
+	public func symlink(fh: String? = "", _ f2: String? = "") -> Bool {
+		return false
 	}
 	
 	/**
@@ -1011,10 +1038,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func tempnam(fh: String) -> String {
+	public func tempnam(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -1024,10 +1051,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func tmpfile(fh: String) -> String {
+	public func tmpfile(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -1037,10 +1064,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func touch(fh: String) -> String {
+	public func touch(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 	/**
@@ -1063,10 +1090,10 @@ extension PHPFramework {
 
 	 - Returns: Any
 	 */
-	public func unlink(fh: String) -> String {
+	public func unlink(fh: String) -> Bool {
 		print("Not done")
 		
-		return "Not done"
+		return false
 	}
 	
 }
