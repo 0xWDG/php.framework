@@ -1,0 +1,45 @@
+PHPFrameworkCredits.swift
+	public let nl: String = "\r\n"
+	public let credits: String = "\(PHPFramework(false).product) Version \(PHPFramework(false).version)" + nl + nl +
+PHPFrameworkSwiftStringExtensions.swift
+	func camelize() -> String
+	func capitalize() -> String
+	func chompLeft(prefix: String) -> String
+	func chompRight(suffix: String) -> String
+	func collapseWhitespace() -> String
+	func clean(with: String, allOf: String...) -> String
+	func count(substring: String) -> Int
+	func endsWith(suffix: String) -> Bool
+	func ensureLeft(prefix: String) -> String
+	func ensureRight(suffix: String) -> String
+	func indexOf(substring: String) -> Int?
+	func initials() -> String
+	func initialsFirstAndLast() -> String
+	func isAlpha() -> Bool
+	func isAlphaNumeric() -> Bool
+	func isEmpty() -> Bool
+	func isNumeric() -> Bool
+	func join<S : SequenceType>(elements: S) -> String
+	func latinize() -> String
+	func lines() -> [String]
+	func pad(n: Int, _ string: String = " ") -> String
+	func padLeft(n: Int, _ string: String = " ") -> String
+	func padRight(n: Int, _ string: String = " ") -> String
+	func slugify() -> String
+	func split(separator: Character) -> [String]
+	func startsWith(prefix: String) -> Bool
+	func stripPunctuation() -> String
+	func times(n: Int) -> String
+	func toFloat() -> Float?
+	func toInt() -> Int?
+	func toDouble(locale: NSLocale = NSLocale.systemLocale()) -> Double?
+	func toBool() -> Bool?
+	func toDate(format: String = "yyyy-MM-dd") -> NSDate?
+	func toDateTime(format : String = "yyyy-MM-dd HH:mm:ss") -> NSDate?
+	func trimmedLeft() -> String
+	func trimmedRight() -> String
+	func trimmed() -> String
+	public func encodeHTML() -> String
+	public func getHTMLEntities() -> [String: Character]
+PHPFrameworkStringFunctions.swift
+	public func str_pad(input: String, _ length: Int, _ pad_string: String? = " ", pad_type: Int? = STR_PAD_RIGHT) -> String
