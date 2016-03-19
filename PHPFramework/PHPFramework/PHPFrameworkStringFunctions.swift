@@ -1520,9 +1520,6 @@ extension PHPFramework {
 					// i WILL return ;)
 					return str[startPosition...endPosition]
 				} else {
-					print("\(str);;; \(start); \(length)")
-					print("Ok, Sir!")
-					print("Did i say, nevermind...")
 					// Ok we'll start at point...
 					
 					// Count down to end.

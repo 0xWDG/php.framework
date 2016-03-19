@@ -37,6 +37,7 @@ Issue:   N/A
 */
 
 import Foundation
+import CommonCrypto
 
 // if Simulator then Debugmode = on
 #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))

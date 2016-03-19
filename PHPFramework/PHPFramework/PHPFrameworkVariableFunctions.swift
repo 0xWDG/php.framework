@@ -5,29 +5,29 @@
  |  ___/  |  __  | |  ___/  |  __| '__/ _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
  | |      | |  | | | |  _   | |  | | | (_| | | | | | |  __/\ V  V / (_) | |  |   <
  |_|      |_|  |_| |_| (_)  |_|  |_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
- 
- 
+
+
  Copyright (c) 2016 Wesley de Groot (http://www.wesleydegroot.nl), WDGWV (http://www.wdgwv.com)
- 
- 
+
+
  Variable prefixes:
  PFS = PHP.Framework Shared
  PFT = PHP.Framework Tests (internal)
  PFI = PHP.Framework Internal
  PFU = PHP.Framework Unspecified
- 
+
  usage:
  php.the_php_function(and, parameters, ofcourse)
- 
+
  documentation:
  http://wdg.github.io/php.framework/
- 
+
  wiki:
  https://github.com/wdg/php.framework/wiki
- 
+
  questions/bugs:
  https://github.com/wdg/php.framework/issues
- 
+
  ---------------------------------------------------
  File:    PHPFrameworkVariableFunctions.swift
  Created: 21-JAN-2016
@@ -47,29 +47,50 @@ import Foundation
 extension PHPFramework {
 	
 	/**
-	 Get the boolean value of a variable (**not done**)
+	 Get the boolean value of a variable
 
 	 - Parameter testVar: Any Variable
 
 	 - Returns: Bool
 	 */
 	public func boolval(testVar: Any) -> Any {
-		print("Not Yet Supported")
+		var _ret: Bool
 		
-		return false
+		if (getClass(testVar) == "String") {
+			switch ((testVar as! String).lowercaseString) {
+                case "yes", "true", "ok":
+                    _ret = true
+				break;
+			
+                default:
+                    _ret = false
+				break;
+			}
+		}
+        else if(getClass(testVar) == "Int") {
+            if (testVar as! Int == 1) {
+                _ret = true
+            }
+            else {
+                _ret = false
+            }
+        }
+        else {
+            _ret = false
+        }
+		
+        return _ret
 	}
 	
 	/**
-	 Dumps a string representation of an internal zend value to output (**not done**)
+	 **Not supported** Dumps a string representation of an internal zend value to output
 
 	 - Parameter testVar: Any Variable
 
 	 - Returns: Bool
 	 */
-	public func debug_zval_dump(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
+	public func debug_zval_dump(testVar: Any) -> Void {
+		print(testVar)
 	}
 	
 	/**
@@ -80,22 +101,26 @@ extension PHPFramework {
 	 - Returns: Bool
 	 */
 	public func doubleval(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
+		return floatval(testVar)
 	}
 	
 	/**
-	 Determine whether a variable is empty (**not done**)
+	 Determine whether a variable is empty
 
 	 - Parameter testVar: Any Variable
 
 	 - Returns: Bool
 	 */
 	public func empty(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
+        if (getClass(testVar) == "String") {
+            if (testVar as! String == "") {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
 	}
 	
 	/**
@@ -112,56 +137,41 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Returns an array of all defined variables (**not done**)
+	 Returns an array of all defined variables
 
-	 - Parameter testVar: Any Variable
-
-	 - Returns: Bool
+	 - Returns: PHPAllConstants: Dictionary<String, Any>
 	 */
-	public func get_defined_vars(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
+	public func get_defined_vars() -> Dictionary<String, Any> {
+		return PHPAllConstants
 	}
 	
 	/**
-	 Returns the resource type (**not done**)
+	 Returns the resource type
 
 	 - Parameter testVar: Any Variable
 
-	 - Returns: Bool
+	 - Returns: String the resource type
 	 */
-	public func get_resource_type(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
+	public func get_resource_type(testVar: Any) -> String {
+		return getClass(testVar)
 	}
 	
 	/**
-	 Get the type of a variable (**not done**)
+	 Get the type of a variable
 
 	 - Parameter testVar: Any Variable
 
 	 - Returns: Bool
 	 */
-	public func gettype(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
+	public func gettype(testVar: Any) -> String {
+        return getClass(testVar)
 	}
 	
 	/**
-	 Import GET/POST/Cookie variables into the global scope (**not done**)
-
+	 **NOT SUPPORTED** Import GET/POST/Cookie variables into the global scope
 	 - Parameter testVar: Any Variable
-
-	 - Returns: Bool
 	 */
-	public func import_request_variables(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
-	}
+    public func import_request_variables(testVar: Any) -> Void {}
 	
 	/**
 	 Get the integer value of a variable (**not done**)
@@ -177,31 +187,25 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Finds whether a variable is an array (**not done**)
+	 Finds whether a variable is an array
 
 	 - Parameter testVar: Any Variable
 
 	 - Returns: Bool
 	 */
-	public func is_array(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
+	public func is_array(testVar: Any) -> Bool {
+		return (getClass(testVar) == "Array") ? true : false
 	}
 	
 	/**
-	 Finds out whether a variable is a boolean (**not done**)
+	 Finds out whether a variable is a boolean
 
 	 - Parameter testVar: Any Variable
 
 	 - Returns: Bool
 	 */
-	public func is_bool(testVar: AnyObject) -> Any {
-		print("Not Yet Supported")
-		if testVar as! NSObject == true {
-			
-		}
-		return false
+	public func is_bool(testVar: AnyObject) -> Bool {
+		return (getClass(testVar) == "Bool") ? true : false
 	}
 	
 	/**
@@ -211,127 +215,115 @@ extension PHPFramework {
 
 	 - Returns: Bool
 	 */
-	public func is_callable(testVar: Any) -> Any {
+	public func is_callable(testVar: Any) -> Bool {
 		print("Not Yet Supported")
 		
 		return false
 	}
 	
 	/**
-	 Alias of is_float (**not done**)
+	 Alias of is_float
 
 	 - Parameter testVar: Any Variable
 
 	 - Returns: Bool
 	 */
-	public func is_double(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
+	public func is_double(testVar: Any) -> Bool {
+		return is_float(testVar)
+	}
+	
+	/**
+	 Finds whether the type of a variable is float
+
+	 - Parameter testVar: Any Variable
+
+	 - Returns: Bool
+	 */
+	public func is_float(testVar: Any) -> Bool {
+		return (getClass(testVar) == "Double") ? true : false
+	}
+	
+	/**
+	 Find whether the type of a variable is integer
+
+	 - Parameter testVar: Any Variable
+
+	 - Returns: Bool
+	 */
+	public func is_int(testVar: Any) -> Bool {
+		return (getClass(testVar) == "Int") ? true : false
+	}
+	
+	/**
+	 Alias of is_int
+
+	 - Parameter testVar: Any Variable
+
+	 - Returns: Bool
+	 */
+	public func is_integer(testVar: Any) -> Bool {
+		return is_int(testVar)
+	}
+	
+	/**
+	 Alias of is_int
+
+	 - Parameter testVar: Any Variable
+
+	 - Returns: Bool
+	 */
+	public func is_long(testVar: Any) -> Bool {
+		return is_int(testVar)
+	}
+	
+	/**
+	 Finds whether a variable is NULL
+
+	 - Parameter testVar: Any Variable
+
+	 - Returns: Bool
+	 */
+	public func is_null(testVar: Any?) -> Bool {
+        return (testVar == nil || String(testVar) == NULL) ? true :false
+	}
+	
+	/**
+	 Finds whether a variable is a number or a numeric string
+
+	 - Parameter testVar: Any Variable
+
+	 - Returns: Bool
+	 */
+	public func is_numeric(testVar: Any) -> Bool {
+        let num = String(testVar).toInt()
+        if (num != nil) {
+            return true
+        }
+        else {
+            return false
+        }
+	}
+	
+	/**
+	 Finds whether a variable is an object
+
+	 - Parameter testVar: Any Variable
+
+	 - Returns: Bool
+	 */
+	public func is_object(testVar: Any) -> Bool {
 		return false
 	}
 	
 	/**
-	 Finds whether the type of a variable is float (**not done**)
+	 Alias of is_float
 
 	 - Parameter testVar: Any Variable
 
 	 - Returns: Bool
 	 */
-	public func is_float(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
-	}
-	
-	/**
-	 Find whether the type of a variable is integer (**not done**)
-
-	 - Parameter testVar: Any Variable
-
-	 - Returns: Bool
-	 */
-	public func is_int(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
-	}
-	
-	/**
-	 Alias of is_int (**not done**)
-
-	 - Parameter testVar: Any Variable
-
-	 - Returns: Bool
-	 */
-	public func is_integer(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
-	}
-	
-	/**
-	 Alias of is_int (**not done**)
-
-	 - Parameter testVar: Any Variable
-
-	 - Returns: Bool
-	 */
-	public func is_long(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
-	}
-	
-	/**
-	 Finds whether a variable is NULL (**not done**)
-
-	 - Parameter testVar: Any Variable
-
-	 - Returns: Bool
-	 */
-	public func is_null(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
-	}
-	
-	/**
-	 Finds whether a variable is a number or a numeric string (**not done**)
-
-	 - Parameter testVar: Any Variable
-
-	 - Returns: Bool
-	 */
-	public func is_numeric(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
-	}
-	
-	/**
-	 Finds whether a variable is an object (**not done**)
-
-	 - Parameter testVar: Any Variable
-
-	 - Returns: Bool
-	 */
-	public func is_object(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
-	}
-	
-	/**
-	 Alias of is_float (**not done**)
-
-	 - Parameter testVar: Any Variable
-
-	 - Returns: Bool
-	 */
-	public func is_real(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
+	public func is_real(testVar: Any) -> Bool {
+		return self.is_float(testVar)
 	}
 	
 	/**
@@ -341,7 +333,7 @@ extension PHPFramework {
 
 	 - Returns: false (*not supported*)
 	 */
-	public func is_resource(testVar: Any) -> Any {
+	public func is_resource(testVar: Any) -> Bool {
 		return false
 	}
 	
@@ -352,36 +344,32 @@ extension PHPFramework {
 
 	 - Returns: Bool
 	 */
-	public func is_scalar(testVar: Any) -> Any {
+	public func is_scalar(testVar: Any) -> Bool {
 		print("Not Yet Supported")
 		
 		return false
 	}
 	
 	/**
-	 Find whether the type of a variable is string (**not done**)
+	 Find whether the type of a variable is string
 
 	 - Parameter testVar: Any Variable
 
 	 - Returns: Bool
 	 */
-	public func is_string(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
+	public func is_string(testVar: Any) -> Bool {
+        return (!self.is_null(testVar) && !self.is_int(testVar)) ? true : false
 	}
 	
 	/**
-	 Determine if a variable is set and is not NULL (**not done**)
+	 Determine if a variable is set and is not NULL
 
 	 - Parameter testVar: Any Variable
 
 	 - Returns: Bool
 	 */
-	public func isset(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
+	public func isset(testVar: Any) -> Bool {
+		return self.is_null(testVar)
 	}
 	
 	/**

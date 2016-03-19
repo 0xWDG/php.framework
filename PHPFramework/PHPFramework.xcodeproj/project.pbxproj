@@ -17,11 +17,13 @@
 		6E3469171C517257000A526B /* crc32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3469151C517257000A526B /* crc32.swift */; };
 		6E3469191C518081000A526B /* PHPFrameworkArrayFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3469181C518081000A526B /* PHPFrameworkArrayFunctions.swift */; };
 		6E34691C1C5182FE000A526B /* PHPFrameworkVariableFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34691B1C5182FE000A526B /* PHPFrameworkVariableFunctions.swift */; };
+		6E3FF2491C837A7F00623778 /* md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3FF2481C837A7F00623778 /* md5.swift */; };
 		6E413B901C4C27BC003C7951 /* PHPFrameworkPHPConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E413B8F1C4C27BC003C7951 /* PHPFrameworkPHPConstants.swift */; };
 		6E41BD5C1C6F84D40092075A /* PHPFrameworkCreditsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E41BD5B1C6F84D40092075A /* PHPFrameworkCreditsTests.swift */; };
 		6E41BD5F1C6F870D0092075A /* PHPFrameworkDirectoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E41BD5D1C6F870D0092075A /* PHPFrameworkDirectoryTests.swift */; };
 		6E41BD611C6F88BE0092075A /* PHPFrameworkPHPBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E41BD601C6F88BE0092075A /* PHPFrameworkPHPBaseTests.swift */; };
 		6E41BD631C6F966A0092075A /* PHPFrameworkStringFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E41BD621C6F966A0092075A /* PHPFrameworkStringFunctionsTests.swift */; };
+		6E5BD2BB1C84C83700EA55AF /* PHPFrameworkSwiftIntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5BD2BA1C84C83700EA55AF /* PHPFrameworkSwiftIntExtensions.swift */; };
 		6E611B151C4EE6A00053CAFF /* phpswift.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E611B141C4EE6A00053CAFF /* phpswift.png */; };
 		6E611B161C4EE6A00053CAFF /* phpswift.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E611B141C4EE6A00053CAFF /* phpswift.png */; };
 		6E611B181C4EE8810053CAFF /* PHPFrameworkPHPConstantsDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E611B171C4EE8810053CAFF /* PHPFrameworkPHPConstantsDictionary.swift */; };
@@ -33,6 +35,10 @@
 		6E9B752A1C76467B0013200F /* ROT13.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9B75291C76467B0013200F /* ROT13.swift */; };
 		6E9B75381C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9B75371C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift */; };
 		6E9B75391C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9B75371C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift */; };
+		6EC81D781C870BC100FA57D5 /* uucoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC81D771C870BC100FA57D5 /* uucoding.swift */; };
+		6EC81D7F1C87100900FA57D5 /* SwiftGetHumanType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC81D7E1C87100900FA57D5 /* SwiftGetHumanType.swift */; };
+		6EC81D801C87100900FA57D5 /* SwiftGetHumanType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC81D7E1C87100900FA57D5 /* SwiftGetHumanType.swift */; };
+		6EC81D831C87126800FA57D5 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC81D821C87126800FA57D5 /* File.swift */; };
 		6EDC23DA1C7CFC34005977FE /* PHPFrameworkFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC23D91C7CFC34005977FE /* PHPFrameworkFileSystem.swift */; };
 		6EE823C21C4C2AF2003F7361 /* PHPFrameworkSwiftStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE823C11C4C2AF2003F7361 /* PHPFrameworkSwiftStringExtensions.swift */; };
 		6EE8F8621C73C9A300DD357A /* levenshtein.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8F8611C73C9A300DD357A /* levenshtein.swift */; };
@@ -93,11 +99,13 @@
 		6E3469151C517257000A526B /* crc32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = crc32.swift; path = PHPFramework/Specials/crc32.swift; sourceTree = "<group>"; };
 		6E3469181C518081000A526B /* PHPFrameworkArrayFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHPFrameworkArrayFunctions.swift; path = PHPFramework/PHPFrameworkArrayFunctions.swift; sourceTree = "<group>"; };
 		6E34691B1C5182FE000A526B /* PHPFrameworkVariableFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHPFrameworkVariableFunctions.swift; path = PHPFramework/PHPFrameworkVariableFunctions.swift; sourceTree = "<group>"; };
+		6E3FF2481C837A7F00623778 /* md5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = md5.swift; path = PHPFramework/Specials/md5.swift; sourceTree = "<group>"; };
 		6E413B8F1C4C27BC003C7951 /* PHPFrameworkPHPConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHPFrameworkPHPConstants.swift; path = PHPFramework/PHPFrameworkPHPConstants.swift; sourceTree = "<group>"; };
 		6E41BD5B1C6F84D40092075A /* PHPFrameworkCreditsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHPFrameworkCreditsTests.swift; sourceTree = "<group>"; };
 		6E41BD5D1C6F870D0092075A /* PHPFrameworkDirectoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHPFrameworkDirectoryTests.swift; sourceTree = "<group>"; };
 		6E41BD601C6F88BE0092075A /* PHPFrameworkPHPBaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHPFrameworkPHPBaseTests.swift; sourceTree = "<group>"; };
 		6E41BD621C6F966A0092075A /* PHPFrameworkStringFunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHPFrameworkStringFunctionsTests.swift; sourceTree = "<group>"; };
+		6E5BD2BA1C84C83700EA55AF /* PHPFrameworkSwiftIntExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHPFrameworkSwiftIntExtensions.swift; path = PHPFramework/PHPFrameworkSwiftIntExtensions.swift; sourceTree = "<group>"; };
 		6E611B141C4EE6A00053CAFF /* phpswift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = phpswift.png; path = PHPFramework/Assets/phpswift.png; sourceTree = "<group>"; };
 		6E611B171C4EE8810053CAFF /* PHPFrameworkPHPConstantsDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHPFrameworkPHPConstantsDictionary.swift; path = PHPFramework/PHPFrameworkPHPConstantsDictionary.swift; sourceTree = "<group>"; };
 		6E7DE67D1C498A6B002574EA /* PHPFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PHPFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +118,9 @@
 		6E9375B31C6FAD6D00A3E112 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = External/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
 		6E9B75291C76467B0013200F /* ROT13.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ROT13.swift; path = PHPFramework/Specials/ROT13.swift; sourceTree = "<group>"; };
 		6E9B75371C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHPFrameworkSwiftArrayExtensions.swift; path = PHPFramework/Specials/PHPFrameworkSwiftArrayExtensions.swift; sourceTree = "<group>"; };
+		6EC81D771C870BC100FA57D5 /* uucoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = uucoding.swift; path = PHPFramework/Specials/uucoding.swift; sourceTree = "<group>"; };
+		6EC81D7E1C87100900FA57D5 /* SwiftGetHumanType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftGetHumanType.swift; path = PHPFramework/Specials/SwiftGetHumanType.swift; sourceTree = "<group>"; };
+		6EC81D821C87126800FA57D5 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = File.swift; path = Specials/File.swift; sourceTree = "<group>"; };
 		6EDC23D91C7CFC34005977FE /* PHPFrameworkFileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHPFrameworkFileSystem.swift; sourceTree = "<group>"; };
 		6EE823C11C4C2AF2003F7361 /* PHPFrameworkSwiftStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHPFrameworkSwiftStringExtensions.swift; path = PHPFramework/PHPFrameworkSwiftStringExtensions.swift; sourceTree = "<group>"; };
 		6EE8F8611C73C9A300DD357A /* levenshtein.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = levenshtein.swift; path = PHPFramework/Specials/levenshtein.swift; sourceTree = "<group>"; };
@@ -143,6 +154,10 @@
 				6E9B75291C76467B0013200F /* ROT13.swift */,
 				6EE823C11C4C2AF2003F7361 /* PHPFrameworkSwiftStringExtensions.swift */,
 				6E9B75371C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift */,
+				6E5BD2BA1C84C83700EA55AF /* PHPFrameworkSwiftIntExtensions.swift */,
+				6E3FF2481C837A7F00623778 /* md5.swift */,
+				6EC81D771C870BC100FA57D5 /* uucoding.swift */,
+				6EC81D7E1C87100900FA57D5 /* SwiftGetHumanType.swift */,
 			);
 			name = Specials;
 			sourceTree = "<group>";
@@ -179,6 +194,7 @@
 		6E7DE68B1C498A6B002574EA /* PHPFrameworkTests iOS */ = {
 			isa = PBXGroup;
 			children = (
+				6EC81D811C87125000FA57D5 /* Specials */,
 				6E7DE68C1C498A6B002574EA /* PHPFrameworkTests.swift */,
 				6E41BD5B1C6F84D40092075A /* PHPFrameworkCreditsTests.swift */,
 				6E41BD5D1C6F870D0092075A /* PHPFrameworkDirectoryTests.swift */,
@@ -222,6 +238,14 @@
 				6E9375C41C6FAD6D00A3E112 /* CryptoSwiftTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6EC81D811C87125000FA57D5 /* Specials */ = {
+			isa = PBXGroup;
+			children = (
+				6EC81D821C87126800FA57D5 /* File.swift */,
+			);
+			name = Specials;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,14 +408,18 @@
 				6E9B75381C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift in Sources */,
 				6E34691C1C5182FE000A526B /* PHPFrameworkVariableFunctions.swift in Sources */,
 				6E3469191C518081000A526B /* PHPFrameworkArrayFunctions.swift in Sources */,
+				6EC81D7F1C87100900FA57D5 /* SwiftGetHumanType.swift in Sources */,
 				6E3469161C517257000A526B /* crc32.swift in Sources */,
 				6E3056451C556640002E1115 /* PHPFrameworkFileSystem.swift in Sources */,
 				6EE8F8621C73C9A300DD357A /* levenshtein.swift in Sources */,
+				6E5BD2BB1C84C83700EA55AF /* PHPFrameworkSwiftIntExtensions.swift in Sources */,
 				6E9B752A1C76467B0013200F /* ROT13.swift in Sources */,
+				6E3FF2491C837A7F00623778 /* md5.swift in Sources */,
 				6EE823C21C4C2AF2003F7361 /* PHPFrameworkSwiftStringExtensions.swift in Sources */,
 				6E0D4FB51C4999BD005C64E7 /* PHPFrameworkStringFunctions.swift in Sources */,
 				6E0D4FB71C499E88005C64E7 /* PHPFrameworkPHPBase.swift in Sources */,
 				6E3056421C556514002E1115 /* PHPFrameworkDirectory.swift in Sources */,
+				6EC81D781C870BC100FA57D5 /* uucoding.swift in Sources */,
 				6E7DE6981C498A7A002574EA /* PHPFramework.swift in Sources */,
 				6E30563F1C5563AF002E1115 /* PHPFrameworkDateTime.swift in Sources */,
 			);
@@ -406,8 +434,10 @@
 				6EDC23DA1C7CFC34005977FE /* PHPFrameworkFileSystem.swift in Sources */,
 				6E9B75391C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift in Sources */,
 				6E41BD631C6F966A0092075A /* PHPFrameworkStringFunctionsTests.swift in Sources */,
+				6EC81D831C87126800FA57D5 /* File.swift in Sources */,
 				6E41BD5F1C6F870D0092075A /* PHPFrameworkDirectoryTests.swift in Sources */,
 				6E41BD611C6F88BE0092075A /* PHPFrameworkPHPBaseTests.swift in Sources */,
+				6EC81D801C87100900FA57D5 /* SwiftGetHumanType.swift in Sources */,
 				6E3469171C517257000A526B /* crc32.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,7 +472,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2016.02.23;
+				CURRENT_PROJECT_VERSION = 2016.03.02;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -490,7 +520,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2016.02.23;
+				CURRENT_PROJECT_VERSION = 2016.03.02;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -518,7 +548,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 2016.02.23;
+				DYLIB_CURRENT_VERSION = 2016.03.02;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = PHPFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -526,6 +556,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wdgwv.PHPFramework;
 				PRODUCT_NAME = PHPFramework;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/PHPFramework/CommonCrypto\"";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -536,7 +567,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 2016.02.23;
+				DYLIB_CURRENT_VERSION = 2016.03.02;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = PHPFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -544,6 +575,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wdgwv.PHPFramework;
 				PRODUCT_NAME = PHPFramework;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/PHPFramework/CommonCrypto\"";
 			};
 			name = Release;
 		};

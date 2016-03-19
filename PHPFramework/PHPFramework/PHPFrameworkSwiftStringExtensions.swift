@@ -5,29 +5,29 @@
  |  ___/  |  __  | |  ___/  |  __| '__/ _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
  | |      | |  | | | |  _   | |  | | | (_| | | | | | |  __/\ V  V / (_) | |  |   <
  |_|      |_|  |_| |_| (_)  |_|  |_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
- 
- 
+
+
  Copyright (c) 2016 Wesley de Groot (http://www.wesleydegroot.nl), WDGWV (http://www.wdgwv.com)
- 
- 
+
+
  Variable prefixes:
  PFS = PHP.Framework Shared
  PFT = PHP.Framework Tests (internal)
  PFI = PHP.Framework Internal
  PFU = PHP.Framework Unspecified
- 
+
  usage:
  php.the_php_function(and, parameters, ofcourse)
- 
+
  documentation:
  http://wdg.github.io/php.framework/
- 
+
  wiki:
  https://github.com/wdg/php.framework/wiki
- 
+
  questions/bugs:
  https://github.com/wdg/php.framework/issues
- 
+
  ---------------------------------------------------
  File:    PHPFrameworkSwiftStringExtensions.swift
  Created: 18-FEB-2016
@@ -599,6 +599,11 @@ public extension String {
 		return nil
 	}
 	
+	/**
+	 Convert anything to bool...
+
+	 - Returns: Bool
+	 */
 	func toBool() -> Bool? {
 		let trimmed = self.trimmed().lowercaseString
 		if trimmed == "true" || trimmed == "false" {
@@ -617,6 +622,11 @@ public extension String {
 		return toDate(format)
 	}
 	
+	/**
+	 trimmedLeft
+
+	 - Returns: Left trimmed string
+	 */
 	func trimmedLeft() -> String {
 		if let range = rangeOfCharacterFromSet(NSCharacterSet.whitespaceAndNewlineCharacterSet().invertedSet) {
 			return self[range.startIndex..<endIndex]
@@ -625,6 +635,11 @@ public extension String {
 		return self
 	}
 	
+	/**
+	 trimmedRight
+
+	 - Returns: Right trimmed string
+	 */
 	func trimmedRight() -> String {
 		if let range = rangeOfCharacterFromSet(NSCharacterSet.whitespaceAndNewlineCharacterSet().invertedSet, options: NSStringCompareOptions.BackwardsSearch) {
 			return self[startIndex..<range.endIndex]
@@ -633,29 +648,45 @@ public extension String {
 		return self
 	}
 	
+	/**
+	 trimmed
+
+	 - Returns: Left & Right trimmed.
+	 */
 	func trimmed() -> String {
 		return trimmedLeft().trimmedRight()
 	}
 	
-	// Convert the number in the string to the corresponding
-	// Unicode character, e.g.
-	// decodeNumeric("64", 10)   --> "@"
-	// decodeNumeric("20ac", 16) --> "€"
+	/**
+	 Convert the number in the string to the corresponding\
+	 Unicode character, e.g.\
+	 <pre>
+	 decodeNumeric("64", 10)   --> "@"
+	 decodeNumeric("20ac", 16) --> "€"
+	 </pre>
+
+	 - Parameter string
+	 - Parameter base
+	 - Returns: Character
+	 */
 	private func decodeNumeric(string : String, base : Int32) -> Character? {
 		let code = UInt32(strtoul(string, nil, base))
 		return Character(UnicodeScalar(code))
 	}
 	
 	/**
-    Decode the HTML character entity to the corresponding\
-	Unicode character, return `nil` for invalid input.\
-	<pre>
-    decode("&amp;#64;")    --> "@"
-	decode("&amp;#x20ac;") --> "€"
-	decode("&amp;lt;")     --> "<"
-    decode("&amp;foo;")    --> nil
-    </pre>
-    */
+	 Decode the HTML character entity to the corresponding\
+	 Unicode character, return `nil` for invalid input.\
+	 <pre>
+	 decode("&amp;#64;")    --> "@"
+	 decode("&amp;#x20ac;") --> "€"
+	 decode("&amp;lt;")     --> "<"
+	 decode("&amp;foo;")    --> nil
+	 </pre>
+
+	 - Parameter entity: The entities
+	 - Returns: Character
+	 */
 	private func decode(entity : String) -> Character? {
 		if entity.hasPrefix("&#x") || entity.hasPrefix("&#X") {
 			return decodeNumeric(entity.substringFromIndex(entity.startIndex.advancedBy(3)), base: 16)
@@ -666,10 +697,11 @@ public extension String {
 		}
 	}
 	
-	
 	/**
-    Returns a new string made by replacing in the `String` all HTML character entity references with the corresponding character.
-    */
+	 Returns a new string made by replacing in the `String` all HTML character entity references with the corresponding character.
+
+	 - Returns: the decoded HTML
+	 */
 	func decodeHTML() -> String {
 		var result = ""
 		var position = startIndex
@@ -700,30 +732,161 @@ public extension String {
 		result.appendContentsOf(self[position..<endIndex])
 		return result
 	}
-    
-    public func encodeHTML() -> String {
-        // Ok, this feels weird.
-        var _tempString = self
-        
-        // First do the amperstand, otherwise it will ruin everything.
-        _tempString.replace("&", withString: "&amp;")
-        
-        // Loop trough the HTMLEntities.
-        for (index, value) in HTMLEntities.characterEntities {
-            // Ignore the "&".
-            if (String(value) != "&") {
-                // Replace val, with index.
-                _tempString = _tempString.replace(String(value), withString: index)
-            }
-        }
-        
-        // return and be happy
-        return _tempString
-    }
-    
-    public func getHTMLEntities() -> [String: Character] {
-        // PHP, Shame on you. but here you'll go.
-        return HTMLEntities.characterEntities
-    }
-}
+	
+	/**
+	 Encode the HTML
 
+	 - Returns: the encoded HTML
+	 */
+	public func encodeHTML() -> String {
+		// Ok, this feels weird.
+		var _tempString = self
+		
+		// First do the amperstand, otherwise it will ruin everything.
+		_tempString.replace("&", withString: "&amp;")
+		
+		// Loop trough the HTMLEntities.
+		for (index, value) in HTMLEntities.characterEntities {
+			// Ignore the "&".
+			if (String(value) != "&") {
+				// Replace val, with index.
+				_tempString = _tempString.replace(String(value), withString: index)
+			}
+		}
+		
+		// return and be happy
+		return _tempString
+	}
+	
+	/**
+	 getHTMLEntities
+
+	 - Returns: the HTMLEntities.
+	 */
+	public func getHTMLEntities() -> [String: Character] {
+		// PHP, Shame on you. but here you'll go.
+		return HTMLEntities.characterEntities
+	}
+	
+	/**
+	 Charcode for the character at index x
+
+	 - Parameter Char: the character index
+
+	 - Returns: charcode (int)
+	 */
+	func charCodeAt(Char: Int) -> Int {
+		// ok search for the character...
+		
+		if (self.length > Char) {
+			let character = String(self.characterAtIndex(Char))
+			return Int(String(character.unicodeScalars.first!.value))!
+		} else {
+			return 0
+		}
+	}
+	
+	/**
+	 Substring a string.
+
+	 - Parameter start: the start
+	 - Parameter length: the length
+
+	 - Returns: the substring
+	 */
+	func substr(start: Int, _ length: Int = 0) -> String {
+		let str = self
+		if (length == 0) {
+			// We'll only have a 'start' position
+			
+			if (start < 1) {
+				// Count down to end.
+				let startPosition: Int = (str.characters.count + start)
+				return str[startPosition...str.characters.count]
+			} else {
+				// Ok we'll start at point...
+				return str[start...str.characters.count]
+			}
+		} else {
+			// Ok, this could be fun, but we can also..
+			// Nevermind.
+			// We'll need to handle the length...
+			
+			if (length > 0) {
+				if (start < 1) {
+					// We'll know this trick!
+					let startPosition: Int = (str.characters.count + start)
+					
+					// Will be postitive in the end. (hopefully :P)
+					// Ok, this is amazing! let me explain
+					// String Count - (String count - -Start Point) + length
+					// ^^^ -- is + (Since Start Point is a negative number)
+					// String Count - Start point + length
+					var endPosition: Int = ((str.characters.count - (str.characters.count + start)) + length)
+					
+					// If the endposition > the string, just string length.
+					if (endPosition > str.characters.count) {
+						endPosition = str.characters.count
+					}
+					
+					// i WILL return ;)
+					return str[startPosition...endPosition]
+				} else {
+					// We'll know this trick!
+					let startPosition: Int = start
+					
+					// Will be postitive in the end. (hopefully :P)
+					var endPosition: Int = ((str.characters.count - start) + length)
+					
+					// If the endposition > the string, just string length.
+					if (endPosition > str.characters.count) {
+						endPosition = str.characters.count
+					}
+					
+					// i WILL return ;)
+					return str[startPosition...endPosition]
+				}
+			} else {
+				// End tries to be funny.
+				// so fix that.
+				// Length (end = negative)
+				
+				if (start < 1) {
+					// But, Wait. Start is also negative?!
+					
+					// Count down to end.
+					let startPosition: Int = (str.characters.count + start)
+					
+					// We'll doing some magic here again, please, i don't explain this one also! (HAHA)
+					var endPosition: Int = (str.characters.count - ((str.characters.count + start) + (length + 1)))
+					
+					// If the endposition > the string, just string length.
+					if (endPosition > str.characters.count) {
+						endPosition = str.characters.count
+					}
+					
+					// i WILL return ;)
+					return str[startPosition...endPosition]
+				} else {
+					// Ok we'll start at point...
+					
+					// Count down to end.
+					let startPosition: Int = (str.characters.count - start)
+					
+					// We'll doing some magic here again, please, i don't explain this one also! (HAHA)
+					var endPosition: Int = (str.characters.count - ((str.characters.count - start) + (length + 1)))
+					
+					// If the endposition > the string, just string length.
+					if (endPosition > str.characters.count) {
+						endPosition = str.characters.count
+					}
+					
+					// i WILL return ;)
+					return str[startPosition...endPosition]
+				}
+			}
+			// we'll having fun now!
+		}
+		// And it's done.
+	}
+}

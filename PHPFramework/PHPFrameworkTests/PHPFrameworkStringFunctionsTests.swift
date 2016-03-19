@@ -136,6 +136,8 @@ extension PHPFrameworkTests {
 	
 	func test_md5() {
 		XCTAssertEqual(php.md5("hi"), "49f68a5c8493ec2c0bf489821c21fc3b")
+		XCTAssertEqual(md5("hi"), "49f68a5c8493ec2c0bf489821c21fc3b")
+		XCTAssertEqual("hi".md5, "49f68a5c8493ec2c0bf489821c21fc3b")
 	}
 	
 	func test_metaphone() {
