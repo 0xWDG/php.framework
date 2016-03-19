@@ -94,13 +94,13 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Alias of floatval (**not done**)
+	 Alias of floatval
 
 	 - Parameter testVar: Any Variable
 
 	 - Returns: Bool
 	 */
-	public func doubleval(testVar: Any) -> Any {
+	public func doubleval(testVar: Any) -> Int {
 		return floatval(testVar)
 	}
 	
@@ -124,16 +124,15 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Get float value of a variable (**not done**)
+	 Get float value of a variable\
+     *alias of intval*
 
 	 - Parameter testVar: Any Variable
 
 	 - Returns: Bool
 	 */
-	public func floatval(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
+	public func floatval(testVar: Any) -> Int {
+		return self.intval(testVar)
 	}
 	
 	/**
