@@ -174,16 +174,20 @@ extension PHPFramework {
     public func import_request_variables(testVar: Any) -> Void {}
 	
 	/**
-	 Get the integer value of a variable (**not done**)
+	 Get the integer value of a variable
 
 	 - Parameter testVar: Any Variable
 
-	 - Returns: Bool
+	 - Returns: Int
 	 */
-	public func intval(testVar: Any) -> Any {
-		print("Not Yet Supported")
-		
-		return false
+	public func intval(testVar: Any) -> Int {
+        let num = String(testVar).toInt()
+        if (num != nil) {
+            return num!
+        }
+        else {
+            return 0
+        }
 	}
 	
 	/**
