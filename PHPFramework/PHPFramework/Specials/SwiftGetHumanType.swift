@@ -5,6 +5,7 @@
 //  Created by Wesley de Groot on 02-03-16.
 //  Copyright © 2016 WDGWV. All rights reserved.
 //
+// https://gist.github.com/wdg/5cf0f2187c7d31a931b7
 
 import Foundation
 
@@ -20,6 +21,10 @@ func getHumanClassname(Ob: Any) -> String {
 		_ret = "Bool"
 		break
 	
+	case "Double":
+		_ret = "Double"
+		break
+	
 	case "_SwiftDeferredNSArray", "Array<String>", "Array<Int>":
 		_ret = "Array"
 		break
@@ -32,9 +37,13 @@ func getHumanClassname(Ob: Any) -> String {
 		_ret = "Dictionary"
 		break
 	
+	case "protocol<>", "protocol<> -> Bool":
+		_ret = "Protocol"
+		break
+	
 	default:
-        print("Did'nt found type!, please report it to: https://gist.github.com/wdg/5cf0f2187c7d31a931b7")
-        print("Found: \(String(Ob.dynamicType))")
+		print("Did'nt found type!, please report it to: https://gist.github.com/wdg/5cf0f2187c7d31a931b7")
+		print("Found: \(String(Ob.dynamicType))")
 		_ret = "\(String(Ob.dynamicType))"
 		break
 	}

@@ -58,28 +58,28 @@ extension PHPFramework {
 		
 		if (getClass(testVar) == "String") {
 			switch ((testVar as! String).lowercaseString) {
-                case "yes", "true", "ok":
-                    _ret = true
+			case "yes", "true", "ok":
+				_ret = true
 				break;
 			
-                default:
-                    _ret = false
+			default:
+				_ret = false
 				break;
 			}
 		}
-        else if(getClass(testVar) == "Int") {
-            if (testVar as! Int == 1) {
-                _ret = true
-            }
-            else {
-                _ret = false
-            }
-        }
-        else {
-            _ret = false
-        }
+		else if (getClass(testVar) == "Int") {
+			if (testVar as! Int == 1) {
+				_ret = true
+			}
+			else {
+				_ret = false
+			}
+		}
+		else {
+			_ret = false
+		}
 		
-        return _ret
+		return _ret
 	}
 	
 	/**
@@ -112,20 +112,20 @@ extension PHPFramework {
 	 - Returns: Bool
 	 */
 	public func empty(testVar: Any) -> Any {
-        if (getClass(testVar) == "String") {
-            if (testVar as! String == "") {
-                return true
-            } else {
-                return false
-            }
-        } else {
-            return false
-        }
+		if (getClass(testVar) == "String") {
+			if (testVar as! String == "") {
+				return true
+			} else {
+				return false
+			}
+		} else {
+			return false
+		}
 	}
 	
 	/**
 	 Get float value of a variable\
-     *alias of intval*
+	 *alias of intval*
 
 	 - Parameter testVar: Any Variable
 
@@ -163,14 +163,14 @@ extension PHPFramework {
 	 - Returns: Bool
 	 */
 	public func gettype(testVar: Any) -> String {
-        return getClass(testVar)
+		return getClass(testVar)
 	}
 	
 	/**
 	 **NOT SUPPORTED** Import GET/POST/Cookie variables into the global scope
 	 - Parameter testVar: Any Variable
 	 */
-    public func import_request_variables(testVar: Any) -> Void {}
+	public func import_request_variables(testVar: Any) -> Void {}
 	
 	/**
 	 Get the integer value of a variable
@@ -180,13 +180,13 @@ extension PHPFramework {
 	 - Returns: Int
 	 */
 	public func intval(testVar: Any) -> Int {
-        let num = String(testVar).toInt()
-        if (num != nil) {
-            return num!
-        }
-        else {
-            return 0
-        }
+		let num = String(testVar).toInt()
+		if (num != nil) {
+			return num!
+		}
+		else {
+			return 0
+		}
 	}
 	
 	/**
@@ -212,15 +212,13 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Verify that the contents of a variable can be called as a function (**not done**)
+	 **Not supported** Verify that the contents of a variable can be called as a function
 
 	 - Parameter testVar: Any Variable
 
 	 - Returns: Bool
 	 */
 	public func is_callable(testVar: Any) -> Bool {
-		print("Not Yet Supported")
-		
 		return false
 	}
 	
@@ -287,7 +285,7 @@ extension PHPFramework {
 	 - Returns: Bool
 	 */
 	public func is_null(testVar: Any?) -> Bool {
-        return (testVar == nil || String(testVar) == NULL) ? true :false
+		return (testVar == nil || String(testVar) == NULL) ? true : false
 	}
 	
 	/**
@@ -298,13 +296,13 @@ extension PHPFramework {
 	 - Returns: Bool
 	 */
 	public func is_numeric(testVar: Any) -> Bool {
-        let num = String(testVar).toInt()
-        if (num != nil) {
-            return true
-        }
-        else {
-            return false
-        }
+		let num = String(testVar).toInt()
+		if (num != nil) {
+			return true
+		}
+		else {
+			return false
+		}
 	}
 	
 	/**
@@ -341,16 +339,15 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Finds whether a variable is a scalar (**not done**)
+	 Finds whether a variable is a scalar\
+	 *Scalar variables are those containing an integer, float, string or boolean. Types array, object and resource are not scalar.*
 
 	 - Parameter testVar: Any Variable
 
 	 - Returns: Bool
 	 */
 	public func is_scalar(testVar: Any) -> Bool {
-		print("Not Yet Supported")
-		
-		return false
+		return (self.is_string(testVar) || self.is_int(testVar) || self.is_float(testVar)) ? true : false;
 	}
 	
 	/**
@@ -361,7 +358,7 @@ extension PHPFramework {
 	 - Returns: Bool
 	 */
 	public func is_string(testVar: Any) -> Bool {
-        return (!self.is_null(testVar) && !self.is_int(testVar)) ? true : false
+		return (!self.is_null(testVar) && !self.is_int(testVar)) ? true : false
 	}
 	
 	/**
@@ -1480,16 +1477,39 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Set the type of a variable (**not done**)
+	 Set the type of a variable
 
 	 - Parameter testVar: Any Variable
 
 	 - Returns: Bool
 	 */
-	public func settype(testVar: Any) -> Any {
+	public func settype(inout testVar: Any, type: String) -> Void {
 		print("Not Yet Supported")
 		
-		return false
+		switch (type) {
+		case "string":
+			testVar = String(testVar)
+			break;
+            
+        case "array":
+            testVar = Array(arrayLiteral: testVar)
+            break;
+            
+        case "float", "integer", "int":
+            testVar = self.intval(testVar)
+            break;
+            
+        case "bool", "boolean":
+            testVar = self.boolval(testVar)
+            break;
+            
+        case "null":
+            testVar = NULL
+            break;
+            
+		default:
+			break;
+		}
 	}
 	
 	/**

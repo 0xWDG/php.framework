@@ -419,5 +419,4 @@ extension PHPFrameworkTests {
 	func test_wordwrap() {
 		XCTAssertEqual(php.wordwrap("wdg", 0, "\n", true), "w\nd\ng\n")
 	}
-	
 }
