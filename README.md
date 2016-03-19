@@ -18,12 +18,12 @@ See:
 <tr><td><ul><li>[x] 57 of 57</li></ul></td><td><a target='_blank' href='https://github.com/wdg/php.framework/issues/2'>Supported PHP Options/info functions</a></td></tr>
 <tr><td><ul><li>[ ] 70 of 98</li></ul></td><td><a target='_blank' href='https://github.com/wdg/php.framework/issues/1'>Supported string functions</a></td></tr>
 <tr><td><ul><li>[ ] 3 of 79</li></ul></td><td><a target='_blank' href='https://github.com/wdg/php.framework/issues/4'>Supported Array Functions</a></td></tr>
-<tr><td><ul><li>[ ] 6 of 34</li></ul></td><td><a target='_blank' href='https://github.com/wdg/php.framework/issues/5'>Supported Variable Functions</a></td></tr>
+<tr><td><ul><li>[x] 34 of 34</li></ul></td><td><a target='_blank' href='https://github.com/wdg/php.framework/issues/5'>Supported Variable Functions</a></td></tr>
 <tr><td><ul><li>[ ] 0 of 51</li></ul></td><td><a target='_blank' href='https://github.com/wdg/php.framework/issues/6'>Supported DateTime Functions</a></td></tr>
 <tr><td><ul><li>[x] 9 of 9</li></ul></td><td><a target='_blank' href='https://github.com/wdg/php.framework/issues/7'>Supported Directory Functions</a></td></tr>
 <tr><td><ul><li>[ ] 0 of 81</li></ul></td><td><a target='_blank' href='https://github.com/wdg/php.framework/issues/8'>Supported FileSystem Functions</a></td></tr>
 <tr><td><hr></td><td><hr></td></tr>
-<tr><td><ul><li>[ ] 145 of 409</li></ul></td><td>Functions total build (± 35%)</td></tr>
+<tr><td><ul><li>[ ] 173 of 409</li></ul></td><td>Functions total build (± 42%)</td></tr>
 </table>
 
 <i>Please note: this list will be updated once upon a time, this list may not be the most recent, please go to the specific item for the latest info</i>

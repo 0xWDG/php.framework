@@ -1490,23 +1490,23 @@ extension PHPFramework {
 		case "string":
 			testVar = String(testVar)
 			break;
-            
-        case "array":
-            testVar = Array(arrayLiteral: testVar)
-            break;
-            
-        case "float", "integer", "int":
-            testVar = self.intval(testVar)
-            break;
-            
-        case "bool", "boolean":
-            testVar = self.boolval(testVar)
-            break;
-            
-        case "null":
-            testVar = NULL
-            break;
-            
+		
+		case "array":
+			testVar = Array(arrayLiteral: testVar)
+			break;
+		
+		case "float", "integer", "int":
+			testVar = self.intval(testVar)
+			break;
+		
+		case "bool", "boolean":
+			testVar = self.boolval(testVar)
+			break;
+		
+		case "null":
+			testVar = NULL
+			break;
+		
 		default:
 			break;
 		}
@@ -1524,7 +1524,7 @@ extension PHPFramework {
 	}
 	
 	/**
-	 Creates a PHP value from a stored representation (**not done**)
+	 **Not supported (yet)** Creates a PHP value from a stored representation
 
 	 - Parameter testVar: Any Variable
 
