@@ -277,12 +277,12 @@ public let PHP_MAXPATHLEN: Int = 1024
 /**
  Global usage for PHP's static constants
  */
-public let PHP_INT_MAX: Int = 9223372036854775807
+public let PHP_INT_MAX: Int64 = 9223372036854775807
 
 /**
  Global usage for PHP's static constants
  */
-public let PHP_INT_MIN: Int = -9223372036854775808
+public let PHP_INT_MIN: Int64 = -9223372036854775808
 
 /**
  Global usage for PHP's static constants
@@ -3162,7 +3162,7 @@ public let CURLPROTO_GOPHER: Int = 33554432
 /**
  Global usage for PHP's static constants
  */
-public let CURLAUTH_ONLY: Int = 2147483648
+public let CURLAUTH_ONLY: Int64 = 2147483648
 
 /**
  Global usage for PHP's static constants
@@ -5062,7 +5062,7 @@ public let INFO_LICENSE: Int = 64
 /**
  Global usage for PHP's static constants
  */
-public let INFO_ALL: Int = 4294967295
+public let INFO_ALL: Int64 = 4294967295
 
 /**
  Global usage for PHP's static constants
@@ -5102,7 +5102,7 @@ public let CREDITS_QA: Int = 64
 /**
  Global usage for PHP's static constants
  */
-public let CREDITS_ALL: Int = 4294967295
+public let CREDITS_ALL: Int64 = 4294967295
 
 /**
  Global usage for PHP's static constants
@@ -7322,7 +7322,7 @@ public let POSIX_RLIMIT_STACK: Int = 3
 /**
  Global usage for PHP's static constants
  */
-public let POSIX_RLIMIT_INFINITY: Int = 9223372036854775807
+public let POSIX_RLIMIT_INFINITY: Int64 = 9223372036854775807
 
 /**
  Global usage for PHP's static constants

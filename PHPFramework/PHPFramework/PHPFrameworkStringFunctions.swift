@@ -38,7 +38,7 @@
  */
 
 import Foundation
-import CryptoSwift
+//import CryptoSwift
 
 /**
  PHPFramework
@@ -236,7 +236,7 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func crc32(str: String) -> String {
-		return str.crc32()
+		return str.crc32
 	}
 	
 	/**
@@ -493,7 +493,7 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func md5_file(str: String) -> String {
-		return str.md5()
+		return str.md5
 	}
 	
 	/**
@@ -504,8 +504,8 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func md5(str: String) -> String {
-		return str.md5()
-	}
+		return str.md5
+    }
 	
 	/**
 	 Calculate the metaphone key of a string (not done)
@@ -733,7 +733,7 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func sha1_file(str: String) -> String {
-		return str.sha1()
+		return str.sha1
 	}
 	
 	/**
@@ -744,7 +744,7 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func sha1(str: String) -> String {
-		return str.sha1()
+		return str.sha1
 	}
 	
 	/**

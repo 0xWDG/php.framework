@@ -56,7 +56,7 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_crc32() {
-		XCTAssertEqual(php.crc32("wdg"), "7cb8fd9f")
+        XCTAssertEqual("wdg".crc32, "7cb8fd9f")
 	}
 	
 	func test_crypt() {
@@ -199,8 +199,9 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_sha1() {
-		XCTAssertEqual(php.sha1("@wdg"), "1b1c1165d61d3fd00270b43e0b8d691bb45f0a0a")
-	}
+        XCTAssertEqual("@wdg".sha1, "1b1c1165d61d3fd00270b43e0b8d691bb45f0a0a")
+        XCTAssertEqual("test".sha1, "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3")
+    }
 	
 	func test_similar_text() {
 		XCTAssertEqual(php.similar_text("PHP", "PHP"), true)

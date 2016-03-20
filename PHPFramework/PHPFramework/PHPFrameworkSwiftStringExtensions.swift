@@ -356,6 +356,17 @@ public extension String {
 	}
 	
 	/**
+	 Character Code At Index
+
+	 - Parameter index: The index
+
+	 - Returns Character
+	 */
+	func charCodeAtindex(index: Int) -> Int! {
+		return self.charCodeAt(index)
+	}
+	
+	/**
 	 add subscript
 
 	 - Parameter i: The index
@@ -785,6 +796,16 @@ public extension String {
 			return 0
 		}
 	}
+    func UcharCodeAt(Char: Int) -> UInt {
+        // ok search for the character...
+        
+        if (self.length > Int(Char)) {
+            let character = String(self.characterAtIndex(Int(Char)))
+            return UInt(String(character.unicodeScalars.first!.value))!
+        } else {
+            return 0
+        }
+    }
 	
 	/**
 	 Substring a string.

@@ -1,8 +1,8 @@
 #!/bin/sh
 
-TARGET_NAME="CryptoSwift iOS"
-FRAMEWORK_NAME="CryptoSwift"
-INSTALL_DIR="Frameworks/iOS"
+TARGET_NAME="PHPFramework-iOS"
+FRAMEWORK_NAME="PHPFramework"
+INSTALL_DIR="../Build/iOS"
 FRAMEWORK="${INSTALL_DIR}/${FRAMEWORK_NAME}.framework"
 
 if [ -d "${INSTALL_DIR}" ]
