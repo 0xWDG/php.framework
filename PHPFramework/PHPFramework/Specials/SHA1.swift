@@ -61,12 +61,11 @@ class SHA1Hashing {
 	
 	func convert_hex(val: Int) -> String {
 		var _str = ""
-		
-		for (var i = 7; i >= 0; i--) {
+        for i in (0...7).reverse() {
 			let _tmp = (val >> (i * 4)) & 0x0f // >>> ?
 			_str = _str.stringByAppendingString(_tmp.tostring(16))
 		}
-		
+        
 		return _str
 	}
 	
@@ -75,11 +74,12 @@ class SHA1Hashing {
 		var W = Array<Int>() ;
 		
 		var word_array = Array<Int>() ;
-		for (var i = 0; i < str_len - 3; i += 4) {
+        
+        for i in 0.stride(to: str_len - 3, by: 4) {
 			let j = str.charCodeAt(i) << 24 | str.charCodeAt(i + 1) << 16 | str.charCodeAt(i + 2) << 8 | str.charCodeAt(i + 3) ;
 			word_array.append(j)
 		}
-		
+        
 		var i: Int = 0
 		switch (str_len % 4) {
 		case 0:
@@ -105,29 +105,27 @@ class SHA1Hashing {
 		word_array.append(i)
 		
 		while ((word_array.count % 16) != 14) {
-			word_array.append(0) ;
+			word_array.append(0)
 		}
 		
 		word_array.append(str_len >> 29) // >>> ?
 		word_array.append((str_len << 3) & 0x0ffffffff)
-		
-		for (var blockstart = 0; blockstart < word_array.count; blockstart += 16) {
-			for (i = 0; i < 16; i++) {
-				// W[i] = word_array[blockstart + i]; // since it start @ zero, we'll append..?
+        
+        for blockstart in 0.stride(to: word_array.count, by: 16) {
+            for i in (0...15) {
 				W.append(word_array[blockstart + i])
 			}
-			for (i = 16; i <= 79; i++) {
-				// W[i] = self.rotate_left(W[i - 3] ^ W[i - 8] ^ W[i - 14] ^ W[i - 16], 1); // since it start @ zero, we'll append..?
+            for i in (16...79) {
 				W.append(self.rotate(W[i - 3] ^ W[i - 8] ^ W[i - 14] ^ W[i - 16], 1))
 			}
-			
+            
 			var A = H0;
 			var B = H1;
 			var C = H2;
 			var D = H3;
 			var E = H4;
 			
-			for (var i = 0; i <= 19; i++) {
+            for i in (0...19) {
 				let temp = (self.rotate(A, 5) + ((B & C) | (~B & D)) + E + W[i] + 0x5A827999) & 0x0ffffffff;
 				E = D;
 				D = C;
@@ -135,8 +133,8 @@ class SHA1Hashing {
 				B = A;
 				A = temp;
 			}
-			
-			for (var i = 20; i <= 39; i++) {
+
+            for i in (20...39) {
 				let temp = (self.rotate(A, 5) + (B ^ C ^ D) + E + W[i] + 0x6ED9EBA1) & 0x0ffffffff;
 				E = D;
 				D = C;
@@ -145,7 +143,7 @@ class SHA1Hashing {
 				A = temp;
 			}
 			
-			for (var i = 40; i <= 59; i++) {
+            for i in (40...59) {
 				let temp = (self.rotate(A, 5) + ((B & C) | (B & D) | (C & D)) + E + W[i] + 0x8F1BBCDC) & 0x0ffffffff;
 				E = D;
 				D = C;
@@ -153,8 +151,8 @@ class SHA1Hashing {
 				B = A;
 				A = temp;
 			}
-			
-			for (var i = 60; i <= 79; i++) {
+
+            for i in (60...79) {
 				let temp = (self.rotate(A, 5) + (B ^ C ^ D) + E + W[i] + 0xCA62C1D6) & 0x0ffffffff;
 				E = D;
 				D = C;
@@ -171,6 +169,7 @@ class SHA1Hashing {
 		}
 		
 		var temp: String = "\(self.convert_hex(H0))\(self.convert_hex(H1))\(self.convert_hex(H2))\(self.convert_hex(H3))\(self.convert_hex(H4))";
+        print(temp)
 		temp = temp.lowercaseString
 		temp = temp.stringByReplacingOccurrencesOfString(" ", withString: "")
 		
@@ -178,7 +177,6 @@ class SHA1Hashing {
 			print("Something is gone terrible wrong!")
 		}
 		
-		print(temp)
 		return temp
 	}
 }

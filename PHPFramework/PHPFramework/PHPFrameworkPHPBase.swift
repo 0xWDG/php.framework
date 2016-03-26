@@ -516,7 +516,7 @@ extension PHPFramework {
 		
 		let maxLength = max(smaller.count, larger.count)
 		
-		for var i: Int = 0; i < maxLength; i++ {
+        for i in (0...maxLength) {
 			let s = i < smaller.count ? smaller[i] : "0"
 			let l = i < larger.count ? larger[i] : "0"
 			if s != l {

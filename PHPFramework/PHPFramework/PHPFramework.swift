@@ -231,7 +231,7 @@ public class PHPFramework {
 		let _func = (Tin == Tend) ? "==" : "!="
 		print("Test #\(_PHP_TestCount) \(_test): \"\(Tin)\" \(_func) \"\(Tend)\"")
 		
-		_PHP_TestCount++
+		_PHP_TestCount += 1
 		return Tin == Tend
 	}
 }

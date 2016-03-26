@@ -126,11 +126,7 @@ func MYcrc32(xmessage: String, seed: UInt32? = nil) -> UInt32 {
 }
 
 private func CRC_AnyGenerator<Element>(body: () -> Element?) -> AnyGenerator<Element> {
-	#if os(Linux)
 	return AnyGenerator(body: body)
-	#else
-	return anyGenerator(body)
-	#endif
 }
 
 struct BytesSequence: SequenceType {

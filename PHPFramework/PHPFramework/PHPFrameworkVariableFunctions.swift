@@ -760,7 +760,7 @@ extension PHPFramework {
 		
 		var retValue: String = "a:\(objects.count):{"
 		
-		for (var i = 0; i < objects.count; i++) {
+		for i in (0 ..< objects.count) {
 			retValue = retValue.stringByAppendingString("i:\(i);")
 			retValue = retValue.stringByAppendingString(self.serializeStrings(objects[i]))
 		}
@@ -893,7 +893,7 @@ extension PHPFramework {
 			retValue = retValue.stringByAppendingString(self.serializeStrings(item))
 			retValue = retValue.stringByAppendingString(self.serializeType(value))
 			
-			count++
+			count += 1
 		}
 		
 		retValue = retValue.stringByAppendingString("}")

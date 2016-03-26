@@ -126,7 +126,7 @@ extension PHPFramework {
 		
 		do {
 			if let directoryUrls = try? NSFileManager.defaultManager().contentsOfDirectoryAtURL(NSURL(string: dir)!, includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions.SkipsSubdirectoryDescendants) {
-				for (var i = 0; i < directoryUrls.count; i++) {
+				for i in (0 ..< directoryUrls.count) {
 					_returnArray.append(directoryUrls[i].lastPathComponent!)
 				}
 			}

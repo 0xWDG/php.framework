@@ -173,7 +173,7 @@ extension PHPFramework {
 				newString = newString.stringByAppendingString(end!)
 				myCount = 0
 			} else {
-				myCount++
+				myCount += 1
 			}
 		}
 		
@@ -842,26 +842,27 @@ extension PHPFramework {
 			let steps_right = Int(steps / 2) // Remove .xx
 			
 			// Add padding before...
-			for (var i = 0; i < steps_left; i++) {
+            for _ in (0...steps_left) {
 				_mutated = "\(pad_string!)\(_mutated)"
 			}
+            
 			// Add padding afterwards...
 			// (steps % 2 == 0) checks if it is even or odd, if odd then right +1
-			for (var i = 0; i < steps_right + ((steps % 2 == 0) ? 0 : 1) ; i++) {
+			for _ in 0 ..< steps_right + ((steps % 2 == 0) ? 0 : 1) {
 				_mutated = _mutated.stringByAppendingString(pad_string!)
 			}
 			break
 		case STR_PAD_LEFT:
 			let steps = length - ((pad_string?.length)! + input.length) + 1
 			
-			for (var i = 0; i < steps; i++) {
+			for _ in 0 ..< steps {
 				_mutated = "\(pad_string!)\(_mutated)"
 			}
 			break
 		case STR_PAD_RIGHT:
 			let steps = length - ((pad_string?.length)! + input.length) + 1
 			
-			for (var i = 0; i < steps; i++) {
+			for _ in 0 ..< steps {
 				_mutated = _mutated.stringByAppendingString(pad_string!)
 			}
 			break
@@ -884,7 +885,7 @@ extension PHPFramework {
 	public func str_repeat(str: String, _ times: Int) -> String {
 		var newString: String = ""
 		
-		for (var i = 0; i < times; i++) {
+		for _ in 0 ..< times {
 			newString = newString.stringByAppendingString(str)
 		}
 		
@@ -945,7 +946,7 @@ extension PHPFramework {
 		var temporaryString: String = ""
 		var temporaryCounter: Int = 1
 		
-		for (var i = 0; i < str.characters.count; i++) {
+        for i in (0...str.characters.count) {
 			// Walk trough all the characters
 			if (temporaryCounter == count) {
 				// Put it in the array.
@@ -957,7 +958,7 @@ extension PHPFramework {
 			} else {
 				// Just add it to the "Temporary String"
 				temporaryString = temporaryString.stringByAppendingString(String(str.characterAtIndex(i)))
-				temporaryCounter++
+				temporaryCounter += 1
 			}
 		}
 		
@@ -982,7 +983,7 @@ extension PHPFramework {
 			let temporaryReadArray: Array<String> = self.explode(str, " ")
 			var temporaryWriteArray: Array<String> = Array<String>()
 			
-			for (var i = 0; i < temporaryReadArray.count; i++) {
+			for i in 0 ..< temporaryReadArray.count {
 				if (temporaryReadArray[i] != "") {
 					temporaryWriteArray.append(temporaryReadArray[i])
 				}
@@ -1315,7 +1316,7 @@ extension PHPFramework {
 
 	 - Returns: The part String
 	 */
-	public func strstr(str: String, _ find: String, var _ before: Bool? = false) -> String {
+	public func strstr(str: String, _ find: String, _ before: Bool? = false) -> String {
 		
 		var exploded = php.explode(str, find)
 		
@@ -1323,11 +1324,7 @@ extension PHPFramework {
 			return str
 		}
 		
-		if (before == nil) {
-			before = false
-		}
-		
-		if (before!) {
+		if (before! || before == nil) {
 			return exploded[0]
 		} else {
 			return exploded[1]
@@ -1389,7 +1386,7 @@ extension PHPFramework {
 		
 		var _str = str
 		
-		for (var i = 0; i < from.length; i++) {
+		for i in 0 ..< from.length {
 			_str = _str.replace(String(from[i]), withString: String(to[i]))
 		}
 		
@@ -1589,7 +1586,7 @@ extension PHPFramework {
 	public func ucwords(str: String) -> String {
 		let splitted: Array = str.split(" ")
 		var newString: String = ""
-		for (var i = 0; i < splitted.count; i++) {
+		for i in 0 ..< splitted.count {
 			newString = newString.stringByAppendingString(String(splitted[i] [0]).uppercaseString + String(splitted[i] [1...(splitted[i].length)]))
 			
 			if (i < splitted.count - 1) {
@@ -1663,7 +1660,7 @@ extension PHPFramework {
 		// Noop to ignore stupid swift not used errors
 		php.noop(x)
 		
-		for (var i = 0; i < StringToArray.count; i++) {
+		for i in (0 ..< StringToArray.count) {
 			myString = myString.stringByAppendingString(StringToArray[i])
 			
 			if (myCount >= width) {
@@ -1679,7 +1676,7 @@ extension PHPFramework {
 					}
 				}
 			} else {
-				myCount++
+				myCount += 1
 			}
 		}
 		return myString
