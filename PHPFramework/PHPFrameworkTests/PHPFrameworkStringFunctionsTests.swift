@@ -331,7 +331,10 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strpos() {
-		XCTAssertEqual(PASS, FAIL)
+        let newstring = "abcdef abcdef";
+
+		XCTAssertEqual(php.strpos(newstring, "a", 1) as? Int, 7)
+        XCTAssertEqual(php.strpos(newstring, "a", 8) as? Bool, false)
 	}
 	
 	func test_strrchr() {

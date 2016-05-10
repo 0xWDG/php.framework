@@ -1222,18 +1222,44 @@ extension PHPFramework {
 	}
 
 	/**
-	 Find the position of the first occurrence of a substring in a string (not done)
+	 Find the position of the first occurrence of a substring in a string
 
-	 - Parameter str: The String
+     - Parameter haystack: The String
+     - Parameter needle: String needed
+     - Parameter offset: the offset
+     
+     - Returns: Int / Bool(false)
 
 	 - Returns: The String
 	 */
-	public func strpos(str: String) -> String {
-		print("Sorry this function is not done")
-
-		return str
-	}
-
+    public func strpos(haystack: String, _ needle: String, _ offset: Int? = 0) -> Any {
+        if (offset < 0) {
+            var count    = haystack.length
+            for value in haystack.characters.reverse() {
+                if (count < offset!+haystack.length) {
+                    if (String(value) == needle) {
+                        return count-1
+                    }
+                }
+                count -= 1
+            }
+            
+            return false
+        } else {
+            var count = 0
+            for value in haystack.characters {
+                if (count > offset!) {
+                    if (String(value) == needle) {
+                        return count
+                    }
+                }
+                count += 1
+            }
+            
+            return false
+        }
+    }
+    
 	/**
 	 Find the last occurrence of a character in a string
 
@@ -1282,7 +1308,7 @@ extension PHPFramework {
 	}
 
 	/**
-	 Find the position of the last occurrence of a substring in a string (not done)
+	 Find the position of the last occurrence of a substring in a string
 
 	 - Parameter haystack: The String
      - Parameter needle: String needed
