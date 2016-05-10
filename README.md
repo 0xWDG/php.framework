@@ -22,7 +22,7 @@ See:
 <tr><td><ul><li>[ ] 0 of 51</li></ul></td><td>51</td><td><a target='_blank' href='https://github.com/wdg/php.framework/issues/6'>Supported DateTime Functions</a></td></tr>
 <tr><td><ul><li>[x] 9 of 9</li></ul></td><td>0</td><td><a target='_blank' href='https://github.com/wdg/php.framework/issues/7'>Supported Directory Functions</a></td></tr>
 <tr><td><ul><li>[ ] 0 of 81</li></ul></td><td>81</td><td><a target='_blank' href='https://github.com/wdg/php.framework/issues/8'>Supported FileSystem Functions</a></td></tr>
-<tr><td><hr></td><td><hr></td></tr>
+<tr><td><hr></td><td><hr></td><td><hr></td></tr>
 <tr><td><ul><li>[ ] 181 of 409</li></ul></td><td>228</td><td>Functions total build (± 43%)</td></tr>
 </table>
 
