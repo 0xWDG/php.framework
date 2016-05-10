@@ -8,4 +8,9 @@
 
 ---
 
-This directory contains the actual framework.
+I'd like PHP, and PHP is easy to use.
+Why not make some PHP functions in Swift, so that you can use them in Swift!
+
+Please note that this project is not fully done right now.
+
+*This framework is not affiliated with the PHP Group*
