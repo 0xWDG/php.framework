@@ -11,10 +11,10 @@ import Foundation
 
 extension PHPFrameworkTests {
     func testCredits_nl () {
-        XCTAssertNotNil(nl)
+        XCTAssertNotNil(PFSnl)
     }
     
     func testCredits_credits () {
-        XCTAssertNotNil(credits)
+        XCTAssertNotNil(PFSCredits)
     }
 }

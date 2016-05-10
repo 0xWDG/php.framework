@@ -347,11 +347,24 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strrpos() {
-		XCTAssertEqual(PASS, FAIL)
-	}
+        let foo:String = "0123456789a123456789b123456789c"
+        
+        XCTAssertEqual(php.strrpos(foo, "7", -5) as? Int, 17);
+        // Starts looking backwards five positions
+        // from the end. Result: int(17)
+        
+        XCTAssertEqual(php.strrpos(foo, "7", 20) as? Int, 27);
+        // Starts searching 20 positions into the
+        // string. Result: int(27)
+        
+        XCTAssertEqual(php.strrpos(foo, "7", 28) as? Bool, false);
+        // Result: bool(false)
+    }
 	
 	func test_strspn() {
-		XCTAssertEqual(PASS, FAIL)
+        XCTAssertEqual(php.strspn("foo", "o"), 0)
+        XCTAssertEqual(php.strspn("foo", "o", 1, 2), 2)
+        XCTAssertEqual(php.strspn("foo", "o", 1, 1), 1)
 	}
 	
 	func test_strstr() {

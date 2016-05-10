@@ -1,65 +1,65 @@
 /**
-_____    _    _   _____    ______                                           _
-|  __ \  | |  | | |  __ \  |  ____|                                         | |
-| |__) | | |__| | | |__) | | |__ _ __ __ _ _ __ ___   _____      _____  _ __| | __
-|  ___/  |  __  | |  ___/  |  __| '__/ _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
-| |      | |  | | | |  _   | |  | | | (_| | | | | | |  __/\ V  V / (_) | |  |   <
-|_|      |_|  |_| |_| (_)  |_|  |_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
+ _____    _    _   _____    ______                                           _
+ |  __ \  | |  | | |  __ \  |  ____|                                         | |
+ | |__) | | |__| | | |__) | | |__ _ __ __ _ _ __ ___   _____      _____  _ __| | __
+ |  ___/  |  __  | |  ___/  |  __| '__/ _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
+ | |      | |  | | | |  _   | |  | | | (_| | | | | | |  __/\ V  V / (_) | |  |   <
+ |_|      |_|  |_| |_| (_)  |_|  |_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
 
 
  Copyright (c) 2016 Wesley de Groot (http://www.wesleydegroot.nl), WDGWV (http://www.wdgwv.com)
 
 
-Variable prefixes:
+ Variable prefixes:
  PFS = PHP.Framework Shared
  PFT = PHP.Framework Tests (internal)
  PFI = PHP.Framework Internal
  PFU = PHP.Framework Unspecified
- 
-usage:
+
+ usage:
  php.the_php_function(and, parameters, ofcourse)
- 
-documentation:
+
+ documentation:
  http://wdg.github.io/php.framework/
- 
-wiki:
+
+ wiki:
  https://github.com/wdg/php.framework/wiki
- 
-questions/bugs:
+
+ questions/bugs:
  https://github.com/wdg/php.framework/issues
- 
----------------------------------------------------
-File:    PHPFramework.swift
-Created: 15-JAN-2016
-Creator: Wesley de Groot | g: @wdg | t: @wesdegroot
-Issue:   N/A
----------------------------------------------------
-*/
+
+ ---------------------------------------------------
+ File:    PHPFramework.swift
+ Created: 15-JAN-2016
+ Creator: Wesley de Groot | g: @wdg | t: @wesdegroot
+ Issue:   N/A
+ ---------------------------------------------------
+ */
 
 import Foundation
 import CommonCrypto
 
 // if Simulator then Debugmode = on
 #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
-/**
- **PHP.Framework** \
- *PHP In Swift*\
- global php variable **(Simulator version)**
- *with debugging enabled*
+	/**
+	 **PHP.Framework** \
+	 *PHP In Swift*\
+	 global php variable **(Simulator version)**
+	 *with debugging enabled*
 
- - Returns: the php framework
- */
-public let php = PHPFramework(true)
+	 - Returns: the php framework
+	 */
+	public let php = PHPFramework(true)
 #else
-/**
- **PHP.Framework** \
- *PHP In Swift*
- global php variable **(Production version)**
- *with debugging disabled*
+	/**
+	 **PHP.Framework** \
+	 *PHP In Swift*
+	 global php variable **(Production version)**
+	 *with debugging disabled*
 
- - Returns: the php framework
- */
-public let php = PHPFramework(false)
+	 - Returns: the php framework
+	 */
+	public let php = PHPFramework(false)
 #endif
 
 /**
@@ -76,7 +76,7 @@ var PFIisDebug: Bool = false
  A Swift framework inspired by some PHP Functions.
  */
 public class PHPFramework {
-	
+
 	/**
 	 **PHP.Framework** \
 	 *PHP In Swift*
@@ -84,7 +84,7 @@ public class PHPFramework {
 	 PHPFramework version
 	 */
 	public let version: String = String(PHPFrameworkVersionNumber)
-	
+
 	/**
 	 **PHP.Framework** \
 	 *PHP In Swift*
@@ -92,7 +92,7 @@ public class PHPFramework {
 	 PHPFramework name
 	 */
 	public let product: String = "PHP.Framework"
-	
+
 	/**
 	 **PHP.Framework** \
 	 *PHP In Swift*
@@ -100,12 +100,12 @@ public class PHPFramework {
 	 PHPFramework loaded?
 	 */
 	private var PFIisLoaded: Bool = false
-	
+
 	/**
 	 PHPFramework test function count
 	 */
 	private var _PHP_TestCount: Int = 1
-	
+
 	/**
 	 **PHP.Framework** \
 	 *PHP In Swift*
@@ -119,20 +119,20 @@ public class PHPFramework {
 			if (debug) {
 				print("\(product) \(version) loaded")
 				#if os(iOS)
-				print("Hello iOS")
+					print("Hello iOS")
 				#elseif os(OSX)
-				print("Hello OS X")
+					print("Hello OS X")
 				#elseif os(watchOS)
-				print("Hello  Watch")
+					print("Hello  Watch")
 				#elseif os(tvOS)
-				print("Hello  TV")
+					print("Hello  TV")
 				#endif
 			}
 			PFIisDebug = debug
 			PFIisLoaded = true
 		}
 	}
-	
+
 	/**
 	 Encode a string using Base64
 
@@ -144,12 +144,11 @@ public class PHPFramework {
 		guard let plainData = (s as NSString).dataUsingEncoding(NSUTF8StringEncoding) else {
 			fatalError()
 		}
-		
+
 		let base64String = plainData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
 		return base64String
-		
 	}
-	
+
 	/**
 	 Decode a string using Base64
 
@@ -159,12 +158,12 @@ public class PHPFramework {
 	 */
 	public func base64_decode(s: String) -> String {
 		if let decodedData = NSData(base64EncodedString: s, options: NSDataBase64DecodingOptions(rawValue: 0)),
-		let decodedString = NSString(data: decodedData, encoding: NSUTF8StringEncoding) {
-			return decodedString as String
+			let decodedString = NSString(data: decodedData, encoding: NSUTF8StringEncoding) {
+				return decodedString as String
 		}
 		return "Failed"
 	}
-	
+
 	/**
 	 Binary to Decimal
 
@@ -172,10 +171,10 @@ public class PHPFramework {
 
 	 - Returns: the decimal String
 	 */
-	public func bindec(let str : String) -> String {
+	public func bindec(let str: String) -> String {
 		return String(strtoul(str, nil, 2))
 	}
-	
+
 	/**
 	 Decimal to Binary
 
@@ -183,10 +182,10 @@ public class PHPFramework {
 
 	 - Returns: the binary string
 	 */
-	public func decbin(let str : Int) -> String {
+	public func decbin(let str: Int) -> String {
 		return String(str, radix: 2)
 	}
-	
+
 	/**
 	 Append padding to a string (Not done)
 
@@ -199,12 +198,12 @@ public class PHPFramework {
 	 */
 	public func str_pad(string: String, toSize: Int, with: String = "0", padding: Bool = true) -> String {
 		var padded = string
-		for _ in 0..<toSize - string.characters.count {
+		for _ in 0 ..< toSize - string.characters.count {
 			padded = with + padded
 		}
 		return padded
 	}
-	
+
 	/**
 	 **PHP.Framework** \
 	 *PHP In Swift*
@@ -214,9 +213,9 @@ public class PHPFramework {
 
 	 - Parameter ob: Any!
 	 */
-	public func noop(ob: Any...) -> Void {}
+	public func noop(ob: Any ...) -> Void { }
 	// @available( *, unavailable, message = "This function is not yet done")
-	
+
 	/**
 	 **PHP.Framework** \
 	 *PHP In Swift*
@@ -230,7 +229,7 @@ public class PHPFramework {
 		let _test = (Tin == Tend) ? "✅" : "❌"
 		let _func = (Tin == Tend) ? "==" : "!="
 		print("Test #\(_PHP_TestCount) \(_test): \"\(Tin)\" \(_func) \"\(Tend)\"")
-		
+
 		_PHP_TestCount += 1
 		return Tin == Tend
 	}

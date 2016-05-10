@@ -5,29 +5,29 @@
  |  ___/  |  __  | |  ___/  |  __| '__/ _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
  | |      | |  | | | |  _   | |  | | | (_| | | | | | |  __/\ V  V / (_) | |  |   <
  |_|      |_|  |_| |_| (_)  |_|  |_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
- 
- 
+
+
  Copyright (c) 2016 Wesley de Groot (http://www.wesleydegroot.nl), WDGWV (http://www.wdgwv.com)
- 
- 
+
+
  Variable prefixes:
  PFS = PHP.Framework Shared
  PFT = PHP.Framework Tests (internal)
  PFI = PHP.Framework Internal
  PFU = PHP.Framework Unspecified
- 
+
  usage:
  php.the_php_function(and, parameters, ofcourse)
- 
+
  documentation:
  http://wdg.github.io/php.framework/
- 
+
  wiki:
  https://github.com/wdg/php.framework/wiki
- 
+
  questions/bugs:
  https://github.com/wdg/php.framework/issues
- 
+
  ---------------------------------------------------
  File:    PHPFrameworkStringFunctions.swift
  Created: 15-JAN-2016
@@ -56,7 +56,7 @@ extension PHPFramework {
 	public func ord(s: String) -> Int {
 		return Int(String(s.unicodeScalars.first!.value))!
 	}
-	
+
 	/**
 	 Return a specific character
 
@@ -70,7 +70,7 @@ extension PHPFramework {
 		}
 		return String(UnicodeScalar(newS))
 	}
-	
+
 	/**
 	 Set/get the various assert flags (Not done)
 
@@ -82,7 +82,7 @@ extension PHPFramework {
 		print("Sorry this function is not supported yet!")
 		return str
 	}
-	
+
 	/**
 	 Quote string with slashes in a C style (not done)
 
@@ -93,7 +93,7 @@ extension PHPFramework {
 	public func addcslashes(str: String) -> String {
 		return self.addslashes(str)
 	}
-	
+
 	/**
 	 Quote string with slashes
 
@@ -109,7 +109,7 @@ extension PHPFramework {
 			.stringByReplacingOccurrencesOfString("\"", withString: "\\\"")
 			.stringByReplacingOccurrencesOfString("\0", withString: "\\\0")
 	}
-	
+
 	/**
 	 Convert binary data into hexadecimal representation
 
@@ -119,14 +119,14 @@ extension PHPFramework {
 	 */
 	public func bin2hex(str: Int) -> Int {
 		let scanner = NSScanner(string: String(str))
-		var result : UInt32 = 0
+		var result: UInt32 = 0
 		if scanner.scanHexInt(&result) {
 			return Int(result)
 		}
 		// return Int(str, radix: 16)! // Can couse for crash if not a binary number
 		return 0
 	}
-	
+
 	/**
 	 Alias of rtrim
 
@@ -152,7 +152,7 @@ extension PHPFramework {
 	public func chop(str: String, _ chrs: String? = "_ALL_") -> String {
 		return self.rtrim(str, chrs)
 	}
-	
+
 	/**
 	 Split a string into smaller chunks (not done)
 
@@ -165,10 +165,10 @@ extension PHPFramework {
 	public func chunk_split(str: String, _ length: Int = 76, _ end: String? = "\r\n") -> String {
 		var myCount: Int = 0
 		var newString: String = ""
-		
+
 		for character in str.characters {
 			newString = newString.stringByAppendingString(String(character))
-			
+
 			if (myCount == (length - 1)) {
 				newString = newString.stringByAppendingString(end!)
 				myCount = 0
@@ -176,10 +176,10 @@ extension PHPFramework {
 				myCount += 1
 			}
 		}
-		
+
 		return newString
 	}
-	
+
 	/**
 	 **Not Supported** Convert from one Cyrillic character set to another
 
@@ -190,7 +190,7 @@ extension PHPFramework {
 	public func convert_cyr_string(str: String) -> String {
 		return str
 	}
-	
+
 	/**
 	 Decode a uuencoded string (not done)
 
@@ -200,10 +200,10 @@ extension PHPFramework {
 	 */
 	public func convert_uudecode(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Uuencode a string (not done)
 
@@ -213,10 +213,10 @@ extension PHPFramework {
 	 */
 	public func convert_uuencode(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Return information about characters used in a string
 
@@ -227,7 +227,7 @@ extension PHPFramework {
 	public func count_chars(str: String) -> Array<Int> {
 		return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	}
-	
+
 	/**
 	 Calculates the crc32 polynomial of a string
 
@@ -238,7 +238,7 @@ extension PHPFramework {
 	public func crc32(str: String) -> String {
 		return str.crc32
 	}
-	
+
 	/**
 	 One-way string hashing (DES) (not done)
 
@@ -248,10 +248,10 @@ extension PHPFramework {
 	 */
 	public func crypt(str: String, _ salt: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 **PHP.Framework**\
 	 Output one or more strings\
@@ -259,10 +259,10 @@ extension PHPFramework {
 
 	 - Parameter ob: the object
 	 */
-	public func echo(ob: AnyObject...) -> Void {
+	public func echo(ob: AnyObject ...) -> Void {
 		print(ob)
 	}
-	
+
 	/**
 	 Split a string by string
 
@@ -276,10 +276,10 @@ extension PHPFramework {
 		if (limit != 0) {
 			print("Sorry limits are not supported (yet)")
 		}
-		
+
 		return Array(str.componentsSeparatedByString(split))
 	}
-	
+
 	/**
 	 **PHP.Framework**\
 	 Write a formatted string to a stream
@@ -289,10 +289,10 @@ extension PHPFramework {
 
 	 - Parameter ob: the object
 	 */
-	public func fprintf(ob: AnyObject...) -> Void {
+	public func fprintf(ob: AnyObject ...) -> Void {
 		print(ob)
 	}
-	
+
 	/**
 	 Returns the translation table used by htmlspecialchars and htmlentities
 
@@ -301,7 +301,7 @@ extension PHPFramework {
 	public func get_html_translation_table(str: String) -> [String: Character] {
 		return "".getHTMLEntities()
 	}
-	
+
 	/**
 	 **Not Supported** Convert logical Hebrew text to visual text
 
@@ -312,7 +312,7 @@ extension PHPFramework {
 	public func hebrev(str: String) -> String {
 		return str
 	}
-	
+
 	/**
 	 **Not supported** Convert logical Hebrew text to visual text with newline conversion
 
@@ -323,7 +323,7 @@ extension PHPFramework {
 	public func hebrevc(str: String) -> String {
 		return str
 	}
-	
+
 	/**
 	 Decodes a hexadecimally encoded binary string (not done)
 
@@ -344,7 +344,7 @@ extension PHPFramework {
 		// return Int(str, radix: 16)! // Can couse for crash if not a binary number
 		// return 0
 	}
-	
+
 	/**
 	 Convert all HTML entities to their applicable characters
 
@@ -358,7 +358,7 @@ extension PHPFramework {
 	public func html_entity_decode(str: String, _ flags: Int? = 0, _ encoding: Int? = 0, _ double_encode: Bool? = false) -> String {
 		return str.decodeHTML()
 	}
-	
+
 	/**
 	 Convert all applicable characters to HTML entities
 
@@ -372,7 +372,7 @@ extension PHPFramework {
 	public func htmlentities(str: String, _ flags: Int? = 0, _ encoding: Int? = 0, _ double_encode: Bool? = false) -> String {
 		return str.encodeHTML()
 	}
-	
+
 	/**
 	 Convert special HTML entities back to characters
 
@@ -386,7 +386,7 @@ extension PHPFramework {
 	public func htmlspecialchars_decode(str: String, _ flags: Int? = 0, _ encoding: Int? = 0, _ double_encode: Bool? = false) -> String {
 		return str.decodeHTML()
 	}
-	
+
 	/**
 	 Convert special characters to HTML entities
 
@@ -399,10 +399,10 @@ extension PHPFramework {
 	 */
 	public func htmlspecialchars(str: String, _ flags: Int? = 0, _ encoding: Int? = 0, _ double_encode: Bool? = false) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str.encodeHTML()
 	}
-	
+
 	/**
 	 Join array elements with a string
 
@@ -414,7 +414,7 @@ extension PHPFramework {
 	public func implode(glue: String, _ arr: Array<String>) -> String {
 		return arr.joinWithSeparator(glue)
 	}
-	
+
 	/**
 	 Alias of implode
 
@@ -426,7 +426,7 @@ extension PHPFramework {
 	public func join(glue: String, _ arr: Array<String>) -> String {
 		return self.implode(glue, arr)
 	}
-	
+
 	/**
 	 Make a string's first character lowercase
 
@@ -435,9 +435,9 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func lcfirst(str: String) -> String {
-		return String(str[0]).lowercaseString + String(str[1...(str.length)])
+		return String(str[0]).lowercaseString + String(str[1 ... (str.length)])
 	}
-	
+
 	/**
 	 Calculate Levenshtein distance between two strings
 
@@ -449,7 +449,7 @@ extension PHPFramework {
 	public func levenshtein(aStr: String, _ bStr: String) -> Int {
 		return calculateLevenshtein().calc(aStr, bStr)
 	}
-	
+
 	/**
 	 Get numeric formatting information
 
@@ -458,7 +458,7 @@ extension PHPFramework {
 	public func localeconv() -> Bool {
 		return false
 	}
-	
+
 	/**
 	 Strip whitespace (or other characters) from the beginning of a string
 
@@ -484,7 +484,7 @@ extension PHPFramework {
 	public func ltrim(str: String, _ chrs: String? = "_ALL_") -> String {
 		return str.trimmedLeft()
 	}
-	
+
 	/**
 	 Calculates the md5 hash of a given file
 
@@ -495,7 +495,7 @@ extension PHPFramework {
 	public func md5_file(str: String) -> String {
 		return str.md5
 	}
-	
+
 	/**
 	 Calculate the md5 hash of a string
 
@@ -505,8 +505,8 @@ extension PHPFramework {
 	 */
 	public func md5(str: String) -> String {
 		return str.md5
-    }
-	
+	}
+
 	/**
 	 Calculate the metaphone key of a string (not done)
 
@@ -516,10 +516,10 @@ extension PHPFramework {
 	 */
 	public func metaphone(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Formats a number as a currency string
 
@@ -530,7 +530,7 @@ extension PHPFramework {
 	public func money_format(str: String) -> String {
 		let formatter = NSNumberFormatter()
 		formatter.numberStyle = .CurrencyStyle
-		
+
 		if let number = Int(str) {
 			let myNumber = NSNumber(integer: number)
 			return formatter.stringFromNumber(myNumber)!
@@ -538,7 +538,7 @@ extension PHPFramework {
 			return "";
 		}
 	}
-	
+
 	/**
 	 **Not supported** Query language and locale information
 
@@ -549,7 +549,7 @@ extension PHPFramework {
 	public func nl_langinfo(str: String) -> Any {
 		return false
 	}
-	
+
 	/**
 	 Inserts HTML line breaks before all newlines in a string (not done)
 
@@ -560,7 +560,7 @@ extension PHPFramework {
 	public func nl2br(html: String) -> String {
 		return html.stringByReplacingOccurrencesOfString("\n", withString: "<br />\n")
 	}
-	
+
 	/**
 	 Break (br) to Newline [like-php (reversed)]
 
@@ -573,7 +573,7 @@ extension PHPFramework {
 		.stringByReplacingOccurrencesOfString("<br/>", withString: "\n") // invalid html
 		.stringByReplacingOccurrencesOfString("<br>", withString: "\n") // html <=4
 	}
-	
+
 	/**
 	 Format a number with grouped thousands
 
@@ -584,7 +584,7 @@ extension PHPFramework {
 	public func number_format(str: String) -> String {
 		let formatter = NSNumberFormatter()
 		formatter.numberStyle = .DecimalStyle
-		
+
 		if let number = Int(str) {
 			let myNumber = NSNumber(integer: number)
 			return formatter.stringFromNumber(myNumber)!
@@ -592,7 +592,7 @@ extension PHPFramework {
 			return "";
 		}
 	}
-	
+
 	/**
 	 Return ASCII value of character
 
@@ -603,7 +603,7 @@ extension PHPFramework {
 	public func ord(str: String) -> String {
 		return String(str.unicodeScalars.first!.value)
 	}
-	
+
 	/**
 	 Parses the string into variables (**not supported**)
 
@@ -617,7 +617,7 @@ extension PHPFramework {
 	public func parse_str(str: String) -> Array<String> {
 		return ["false", "Not supported"]
 	}
-	
+
 	/**
 	 **PHP.Framework**\
 	 Write a formatted string to a stream
@@ -630,7 +630,7 @@ extension PHPFramework {
 	// public func print(ob: Any...) -> Void {
 	// print(ob)
 	// }
-	
+
 	/**
 	 **PHP.Framework**\
 	 Output a formatted string
@@ -640,10 +640,10 @@ extension PHPFramework {
 
 	 - Parameter ob: the object
 	 */
-	public func printf(ob: AnyObject...) -> Void {
+	public func printf(ob: AnyObject ...) -> Void {
 		print(ob)
 	}
-	
+
 	/**
 	 Convert a quoted-printable string to an 8 bit string
 
@@ -654,7 +654,7 @@ extension PHPFramework {
 	public func quoted_printable_decode(str: String) -> String {
 		return str
 	}
-	
+
 	/**
 	 Convert a 8 bit string to a quoted-printable string
 
@@ -665,7 +665,7 @@ extension PHPFramework {
 	public func quoted_printable_encode(str: String) -> String {
 		return str
 	}
-	
+
 	/**
 	 Quote meta characters
 	 Puts a backslash before one of those characters: **. \ + * ? [ ^ ] ( $ )**
@@ -687,7 +687,7 @@ extension PHPFramework {
 			.replace("$", withString: "\\$")
 			.replace(")", withString: "\\)")
 	}
-	
+
 	/**
 	 Strip whitespace (or other characters) from the end of a string
 
@@ -713,7 +713,7 @@ extension PHPFramework {
 	public func rtrim(str: String, _ chars: String? = "_ALL_") -> String {
 		return str.trimmedRight()
 	}
-	
+
 	/**
 	 **Not Supported** Set locale information
 
@@ -724,7 +724,7 @@ extension PHPFramework {
 	public func setlocale(str: String) -> Any {
 		return false
 	}
-	
+
 	/**
 	 Calculate the sha1 hash of a file
 
@@ -735,7 +735,7 @@ extension PHPFramework {
 	public func sha1_file(str: String) -> String {
 		return str.sha1
 	}
-	
+
 	/**
 	 Calculate the sha1 hash of a string
 
@@ -746,7 +746,7 @@ extension PHPFramework {
 	public func sha1(str: String) -> String {
 		return str.sha1
 	}
-	
+
 	/**
 	 Calculate the similarity between two strings
 
@@ -757,7 +757,7 @@ extension PHPFramework {
 	public func similar_text(str: String, _ str2: String = "") -> Bool {
 		return str == str2
 	}
-	
+
 	/**
 	 Calculate the soundex key of a string (not done)
 
@@ -767,10 +767,10 @@ extension PHPFramework {
 	 */
 	public func soundex(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 **PHP.Framework**\
 	 Return a formatted string\
@@ -780,10 +780,10 @@ extension PHPFramework {
 
 	 - Parameter ob: the object
 	 */
-	public func sprintf(ob: AnyObject...) -> Void {
+	public func sprintf(ob: AnyObject ...) -> Void {
 		print(ob)
 	}
-	
+
 	/**
 	 Parses input from a string according to a format\
 	 **Use swift's String, this will only return the string!**
@@ -795,7 +795,7 @@ extension PHPFramework {
 	public func sscanf(str: String) -> String {
 		return str
 	}
-	
+
 	/**
 	 Parse a CSV string into an array
 
@@ -809,7 +809,7 @@ extension PHPFramework {
 	public func str_getcsv(str: String, _ delimiter: String? = ",", enclosure: String? = "\"", escape: String? = "\\") -> Array<String> {
 		return php.explode(str, delimiter!)
 	}
-	
+
 	/**
 	 Case-insensitive version of str_replace. (not done)
 
@@ -819,10 +819,10 @@ extension PHPFramework {
 	 */
 	public func str_ireplace(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Pad a string to a certain length with another string
 
@@ -831,21 +831,21 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	// string str_pad ( string $input , int $pad_length [, string $pad_string = " " [, int $pad_type = STR_PAD_RIGHT ]] )
-	
+
 	public func str_pad(input: String, _ length: Int, _ pad_string: String? = " ", pad_type: Int? = STR_PAD_RIGHT) -> String {
 		var _mutated: String = input
-		
+
 		switch (pad_type!) {
 		case STR_PAD_BOTH:
 			let steps = length - ((pad_string?.length)! + input.length) + 1
 			let steps_left = Int(steps / 2) // Remove .xx
 			let steps_right = Int(steps / 2) // Remove .xx
-			
+
 			// Add padding before...
-            for _ in (0...steps_left) {
+			for _ in (0 ... steps_left) {
 				_mutated = "\(pad_string!)\(_mutated)"
 			}
-            
+
 			// Add padding afterwards...
 			// (steps % 2 == 0) checks if it is even or odd, if odd then right +1
 			for _ in 0 ..< steps_right + ((steps % 2 == 0) ? 0 : 1) {
@@ -854,26 +854,26 @@ extension PHPFramework {
 			break
 		case STR_PAD_LEFT:
 			let steps = length - ((pad_string?.length)! + input.length) + 1
-			
+
 			for _ in 0 ..< steps {
 				_mutated = "\(pad_string!)\(_mutated)"
 			}
 			break
 		case STR_PAD_RIGHT:
 			let steps = length - ((pad_string?.length)! + input.length) + 1
-			
+
 			for _ in 0 ..< steps {
 				_mutated = _mutated.stringByAppendingString(pad_string!)
 			}
 			break
-		
+
 		default:
 			print("ERROR")
 			break
 		}
 		return _mutated
 	}
-	
+
 	/**
 	 Repeat a string
 
@@ -884,14 +884,14 @@ extension PHPFramework {
 	 */
 	public func str_repeat(str: String, _ times: Int) -> String {
 		var newString: String = ""
-		
+
 		for _ in 0 ..< times {
 			newString = newString.stringByAppendingString(str)
 		}
-		
+
 		return newString
 	}
-	
+
 	/**
 	 Replace all occurrences of the search string with the replacement string (*we only support strings*)
 
@@ -902,10 +902,10 @@ extension PHPFramework {
 	 - Returns: The replaced String
 	 */
 	public func str_replace(search: String, _ replace: String, _ subject: String) -> String {
-		
+
 		return subject.replace(search, withString: replace)
 	}
-	
+
 	/**
 	 Perform the rot13 transform on a string
 
@@ -916,7 +916,7 @@ extension PHPFramework {
 	public func str_rot13(str: String) -> String {
 		return ROT13().encrypt(str)
 	}
-	
+
 	/**
 	 Randomly shuffles a string (not done)
 
@@ -926,13 +926,13 @@ extension PHPFramework {
 	 */
 	public func str_shuffle(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		var arr: Array<String> = php.str_split(str)
 		arr.shuffle()
-		
+
 		return php.implode("", arr)
 	}
-	
+
 	/**
 	 Convert a string to an array
 
@@ -945,8 +945,8 @@ extension PHPFramework {
 		var temporaryArray: Array<String> = Array<String>()
 		var temporaryString: String = ""
 		var temporaryCounter: Int = 1
-		
-        for i in (0...str.characters.count) {
+
+		for i in (0 ... str.characters.count) {
 			// Walk trough all the characters
 			if (temporaryCounter == count) {
 				// Put it in the array.
@@ -961,10 +961,10 @@ extension PHPFramework {
 				temporaryCounter += 1
 			}
 		}
-		
+
 		return temporaryArray // str
 	}
-	
+
 	/**
 	 Return information about words used in a string
 
@@ -982,13 +982,13 @@ extension PHPFramework {
 		if (mode < 2) {
 			let temporaryReadArray: Array<String> = self.explode(str, " ")
 			var temporaryWriteArray: Array<String> = Array<String>()
-			
+
 			for i in 0 ..< temporaryReadArray.count {
 				if (temporaryReadArray[i] != "") {
 					temporaryWriteArray.append(temporaryReadArray[i])
 				}
 			}
-			
+
 			if (mode == 1) {
 				return temporaryWriteArray
 			} else {
@@ -999,7 +999,7 @@ extension PHPFramework {
 			return 0
 		}
 	}
-	
+
 	/**
 	 Binary safe case-insensitive string comparison (not done)
 
@@ -1009,10 +1009,10 @@ extension PHPFramework {
 	 */
 	public func strcasecmp(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Alias of strstr
 
@@ -1025,7 +1025,7 @@ extension PHPFramework {
 	public func strchr(str: String, _ find: String, _ before: Bool? = false) -> String {
 		return php.strstr(str, find, before)
 	}
-	
+
 	/**
 	 Binary safe string comparison (not done)
 
@@ -1035,10 +1035,10 @@ extension PHPFramework {
 	 */
 	public func strcmp(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 **Not supported** Locale based string comparison
 
@@ -1049,7 +1049,7 @@ extension PHPFramework {
 	public func strcoll(str: String) -> String {
 		return str
 	}
-	
+
 	/**
 	 Find length of initial segment not matching mask (not done)
 
@@ -1059,10 +1059,10 @@ extension PHPFramework {
 	 */
 	public func strcspn(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Strip HTML and PHP tags from a string
 
@@ -1074,7 +1074,7 @@ extension PHPFramework {
 		do {
 			let regex: NSRegularExpression = try NSRegularExpression(pattern: "<.*?>", options: NSRegularExpressionOptions.CaseInsensitive)
 			let range = NSMakeRange(0, str.characters.count)
-			let htmlLessString : String = regex.stringByReplacingMatchesInString(str, options: [], range: range, withTemplate: "")
+			let htmlLessString: String = regex.stringByReplacingMatchesInString(str, options: [], range: range, withTemplate: "")
 			return htmlLessString
 		}
 		catch {
@@ -1082,7 +1082,7 @@ extension PHPFramework {
 			return str
 		}
 	}
-	
+
 	/**
 	 Un-quote string quoted with addcslashes (not done)
 
@@ -1091,12 +1091,12 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func stripcslashes(str: String) -> String {
-        return str.stringByReplacingOccurrencesOfString("\\\\", withString: "\\")
-            .stringByReplacingOccurrencesOfString("\\'", withString: "'")
-            .stringByReplacingOccurrencesOfString("\\\"", withString: "\"")
-            .stringByReplacingOccurrencesOfString("\\\0", withString: "\0")
+		return str.stringByReplacingOccurrencesOfString("\\\\", withString: "\\")
+			.stringByReplacingOccurrencesOfString("\\'", withString: "'")
+			.stringByReplacingOccurrencesOfString("\\\"", withString: "\"")
+			.stringByReplacingOccurrencesOfString("\\\0", withString: "\0")
 	}
-	
+
 	/**
 	 Find the position of the first occurrence of a case-insensitive substring in a string (not done)
 
@@ -1106,10 +1106,10 @@ extension PHPFramework {
 	 */
 	public func stripos(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Un-quotes a quoted string
 
@@ -1118,33 +1118,33 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func stripslashes(str: String) -> String {
-        return str.stringByReplacingOccurrencesOfString("\\\\", withString: "\\")
-            .stringByReplacingOccurrencesOfString("\\'", withString: "'")
-            .stringByReplacingOccurrencesOfString("\\\"", withString: "\"")
-            .stringByReplacingOccurrencesOfString("\\\0", withString: "\0")
+		return str.stringByReplacingOccurrencesOfString("\\\\", withString: "\\")
+			.stringByReplacingOccurrencesOfString("\\'", withString: "'")
+			.stringByReplacingOccurrencesOfString("\\\"", withString: "\"")
+			.stringByReplacingOccurrencesOfString("\\\0", withString: "\0")
 	}
-	
+
 	/**
 	 Case-insensitive strstr
 
-     - Parameter str: The String
-     - Parameter find: find
-     - Parameter before: before?
-     
-     - Returns: The part String
+	 - Parameter str: The String
+	 - Parameter find: find
+	 - Parameter before: before?
+
+	 - Returns: The part String
 	 */
-    public func stristr(str: String, _ needle: String) -> Any {
-        // string strrchr ( string $haystack , mixed $needle )
-        // Explode & get end
-        let exploded: Array<String> = php.explode(str, needle) ;
-        
-        if (exploded.count > 1) {
-            return exploded[exploded.count - 1] ;
-        } else {
-            return false
-        }
+	public func stristr(str: String, _ needle: String) -> Any {
+		// string strrchr ( string $haystack , mixed $needle )
+		// Explode & get end
+		let exploded: Array<String> = php.explode(str, needle);
+
+		if (exploded.count > 1) {
+			return exploded[exploded.count - 1];
+		} else {
+			return false
+		}
 	}
-	
+
 	/**
 	 Get string length
 
@@ -1155,7 +1155,7 @@ extension PHPFramework {
 	public func strlen(str: String) -> Int {
 		return str.characters.count
 	}
-	
+
 	/**
 	 Case insensitive string comparisons using a "natural order" algorithm (not done)
 
@@ -1165,10 +1165,10 @@ extension PHPFramework {
 	 */
 	public func strnatcasecmp(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 String comparisons using a "natural order" algorithm (not done)
 
@@ -1178,10 +1178,10 @@ extension PHPFramework {
 	 */
 	public func strnatcmp(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Binary safe case-insensitive string comparison of the first n characters (not done)
 
@@ -1191,10 +1191,10 @@ extension PHPFramework {
 	 */
 	public func strncasecmp(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Binary safe string comparison of the first n characters (not done)
 
@@ -1204,10 +1204,10 @@ extension PHPFramework {
 	 */
 	public func strncmp(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Search a string for any of a set of characters (not done)
 
@@ -1217,10 +1217,10 @@ extension PHPFramework {
 	 */
 	public func strpbrk(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Find the position of the first occurrence of a substring in a string (not done)
 
@@ -1230,10 +1230,10 @@ extension PHPFramework {
 	 */
 	public func strpos(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Find the last occurrence of a character in a string
 
@@ -1248,15 +1248,15 @@ extension PHPFramework {
 	public func strrchr(str: String, _ needle: String) -> Any {
 		// string strrchr ( string $haystack , mixed $needle )
 		// Explode & get end
-		let exploded: Array<String> = php.explode(str, needle) ;
-		
+		let exploded: Array<String> = php.explode(str, needle);
+
 		if (exploded.count > 1) {
-			return exploded[exploded.count - 1] ;
+			return exploded[exploded.count - 1];
 		} else {
 			return false
 		}
 	}
-	
+
 	/**
 	 Reverse a string
 
@@ -1267,7 +1267,7 @@ extension PHPFramework {
 	public func strrev(str: String) -> String {
 		return String(str.characters.reverse())
 	}
-	
+
 	/**
 	 Find the position of the last occurrence of a case-insensitive substring in a string (not done)
 
@@ -1277,23 +1277,46 @@ extension PHPFramework {
 	 */
 	public func strripos(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Find the position of the last occurrence of a substring in a string (not done)
 
-	 - Parameter str: The String
+	 - Parameter haystack: The String
+     - Parameter needle: String needed
+     - Parameter offset: the offset
 
-	 - Returns: The String
+	 - Returns: Int / Bool(false)
 	 */
-	public func strrpos(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+    public func strrpos(haystack: String, _ needle: String, _ offset: Int? = 0) -> Any {
+        if (offset < 0) {
+            var count    = haystack.length
+            for value in haystack.characters.reverse() {
+                if (count < offset!+haystack.length) {
+                    if (String(value) == needle) {
+                        return count-1
+                    }
+                }
+                count -= 1
+            }
+            
+            return false
+        } else {
+            var count = 0
+            for value in haystack.characters {
+                if (count > offset!) {
+                    if (String(value) == needle) {
+                        return count
+                    }
+                }
+                count += 1
+            }
+            return false
+        }
 	}
-	
+
 	/**
 	 Finds the length of the initial segment of a string consisting entirely of characters contained within a given mask. (not done)
 
@@ -1301,12 +1324,17 @@ extension PHPFramework {
 
 	 - Returns: The String
 	 */
-	public func strspn(str: String) -> String {
-		print("Sorry this function is not done")
-		
-		return str
+	public func strspn(str: String, _ find: String, _ ch1: Int? = 0, _ ch2: Int? = 0) -> Int {
+        // ... not true...
+//		if (ch1! == 0 || ch2! == 0) {
+			return 0
+//		} else {
+//			let count = substr(str, ch1!, ch2!)
+//			print("STRSPN = \(substr(str, ch1!, ch2!))")
+//			return count.length
+//		}
 	}
-	
+
 	/**
 	 Find the first occurrence of a string
 
@@ -1317,20 +1345,20 @@ extension PHPFramework {
 	 - Returns: The part String
 	 */
 	public func strstr(str: String, _ find: String, _ before: Bool? = false) -> String {
-		
+
 		var exploded = php.explode(str, find)
-		
+        
 		if (exploded.count < 1) {
 			return str
 		}
-		
+
 		if (before! || before == nil) {
 			return exploded[0]
 		} else {
 			return exploded[1]
 		}
 	}
-	
+
 	/**
 	 Tokenize string
 
@@ -1347,7 +1375,7 @@ extension PHPFramework {
 			return false
 		}
 	}
-	
+
 	/**
 	 Make a string lowercase
 
@@ -1358,7 +1386,7 @@ extension PHPFramework {
 	public func strtolower(str: String) -> String {
 		return str.lowercaseString
 	}
-	
+
 	/**
 	 Make a string uppercase
 
@@ -1369,7 +1397,7 @@ extension PHPFramework {
 	public func strtoupper(str: String) -> String {
 		return str.uppercaseString
 	}
-	
+
 	/**
 	 Translate characters or replace substrings
 
@@ -1383,13 +1411,13 @@ extension PHPFramework {
 		if (from.length != to.length) {
 			return str
 		}
-		
+
 		var _str = str
-		
+
 		for i in 0 ..< from.length {
 			_str = _str.replace(String(from[i]), withString: String(to[i]))
 		}
-		
+
 		return _str
 	}
 	/**
@@ -1401,10 +1429,10 @@ extension PHPFramework {
 	 */
 	public func substr_compare(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Count the number of substring occurrences (not done)
 
@@ -1414,10 +1442,10 @@ extension PHPFramework {
 	 */
 	public func substr_count(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Replace text within a portion of a string (not done)
 
@@ -1427,10 +1455,10 @@ extension PHPFramework {
 	 */
 	public func substr_replace(str: String) -> String {
 		print("Sorry this function is not done")
-		
+
 		return str
 	}
-	
+
 	/**
 	 Return part of a string
 
@@ -1444,101 +1472,101 @@ extension PHPFramework {
 	 */
 	public func substr(str: String, _ start: Int, _ length: Int = 0) -> String {
 		// string substr ( string $string , int $start [, int $length ] )
-		
+
 		if (length == 0) {
 			// We'll only have a 'start' position
-			
+
 			if (start < 1) {
 				// Count down to end.
 				let startPosition: Int = (str.characters.count + start)
-				return str[startPosition...str.characters.count]
+				return str[startPosition ... str.characters.count]
 			} else {
 				// Ok we'll start at point...
-				return str[start...str.characters.count]
+				return str[start ... str.characters.count]
 			}
 		} else {
 			// Ok, this could be fun, but we can also..
 			// Nevermind.
 			// We'll need to handle the length...
-			
+
 			if (length > 0) {
 				if (start < 1) {
 					// We'll know this trick!
 					let startPosition: Int = (str.characters.count + start)
-					
+
 					// Will be postitive in the end. (hopefully :P)
 					// Ok, this is amazing! let me explain
 					// String Count - (String count - -Start Point) + length
 					// ^^^ -- is + (Since Start Point is a negative number)
 					// String Count - Start point + length
 					var endPosition: Int = ((str.characters.count - (str.characters.count + start)) + length)
-					
+
 					// If the endposition > the string, just string length.
 					if (endPosition > str.characters.count) {
 						endPosition = str.characters.count
 					}
-					
+
 					// i WILL return ;)
-					return str[startPosition...endPosition]
+					return str[startPosition ... endPosition]
 				} else {
 					// We'll know this trick!
 					let startPosition: Int = start
-					
+
 					// Will be postitive in the end. (hopefully :P)
 					var endPosition: Int = ((str.characters.count - start) + length)
-					
+
 					// If the endposition > the string, just string length.
 					if (endPosition > str.characters.count) {
 						endPosition = str.characters.count
 					}
-					
+
 					// i WILL return ;)
-					return str[startPosition...endPosition]
+					return str[startPosition ... endPosition]
 				}
 			} else {
 				// End tries to be funny.
 				// so fix that.
 				// Length (end = negative)
-				
+
 				if (start < 1) {
 					// But, Wait. Start is also negative?!
-					
+
 					// Count down to end.
 					let startPosition: Int = (str.characters.count + start)
-					
+
 					// We'll doing some magic here again, please, i don't explain this one also! (HAHA)
 					var endPosition: Int = (str.characters.count - ((str.characters.count + start) + (length + 1)))
-					
+
 					// If the endposition > the string, just string length.
 					if (endPosition > str.characters.count) {
 						endPosition = str.characters.count
 					}
-					
+
 					// i WILL return ;)
-					return str[startPosition...endPosition]
+					return str[startPosition ... endPosition]
 				} else {
 					// Ok we'll start at point...
-					
+
 					// Count down to end.
 					let startPosition: Int = (str.characters.count - start)
-					
+
 					// We'll doing some magic here again, please, i don't explain this one also! (HAHA)
 					var endPosition: Int = (str.characters.count - ((str.characters.count - start) + (length + 1)))
-					
+
 					// If the endposition > the string, just string length.
 					if (endPosition > str.characters.count) {
 						endPosition = str.characters.count
 					}
-					
+
 					// i WILL return ;)
-					return str[startPosition...endPosition]
+					return str[startPosition ... endPosition]
 				}
 			}
 			// we'll having fun now!
 		}
 		// And it's done.
 	}
-	
+
 	/**
 	 Strip whitespace (or other characters) from the beginning and end of a string
 
@@ -1564,7 +1592,7 @@ extension PHPFramework {
 	public func trim(str: String, _ chrs: String? = "_ALL_") -> String {
 		return str.trimmed()
 	}
-	
+
 	/**
 	 Make a string's first character uppercase
 
@@ -1573,9 +1601,9 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func ucfirst(str: String) -> String {
-		return String(str[0]).uppercaseString + String(str[1...(str.length)])
+		return String(str[0]).uppercaseString + String(str[1 ... (str.length)])
 	}
-	
+
 	/**
 	 Uppercase the first character of each word in a string
 
@@ -1587,16 +1615,16 @@ extension PHPFramework {
 		let splitted: Array = str.split(" ")
 		var newString: String = ""
 		for i in 0 ..< splitted.count {
-			newString = newString.stringByAppendingString(String(splitted[i] [0]).uppercaseString + String(splitted[i] [1...(splitted[i].length)]))
-			
+			newString = newString.stringByAppendingString(String(splitted[i][0]).uppercaseString + String(splitted[i][1 ... (splitted[i].length)]))
+
 			if (i < splitted.count - 1) {
 				newString = newString.stringByAppendingString(" ")
 			}
 		}
-		
+
 		return newString
 	}
-	
+
 	/**
 	 **PHP.Framework**\
 	 Write a formatted string to a stream
@@ -1606,10 +1634,10 @@ extension PHPFramework {
 
 	 - Parameter ob: the object
 	 */
-	public func vfprintf(ob: Any...) -> Void {
+	public func vfprintf(ob: Any ...) -> Void {
 		print(ob)
 	}
-	
+
 	/**
 	 **PHP.Framework**\
 	 Output a formatted string
@@ -1619,10 +1647,10 @@ extension PHPFramework {
 
 	 - Parameter ob: the object
 	 */
-	public func vprintf(ob: Any...) -> Void {
+	public func vprintf(ob: Any ...) -> Void {
 		print(ob)
 	}
-	
+
 	/**
 	 **PHP.Framework**\
 	 Return a formatted string
@@ -1632,10 +1660,10 @@ extension PHPFramework {
 
 	 - Parameter ob: the object
 	 */
-	public func vsprintf(ob: Any...) -> Void {
+	public func vsprintf(ob: Any ...) -> Void {
 		print(ob)
 	}
-	
+
 	/**
 	 Wraps a string to a given number of characters (not done)
 
@@ -1652,17 +1680,17 @@ extension PHPFramework {
 		// string wordwrap ( string $str [, int $width = 75 [, string $break = "\n" [, bool $cut = false ]]] )
 		var myCount: Int = 0
 		var myString: String = ""
-		
+
 		// Map to array!
 		var StringToArray: Array<String> = Array<String>()
-		let x = str.characters.map {StringToArray.append(String($0))} ;
-		
+		let x = str.characters.map { StringToArray.append(String($0)) };
+
 		// Noop to ignore stupid swift not used errors
 		php.noop(x)
-		
+
 		for i in (0 ..< StringToArray.count) {
 			myString = myString.stringByAppendingString(StringToArray[i])
-			
+
 			if (myCount >= width) {
 				if (cut) {
 					// We'd like to cut always.
@@ -1681,5 +1709,5 @@ extension PHPFramework {
 		}
 		return myString
 	}
-	
+
 }

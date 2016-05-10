@@ -571,6 +571,14 @@ public extension String {
 		return characters.split {$0 == separator}.map(String.init)
 	}
 	
+    var textLines: [String] {
+        return split("\n")
+    }
+    
+    var words: [String] {
+        return split(" ")
+    }
+    
 	func startsWith(prefix: String) -> Bool {
 		return hasPrefix(prefix)
 	}

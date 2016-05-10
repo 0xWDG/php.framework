@@ -429,7 +429,7 @@ extension PHPFramework {
 	 - Returns: Prints out the credits for PHP
 	 */
 	public func phpcredits() -> String {
-		return credits
+		return PFSCredits
 	}
 	
 	/**
@@ -438,7 +438,7 @@ extension PHPFramework {
 	 - Returns: Outputs information about PHP's configuration
 	 */
 	public func phpinfo() -> String {
-		return credits
+		return PFSCredits
 	}
 	
 	/**

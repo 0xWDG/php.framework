@@ -39,12 +39,12 @@
 
 import Foundation
 
-public let nl: String = "\r\n"
-public let credits: String = "\(PHPFramework(false).product) Version \(PHPFramework(false).version)" + nl + nl +
-	"Created by:" + nl +
-	"Wesley de Groot (GitHub: @wdg Twitter: @wesdegroot) http://www.wdgwv.com" + nl + nl +
-	"With help from:" + nl +
-	"name1" + nl +
-	nl +
+public let PFSnl: String = "\r\n"
+public let PFSCredits: String = "\(PHPFramework(false).product) Version \(PHPFramework(false).version)" + PFSnl + PFSnl +
+	"Created by:" + PFSnl +
+	"Wesley de Groot (GitHub: @wdg Twitter: @wesdegroot) http://www.wdgwv.com" + PFSnl + PFSnl +
+	"With help from:" + PFSnl +
+	"name1" + PFSnl +
+	PFSnl +
 	"\r\nPHP.Framework did not exists without help of the above mentioned people,\r\nThanks for your support"
 

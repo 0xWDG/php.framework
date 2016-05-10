@@ -6,8 +6,6 @@
 //  Copyright © 2016 WDGWV. All rights reserved.
 //
 
-// FROM https://raw.github.com/kvz/phpjs/master/functions/strings/sha1.js
-
 import Foundation
 
 extension String {
