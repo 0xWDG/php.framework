@@ -312,7 +312,10 @@ extension PHPFrameworkTests {
     }
     
 	func test_strnatcasecmp() {
-		XCTAssertEqual(PASS, FAIL)
+        let v = ["abc", "ABC", "cdef", "ab"]
+		XCTAssertEqual(php.strnatcasecmp(v[0], v[1]), 0)
+        XCTAssertEqual(php.strnatcasecmp(v[0], v[2]), -1)
+        XCTAssertEqual(php.strnatcasecmp(v[0], v[3]), 1)
 	}
 	
 	func test_strnatcmp() {

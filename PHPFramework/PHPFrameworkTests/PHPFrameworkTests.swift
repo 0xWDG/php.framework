@@ -38,15 +38,6 @@ class PHPFrameworkTests: XCTestCase {
         super.tearDown()
     }
     
-//    func testBier() {
-//        XCTAssertFalse(false)
-//        let date = NSDate()
-//        XCTAssertEqual(date, date)
-////        print("HI")
-//        
-//        php.echo("123")
-//    }
-    
     /**
      Our internal test function.
      

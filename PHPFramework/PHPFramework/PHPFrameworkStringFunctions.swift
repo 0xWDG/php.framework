@@ -1196,14 +1196,19 @@ extension PHPFramework {
 	/**
 	 Case insensitive string comparisons using a "natural order" algorithm (not done)
 
-	 - Parameter str: The String
-
+	 - Parameter str1: The 1st String
+     - Parameter str2: The 2nd String
+     
 	 - Returns: The String
 	 */
-	public func strnatcasecmp(str: String) -> String {
-		print("Sorry this function is not done")
-
-		return str
+    public func strnatcasecmp(str1: String, _ str2: String) -> Int {
+        if (str1.length > str2.length) {
+            return str1.length - str2.length
+        } else if (str1.length < str2.length) {
+            return str1.length - str2.length
+        } else {
+            return 0
+        }
 	}
 
 	/**
