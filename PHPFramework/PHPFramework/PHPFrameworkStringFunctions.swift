@@ -605,17 +605,54 @@ extension PHPFramework {
 	}
 
 	/**
-	 Parses the string into variables (**not supported**)
-
-	 # **not supported**
-	 ### Unsafe behaviour & no addition to swift.
+	 Parses the string into variables
 
 	 - Parameter str: the query string
 
-	 - Returns: false
+	 - Returns: [String: Any]
 	 */
-	public func parse_str(str: String) -> Array<String> {
-		return ["false", "Not supported"]
+    public func parse_str(str: String) -> [String: Any] {
+        // WTF Why not.
+        
+        // first=value&arr[]=foo+bar&arr[]=baz
+        // must become:
+        // ARRAY {
+        //  first: value,
+        //  arr: [foo bar, baz]
+        // }
+        // Must not be to hard, i hope, and i guess
+        
+        var tempy = [String: Any]()
+
+        let exploded_data = str.componentsSeparatedByString("&")
+        
+        for (_, val) in exploded_data.enumerate() {
+            let data = val.componentsSeparatedByString("=")
+            
+            if (data[0].endsWith("[]")) { // IS ARRAY
+                let _arrayName = data[0].replace("[]", withString: "") // Quick solution
+                if ((tempy[_arrayName]) != nil) {
+                    var x = [String]()
+                    
+                    let arr:[String] = tempy[_arrayName] as! Array // otherwise stupid swift crashes if we convert in the for loop.
+                    
+                    for (_, v) in arr.enumerate() {
+                        x.append(v)
+                    }
+                    
+                    x.append(data[1])
+                    
+                    tempy[_arrayName] = Array(x) // does not fix '_TtCs21_SwiftDeferredNSArray'
+                } else {
+                    tempy[_arrayName] = [data[1]]
+                }
+            }
+            else {
+                tempy[data[0]] = data[1]
+            }
+        }
+        
+		return tempy
 	}
 
 	/**

@@ -162,7 +162,8 @@ extension PHPFrameworkTests {
 	
 	func test_parse_str() {
 		// if no crash then pass
-		php.parse_str(E)
+        php.parse_str("first=value&arr[]=foo+bar&arr[]=baz")
+        XCTAssertEqual(true, true) // Untestable by xcode since it is [String: Any]
 	}
 	
 	func test_printf() {
