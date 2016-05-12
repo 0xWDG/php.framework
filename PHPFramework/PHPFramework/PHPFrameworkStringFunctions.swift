@@ -1194,7 +1194,7 @@ extension PHPFramework {
 	}
 
 	/**
-	 Case insensitive string comparisons using a "natural order" algorithm (not done)
+	 Case insensitive string comparisons using a "natural order" algorithm
 
 	 - Parameter str1: The 1st String
      - Parameter str2: The 2nd String
@@ -1207,22 +1207,31 @@ extension PHPFramework {
         } else if (str1.length < str2.length) {
             return str1.length - str2.length
         } else {
-            return 0
+            if (str1 == str2) {
+                return 0
+            } else {
+                return 1
+            }
         }
 	}
 
 	/**
-	 String comparisons using a "natural order" algorithm (not done)
+	 String comparisons using a "natural order" algorithm
 
-	 - Parameter str: The String
-
+     - Parameter str1: The 1st String
+     - Parameter str2: The 2nd String
+     
 	 - Returns: The String
 	 */
-	public func strnatcmp(str: String) -> String {
-		print("Sorry this function is not done")
-
-		return str
-	}
+    public func strnatcmp(str1: String, _ str2: String) -> Int {
+        if (str1.length > str2.length) {
+            return str1.length - str2.length
+        } else if (str1.length < str2.length) {
+            return str1.length - str2.length
+        } else {
+            return 0
+        }
+    }
 
 	/**
 	 Binary safe case-insensitive string comparison of the first n characters (not done)
