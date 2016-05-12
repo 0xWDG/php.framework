@@ -307,30 +307,42 @@ extension PHPFrameworkTests {
 		XCTAssertEqual(php.strlen("Hi"), 2)
 	}
 
-    func test_strcasecmp() {
+    func test_pstrcasecmp() {
         let v = ["abc", "ABC", "cdef", "ab"]
-        XCTAssertEqual(php.strnatcasecmp(v[0], v[1]), 0)
-        XCTAssertEqual(php.strnatcasecmp(v[0], v[2]), -1)
-        XCTAssertEqual(php.strnatcasecmp(v[0], v[3]), 1)
+        XCTAssertEqual(php.strcasecmp(v[0], v[0]), 0)
+        XCTAssertEqual(php.strcasecmp(v[0], v[1]), 1)
+        XCTAssertEqual(php.strcasecmp(v[0], v[2]), -1)
+        XCTAssertEqual(php.strcasecmp(v[0], v[3]), 1)
     }
     
 	func test_strnatcasecmp() {
         let v = ["abc", "ABC", "cdef", "ab"]
-		XCTAssertEqual(php.strnatcasecmp(v[0], v[1]), 0)
+        XCTAssertEqual(php.strnatcasecmp(v[0], v[0]), 0)
+        XCTAssertEqual(php.strnatcasecmp(v[0], v[1]), 1)
         XCTAssertEqual(php.strnatcasecmp(v[0], v[2]), -1)
         XCTAssertEqual(php.strnatcasecmp(v[0], v[3]), 1)
 	}
 	
 	func test_strnatcmp() {
-		XCTAssertEqual(PASS, FAIL)
+        let v = ["abc", "ABC", "cdef", "ab"]
+        XCTAssertEqual(php.strnatcmp(v[0], v[1]), 0)
+        XCTAssertEqual(php.strnatcmp(v[0], v[2]), -1)
+        XCTAssertEqual(php.strnatcmp(v[0], v[3]), 1)
 	}
 	
 	func test_strncasecmp() {
-		XCTAssertEqual(PASS, FAIL)
+        let v = ["abc", "ABC", "cdef", "ab"]
+        XCTAssertEqual(php.strncasecmp(v[0], v[0]), 0)
+        XCTAssertEqual(php.strncasecmp(v[0], v[1]), 1)
+        XCTAssertEqual(php.strncasecmp(v[0], v[2]), -1)
+        XCTAssertEqual(php.strncasecmp(v[0], v[3]), 1)
 	}
 	
 	func test_strncmp() {
-		XCTAssertEqual(PASS, FAIL)
+        let v = ["abc", "ABC", "cdef", "ab"]
+        XCTAssertEqual(php.strncmp(v[0], v[1]), 0)
+        XCTAssertEqual(php.strncmp(v[0], v[2]), -1)
+        XCTAssertEqual(php.strncmp(v[0], v[3]), 1)
 	}
 	
 	func test_strpbrk() {

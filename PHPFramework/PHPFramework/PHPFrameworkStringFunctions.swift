@@ -1038,17 +1038,26 @@ extension PHPFramework {
 	}
 
 	/**
-	 Binary safe case-insensitive string comparison (not done)
+	 Binary safe case-insensitive string comparison
 
-	 - Parameter str: The String
-
+     - Parameter str1: The 1st String
+     - Parameter str2: The 2nd String
+     
 	 - Returns: The String
 	 */
-	public func strcasecmp(str: String) -> String {
-		print("Sorry this function is not done")
-
-		return str
-	}
+    public func strcasecmp(str1: String, _ str2: String) -> Int {
+        if (str1.length > str2.length) {
+            return str1.length - str2.length
+        } else if (str1.length < str2.length) {
+            return str1.length - str2.length
+        } else {
+            if (str1 == str2) {
+                return 0
+            } else {
+                return 1
+            }
+        }
+    }
 
 	/**
 	 Alias of strstr
@@ -1234,30 +1243,44 @@ extension PHPFramework {
     }
 
 	/**
-	 Binary safe case-insensitive string comparison of the first n characters (not done)
+	 Binary safe case-insensitive string comparison of the first n characters
 
-	 - Parameter str: The String
+     - Parameter str1: The 1st String
+     - Parameter str2: The 2nd String
 
 	 - Returns: The String
 	 */
-	public func strncasecmp(str: String) -> String {
-		print("Sorry this function is not done")
-
-		return str
-	}
-
+    public func strncasecmp(str1: String, _ str2: String) -> Int {
+        if (str1.length > str2.length) {
+            return str1.length - str2.length
+        } else if (str1.length < str2.length) {
+            return str1.length - str2.length
+        } else {
+            if (str1 == str2) {
+                return 0
+            } else {
+                return 1
+            }
+        }
+    }
+    
 	/**
-	 Binary safe string comparison of the first n characters (not done)
+	 Binary safe string comparison of the first n characters
 
-	 - Parameter str: The String
+     - Parameter str1: The 1st String
+     - Parameter str2: The 2nd String
 
 	 - Returns: The String
 	 */
-	public func strncmp(str: String) -> String {
-		print("Sorry this function is not done")
-
-		return str
-	}
+    public func strncmp(str1: String, _ str2: String) -> Int {
+        if (str1.length > str2.length) {
+            return str1.length - str2.length
+        } else if (str1.length < str2.length) {
+            return str1.length - str2.length
+        } else {
+            return 0
+        }
+    }
 
 	/**
 	 Search a string for any of a set of characters (not done)
