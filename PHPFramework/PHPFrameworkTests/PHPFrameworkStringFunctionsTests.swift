@@ -228,14 +228,14 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_str_ireplace() {
-		XCTAssertEqual(PASS, FAIL)
+		XCTAssertEqual(php.str_ireplace("abc", "wdg", "@aBc"), "@wdg")
 	}
 	
 	func test_str_pad() {
 		XCTAssertEqual(php.str_pad("@wdg", 10, " ", pad_type: STR_PAD_RIGHT), "@wdg      ")
 		XCTAssertEqual(php.str_pad("@wdg", 10, " ", pad_type: STR_PAD_LEFT), "      @wdg")
-		XCTAssertEqual(php.str_pad("@wdg", 10, " ", pad_type: STR_PAD_BOTH), "   @wdg   ")
-		XCTAssertEqual(php.str_pad("@wdg", 11, " ", pad_type: STR_PAD_BOTH), "   @wdg    ")
+		XCTAssertEqual(php.str_pad("@wdg", 10, " ", pad_type: STR_PAD_BOTH), "    @wdg   ")
+		XCTAssertEqual(php.str_pad("@wdg", 11, " ", pad_type: STR_PAD_BOTH), "    @wdg    ")
 	}
 	
 	func test_str_repeat() {

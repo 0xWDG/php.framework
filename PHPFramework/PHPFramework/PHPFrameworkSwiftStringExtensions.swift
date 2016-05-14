@@ -337,6 +337,18 @@ public extension String {
 		return self.stringByReplacingOccurrencesOfString(target, withString: withString, options: NSStringCompareOptions.LiteralSearch, range: nil)
 	}
 	
+    /**
+     Replace (Case Insensitive)
+     
+     - Parameter target: String
+     - Parameter withString: Replacement
+     
+     - Returns: Replaced string
+     */
+    public func ireplace(target: String, withString: String) -> String {
+        return self.stringByReplacingOccurrencesOfString(target, withString: withString, options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
+    }
+    
 	/**
 	 Character At Index
 

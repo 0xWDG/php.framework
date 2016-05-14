@@ -850,14 +850,14 @@ extension PHPFramework {
 	/**
 	 Case-insensitive version of str_replace. (not done)
 
-	 - Parameter str: The String
-
-	 - Returns: The String
-	 */
-	public func str_ireplace(str: String) -> String {
-		print("Sorry this function is not done")
-
-		return str
+     - Parameter search: string to search for
+     - Parameter replace: replace with
+     - Parameter subject: The String
+     
+     - Returns: The replaced String
+     */
+    public func str_ireplace(search: String, _ replace: String, _ subject: String) -> String {
+		return subject.ireplace(search, withString: replace)
 	}
 
 	/**
