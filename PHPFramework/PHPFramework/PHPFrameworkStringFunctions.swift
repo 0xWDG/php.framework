@@ -1362,22 +1362,20 @@ extension PHPFramework {
 	 Search a string for any of a set of characters
 
 	 - Parameter haystack: The String
-     - Parameter char_list: Character list
-     
-     - Returns: a string starting from the character found, or FALSE if it is not found.
+	 - Parameter char_list: Character list
+
+	 - Returns: a string starting from the character found, or FALSE if it is not found.
 
 	 */
-    public func strpbrk(haystack: String, _ char_list : String) -> Any {
-        let x = Darwin.strpbrk(haystack, char_list)
-        
-        print("x=\(x)")
-        if (x != nil) {
-            let _ret = String.fromCString(Darwin.strpbrk(haystack, char_list))
-            print("ret=\(_ret)")
-            return _ret
-        }
-        
-        return false
+	public func strpbrk(haystack: String, _ char_list: String) -> Any {
+		let x = Darwin.strpbrk(haystack, char_list)
+
+		if (x != nil) {
+			let _ret = String.fromCString(Darwin.strpbrk(haystack, char_list))
+			return _ret
+		}
+
+		return false
 	}
 
 	/**
@@ -1503,21 +1501,62 @@ extension PHPFramework {
 	}
 
 	/**
-	 Finds the length of the initial segment of a string consisting entirely of characters contained within a given mask. (not done)
+	 Finds the length of the initial segment of a string consisting entirely of characters contained within a given mask.
 
-	 - Parameter str: The String
+	 - Parameter haystack: The String
+     - Parameter mask: The mask
+     - Parameter start: startposition (default: 0)
+     - Parameter lengrh: the length (default: 0)
 
 	 - Returns: The String
 	 */
-	public func strspn(str: String, _ find: String, _ ch1: Int? = 0, _ ch2: Int? = 0) -> Int {
-		// ... not true...
-		// if (ch1! == 0 || ch2! == 0) {
-		return 0
-		// } else {
-		// let count = substr(str, ch1!, ch2!)
-		// print("STRSPN = \(substr(str, ch1!, ch2!))")
-		// return count.length
+	public func strspn(haystack: String, _ mask: String, _ start: Int? = 0, _ length: Int? = 0) -> Any {
+		// int strspn ( string $subject , string $mask [, int $start [, int $length ]] )
+		var count = 0
+
+		if (start == 0) {
+			for fs in mask.characters {
+				if (String(haystack[0]) == String(fs)) {
+					return 0
+				}
+				return 0
+			}
+		}
+
+		if (start > 0) {
+			var inputString = haystack[(start)! ... (haystack.length)]
+			if (length != 0) {
+				inputString = inputString[0 ... (length)!]
+			}
+
+			for look in inputString.characters {
+				for fs in mask.characters {
+					if (String(look) == String(fs)) {
+						count += 1
+					}
+				}
+			}
+		}
+
+		return count
+		// var count = 0
+		//
+		// for chr in haystack.characters {
+		//
+		// //
+		// if (true) {
+		// for fs in mask.characters {
+		// if (String(chr) == String(fs)) {
+		// return count
 		// }
+		// }
+		// }
+		// //
+		//
+		// count += 1
+		// }
+
+		return false
 	}
 
 	/**

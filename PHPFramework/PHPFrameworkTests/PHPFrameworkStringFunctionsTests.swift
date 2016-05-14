@@ -405,9 +405,10 @@ extension PHPFrameworkTests {
     }
 	
 	func test_strspn() {
-        XCTAssertEqual(php.strspn("foo", "o"), 0)
-        XCTAssertEqual(php.strspn("foo", "o", 1, 2), 2)
-        XCTAssertEqual(php.strspn("foo", "o", 1, 1), 1)
+        XCTAssertEqual(php.strspn("foo", "f") as? Int, 0)
+        XCTAssertEqual(php.strspn("foo", "o") as? Int, 0)
+        XCTAssertEqual(php.strspn("foo", "o", 1, 2) as? Int, 2)
+        XCTAssertEqual(php.strspn("foo", "o", 1, 1) as? Int, 1)
 	}
 	
 	func test_strstr() {
