@@ -1359,16 +1359,25 @@ extension PHPFramework {
 	}
 
 	/**
-	 Search a string for any of a set of characters (not done)
+	 Search a string for any of a set of characters
 
-	 - Parameter str: The String
+	 - Parameter haystack: The String
+     - Parameter char_list: Character list
+     
+     - Returns: a string starting from the character found, or FALSE if it is not found.
 
-	 - Returns: The String
 	 */
-	public func strpbrk(str: String) -> String {
-		print("Sorry this function is not done")
-
-		return str
+    public func strpbrk(haystack: String, _ char_list : String) -> Any {
+        let x = Darwin.strpbrk(haystack, char_list)
+        
+        print("x=\(x)")
+        if (x != nil) {
+            let _ret = String.fromCString(Darwin.strpbrk(haystack, char_list))
+            print("ret=\(_ret)")
+            return _ret
+        }
+        
+        return false
 	}
 
 	/**

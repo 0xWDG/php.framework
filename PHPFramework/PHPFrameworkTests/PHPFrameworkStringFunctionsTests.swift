@@ -358,8 +358,14 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strpbrk() {
-        XCTAssertEqual(PASS, FAIL)
-	}
+        let text = "This is a Simple text.";
+        
+        // this echoes "is is a Simple text." because 'i' is matched first
+        XCTAssertEqual(php.strpbrk(text, "mi") as? String, "is is a Simple text.")
+        
+        // this echoes "Simple text." because chars are case sensitive
+        XCTAssertEqual(php.strpbrk(text, "S") as? String, "Simple text.")
+    }
 	
 	func test_strpos() {
         let newstring = "abcdef abcdef";
