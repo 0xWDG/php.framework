@@ -80,6 +80,7 @@
 		6E7DE68C1C498A6B002574EA /* PHPFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPFrameworkTests.swift; sourceTree = "<group>"; };
 		6E7DE68E1C498A6B002574EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E7DE6971C498A7A002574EA /* PHPFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHPFramework.swift; path = PHPFramework/PHPFramework.swift; sourceTree = "<group>"; };
+		6E8260961CE7699F005135D0 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		6E91AD6E1C9E0CA7006BF544 /* SHA1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SHA1.swift; path = PHPFramework/Specials/SHA1.swift; sourceTree = "<group>"; };
 		6E9B75291C76467B0013200F /* ROT13.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ROT13.swift; path = PHPFramework/Specials/ROT13.swift; sourceTree = "<group>"; };
 		6E9B75371C764DD80013200F /* PHPFrameworkSwiftArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHPFrameworkSwiftArrayExtensions.swift; path = PHPFramework/Specials/PHPFrameworkSwiftArrayExtensions.swift; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 		6E7DE6731C498A6B002574EA = {
 			isa = PBXGroup;
 			children = (
+				6E8260961CE7699F005135D0 /* Package.swift */,
 				6E7DE6991C498A8F002574EA /* PHPFramework files */,
 				6E7DE67F1C498A6B002574EA /* PHPFramework iOS */,
 				6E7DE68B1C498A6B002574EA /* PHPFrameworkTests iOS */,
@@ -262,6 +264,7 @@
 				TargetAttributes = {
 					6E7DE67C1C498A6B002574EA = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 4V2D72S45C;
 					};
 					6E7DE6861C498A6B002574EA = {
 						CreatedOnToolsVersion = 7.2;
@@ -455,6 +458,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 2016.05.12;
@@ -464,6 +469,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wdgwv.PHPFramework;
 				PRODUCT_NAME = PHPFramework;
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/PHPFramework/CommonCrypto\"";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -474,6 +480,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 2016.05.12;
@@ -483,6 +491,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wdgwv.PHPFramework;
 				PRODUCT_NAME = PHPFramework;
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/PHPFramework/CommonCrypto\"";
 			};

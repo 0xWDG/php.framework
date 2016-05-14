@@ -277,7 +277,12 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strcspn() {
-		XCTAssertEqual(PASS, FAIL)
+		XCTAssertEqual(php.strcspn("abcd", "apple"), 0)
+        XCTAssertEqual(php.strcspn("abcd", "banana"), 0)
+        XCTAssertEqual(php.strcspn("hello", "l"), 2)
+        XCTAssertEqual(php.strcspn("hello", "world"), 2)
+        XCTAssertEqual(php.strcspn("abcdhelloabcd", "abcd", -9), 5)
+        XCTAssertEqual(php.strcspn("abcdhelloabcd", "abcd", -9, -5), 4)
 	}
 	
 	func test_strip_tags() {
@@ -290,7 +295,10 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_stripos() {
-		XCTAssertEqual(PASS, FAIL)
+        let newstring = "aBcDeF aBcDeF";
+        
+        XCTAssertEqual(php.stripos(newstring, "a", 1) as? Int, 7)
+        XCTAssertEqual(php.stripos(newstring, "B", 8) as? Bool, false)
 	}
 	
 	func test_stripslashes() {
@@ -346,7 +354,7 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strpbrk() {
-		XCTAssertEqual(PASS, FAIL)
+        XCTAssertEqual(PASS, FAIL)
 	}
 	
 	func test_strpos() {
@@ -365,7 +373,10 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strripos() {
-		XCTAssertEqual(PASS, FAIL)
+        let newstring = "abcdef abcdef";
+        
+        XCTAssertEqual(php.strpos(newstring, "a", 1) as? Int, 7)
+        XCTAssertEqual(php.strpos(newstring, "a", 8) as? Bool, false)
 	}
 	
 	func test_strrpos() {

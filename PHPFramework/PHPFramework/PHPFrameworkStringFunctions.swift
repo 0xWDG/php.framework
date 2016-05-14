@@ -1097,16 +1097,61 @@ extension PHPFramework {
 	}
 
 	/**
-	 Find length of initial segment not matching mask (not done)
+	 Find length of initial segment not matching mask
 
-	 - Parameter str: The String
+	 - Parameter subject: The String
+     - Parameter mask: The mask
+     - Parameter start: starting position (default = 0)
+     - Parameter length: length (default = 0)
 
-	 - Returns: The String
+	 - Returns: Integer
 	 */
-	public func strcspn(str: String) -> String {
-		print("Sorry this function is not done")
+    public func strcspn(subject: String, _ mask: String, _ start: Int? = 0, _ length: Int? = 0) -> Int {
+        var count = 0;
+        
+        if (start >= 0) {
+            for cS in subject.characters {
+                if (count >= start) {
+                    
+                    for cM in mask.characters {
+                        if (String(cS) == String(cM)) {
+                            // Found at count.
+                            return count
+                        }
+                    }
+                }
+                
+                count += 1
+            }
+        }
+        else {
+            // we'll need to find it in reversed order
+            
+            count = subject.length + 1
+            
+            if (length != 0) {
+                if (length < 0) {
+                    count = subject.length
+                }
+            }
+            
+            for cS in subject.characters.reverse() {
+                
+                if (count >= abs(start!)) {
+                    
+                    for cM in mask.characters {
+                        if (String(cS) == String(cM)) {
+                            // Found at count.
+                            return count - abs(start!)
+                        }
+                    }
+                }
+                
+                count -= 1
+            }
+        }
 
-		return str
+		return -1
 	}
 
 	/**
@@ -1144,17 +1189,43 @@ extension PHPFramework {
 	}
 
 	/**
-	 Find the position of the first occurrence of a case-insensitive substring in a string (not done)
+	 Find the position of the first occurrence of a case-insensitive substring in a string
 
-	 - Parameter str: The String
-
-	 - Returns: The String
-	 */
-	public func stripos(str: String) -> String {
-		print("Sorry this function is not done")
-
-		return str
-	}
+     - Parameter haystack: The String
+     - Parameter needle: String needed
+     - Parameter offset: the offset
+     
+     - Returns: Int / Bool(false)
+     
+     - Returns: The String
+     */
+    public func stripos(haystack: String, _ needle: String, _ offset: Int? = 0) -> Any {
+        if (offset < 0) {
+            var count    = haystack.length
+            for value in haystack.characters.reverse() {
+                if (count < offset!+haystack.length) {
+                    if (String(value).lowercaseString == needle.lowercaseString) {
+                        return count-1
+                    }
+                }
+                count -= 1
+            }
+            
+            return false
+        } else {
+            var count = 0
+            for value in haystack.characters {
+                if (count > offset!) {
+                    if (String(value).lowercaseString == needle.lowercaseString) {
+                        return count
+                    }
+                }
+                count += 1
+            }
+            
+            return false
+        }
+    }
 
 	/**
 	 Un-quotes a quoted string
