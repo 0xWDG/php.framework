@@ -268,7 +268,11 @@ extension PHPFrameworkTests {
 	}
 	
 	func test_strcmp() {
-		XCTAssertEqual(PASS, FAIL)
+        let v = ["abc", "ABC", "cdef", "ab"]
+        XCTAssertEqual(php.strcmp(v[0], v[0]), 0)
+        XCTAssertEqual(php.strcmp(v[0], v[1]), 0)
+        XCTAssertEqual(php.strcmp(v[0], v[2]), -1)
+        XCTAssertEqual(php.strcmp(v[0], v[3]), 1)
 	}
 	
 	func test_strcoll() {

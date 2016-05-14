@@ -611,47 +611,47 @@ extension PHPFramework {
 
 	 - Returns: [String: Any]
 	 */
-    public func parse_str(str: String) -> [String: Any] {
-        // WTF Why not.
-        
-        // first=value&arr[]=foo+bar&arr[]=baz
-        // must become:
-        // ARRAY {
-        //  first: value,
-        //  arr: [foo bar, baz]
-        // }
-        // Must not be to hard, i hope, and i guess
-        
-        var tempy = [String: Any]()
+	public func parse_str(str: String) -> [String: Any] {
+		// WTF Why not.
 
-        let exploded_data = str.componentsSeparatedByString("&")
-        
-        for (_, val) in exploded_data.enumerate() {
-            let data = val.componentsSeparatedByString("=")
-            
-            if (data[0].endsWith("[]")) { // IS ARRAY
-                let _arrayName = data[0].replace("[]", withString: "") // Quick solution
-                if ((tempy[_arrayName]) != nil) {
-                    var x = [String]()
-                    
-                    let arr:[String] = tempy[_arrayName] as! Array // otherwise stupid swift crashes if we convert in the for loop.
-                    
-                    for (_, v) in arr.enumerate() {
-                        x.append(v)
-                    }
-                    
-                    x.append(data[1])
-                    
-                    tempy[_arrayName] = Array(x) // does not fix '_TtCs21_SwiftDeferredNSArray'
-                } else {
-                    tempy[_arrayName] = [data[1]]
-                }
-            }
-            else {
-                tempy[data[0]] = data[1]
-            }
-        }
-        
+		// first=value&arr[]=foo+bar&arr[]=baz
+		// must become:
+		// ARRAY {
+		// first: value,
+		// arr: [foo bar, baz]
+		// }
+		// Must not be to hard, i hope, and i guess
+
+		var tempy = [String: Any]()
+
+		let exploded_data = str.componentsSeparatedByString("&")
+
+		for (_, val) in exploded_data.enumerate() {
+			let data = val.componentsSeparatedByString("=")
+
+			if (data[0].endsWith("[]")) { // IS ARRAY
+				let _arrayName = data[0].replace("[]", withString: "") // Quick solution
+				if ((tempy[_arrayName]) != nil) {
+					var x = [String]()
+
+					let arr: [String] = tempy[_arrayName] as! Array // otherwise stupid swift crashes if we convert in the for loop.
+
+					for (_, v) in arr.enumerate() {
+						x.append(v)
+					}
+
+					x.append(data[1])
+
+					tempy[_arrayName] = Array(x) // does not fix '_TtCs21_SwiftDeferredNSArray'
+				} else {
+					tempy[_arrayName] = [data[1]]
+				}
+			}
+			else {
+				tempy[data[0]] = data[1]
+			}
+		}
+
 		return tempy
 	}
 
@@ -850,13 +850,13 @@ extension PHPFramework {
 	/**
 	 Case-insensitive version of str_replace. (not done)
 
-     - Parameter search: string to search for
-     - Parameter replace: replace with
-     - Parameter subject: The String
-     
-     - Returns: The replaced String
-     */
-    public func str_ireplace(search: String, _ replace: String, _ subject: String) -> String {
+	 - Parameter search: string to search for
+	 - Parameter replace: replace with
+	 - Parameter subject: The String
+
+	 - Returns: The replaced String
+	 */
+	public func str_ireplace(search: String, _ replace: String, _ subject: String) -> String {
 		return subject.ireplace(search, withString: replace)
 	}
 
@@ -1040,24 +1040,24 @@ extension PHPFramework {
 	/**
 	 Binary safe case-insensitive string comparison
 
-     - Parameter str1: The 1st String
-     - Parameter str2: The 2nd String
-     
+	 - Parameter str1: The 1st String
+	 - Parameter str2: The 2nd String
+
 	 - Returns: The String
 	 */
-    public func strcasecmp(str1: String, _ str2: String) -> Int {
-        if (str1.length > str2.length) {
-            return str1.length - str2.length
-        } else if (str1.length < str2.length) {
-            return str1.length - str2.length
-        } else {
-            if (str1 == str2) {
-                return 0
-            } else {
-                return 1
-            }
-        }
-    }
+	public func strcasecmp(str1: String, _ str2: String) -> Int {
+		if (str1.length > str2.length) {
+			return str1.length - str2.length
+		} else if (str1.length < str2.length) {
+			return str1.length - str2.length
+		} else {
+			if (str1 == str2) {
+				return 0
+			} else {
+				return 1
+			}
+		}
+	}
 
 	/**
 	 Alias of strstr
@@ -1073,16 +1073,21 @@ extension PHPFramework {
 	}
 
 	/**
-	 Binary safe string comparison (not done)
+	 Binary safe string comparison
 
-	 - Parameter str: The String
+	 - Parameter str1: The 1st String
+	 - Parameter str2: The 2nd String
 
 	 - Returns: The String
 	 */
-	public func strcmp(str: String) -> String {
-		print("Sorry this function is not done")
-
-		return str
+	public func strcmp(str1: String, _ str2: String) -> Int {
+		if (str1.length > str2.length) {
+			return str1.length - str2.length
+		} else if (str1.length < str2.length) {
+			return str1.length - str2.length
+		} else {
+			return 0
+		}
 	}
 
 	/**
@@ -1100,56 +1105,56 @@ extension PHPFramework {
 	 Find length of initial segment not matching mask
 
 	 - Parameter subject: The String
-     - Parameter mask: The mask
-     - Parameter start: starting position (default = 0)
-     - Parameter length: length (default = 0)
+	 - Parameter mask: The mask
+	 - Parameter start: starting position (default = 0)
+	 - Parameter length: length (default = 0)
 
 	 - Returns: Integer
 	 */
-    public func strcspn(subject: String, _ mask: String, _ start: Int? = 0, _ length: Int? = 0) -> Int {
-        var count = 0;
-        
-        if (start >= 0) {
-            for cS in subject.characters {
-                if (count >= start) {
-                    
-                    for cM in mask.characters {
-                        if (String(cS) == String(cM)) {
-                            // Found at count.
-                            return count
-                        }
-                    }
-                }
-                
-                count += 1
-            }
-        }
-        else {
-            // we'll need to find it in reversed order
-            
-            count = subject.length + 1
-            
-            if (length != 0) {
-                if (length < 0) {
-                    count = subject.length
-                }
-            }
-            
-            for cS in subject.characters.reverse() {
-                
-                if (count >= abs(start!)) {
-                    
-                    for cM in mask.characters {
-                        if (String(cS) == String(cM)) {
-                            // Found at count.
-                            return count - abs(start!)
-                        }
-                    }
-                }
-                
-                count -= 1
-            }
-        }
+	public func strcspn(subject: String, _ mask: String, _ start: Int? = 0, _ length: Int? = 0) -> Int {
+		var count = 0;
+
+		if (start >= 0) {
+			for cS in subject.characters {
+				if (count >= start) {
+
+					for cM in mask.characters {
+						if (String(cS) == String(cM)) {
+							// Found at count.
+							return count
+						}
+					}
+				}
+
+				count += 1
+			}
+		}
+		else {
+			// we'll need to find it in reversed order
+
+			count = subject.length + 1
+
+			if (length != 0) {
+				if (length < 0) {
+					count = subject.length
+				}
+			}
+
+			for cS in subject.characters.reverse() {
+
+				if (count >= abs(start!)) {
+
+					for cM in mask.characters {
+						if (String(cS) == String(cM)) {
+							// Found at count.
+							return count - abs(start!)
+						}
+					}
+				}
+
+				count -= 1
+			}
+		}
 
 		return -1
 	}
@@ -1191,41 +1196,41 @@ extension PHPFramework {
 	/**
 	 Find the position of the first occurrence of a case-insensitive substring in a string
 
-     - Parameter haystack: The String
-     - Parameter needle: String needed
-     - Parameter offset: the offset
-     
-     - Returns: Int / Bool(false)
-     
-     - Returns: The String
-     */
-    public func stripos(haystack: String, _ needle: String, _ offset: Int? = 0) -> Any {
-        if (offset < 0) {
-            var count    = haystack.length
-            for value in haystack.characters.reverse() {
-                if (count < offset!+haystack.length) {
-                    if (String(value).lowercaseString == needle.lowercaseString) {
-                        return count-1
-                    }
-                }
-                count -= 1
-            }
-            
-            return false
-        } else {
-            var count = 0
-            for value in haystack.characters {
-                if (count > offset!) {
-                    if (String(value).lowercaseString == needle.lowercaseString) {
-                        return count
-                    }
-                }
-                count += 1
-            }
-            
-            return false
-        }
-    }
+	 - Parameter haystack: The String
+	 - Parameter needle: String needed
+	 - Parameter offset: the offset
+
+	 - Returns: Int / Bool(false)
+
+	 - Returns: The String
+	 */
+	public func stripos(haystack: String, _ needle: String, _ offset: Int? = 0) -> Any {
+		if (offset < 0) {
+			var count = haystack.length
+			for value in haystack.characters.reverse() {
+				if (count < offset! + haystack.length) {
+					if (String(value).lowercaseString == needle.lowercaseString) {
+						return count - 1
+					}
+				}
+				count -= 1
+			}
+
+			return false
+		} else {
+			var count = 0
+			for value in haystack.characters {
+				if (count > offset!) {
+					if (String(value).lowercaseString == needle.lowercaseString) {
+						return count
+					}
+				}
+				count += 1
+			}
+
+			return false
+		}
+	}
 
 	/**
 	 Un-quotes a quoted string
@@ -1277,81 +1282,81 @@ extension PHPFramework {
 	 Case insensitive string comparisons using a "natural order" algorithm
 
 	 - Parameter str1: The 1st String
-     - Parameter str2: The 2nd String
-     
+	 - Parameter str2: The 2nd String
+
 	 - Returns: The String
 	 */
-    public func strnatcasecmp(str1: String, _ str2: String) -> Int {
-        if (str1.length > str2.length) {
-            return str1.length - str2.length
-        } else if (str1.length < str2.length) {
-            return str1.length - str2.length
-        } else {
-            if (str1 == str2) {
-                return 0
-            } else {
-                return 1
-            }
-        }
+	public func strnatcasecmp(str1: String, _ str2: String) -> Int {
+		if (str1.length > str2.length) {
+			return str1.length - str2.length
+		} else if (str1.length < str2.length) {
+			return str1.length - str2.length
+		} else {
+			if (str1 == str2) {
+				return 0
+			} else {
+				return 1
+			}
+		}
 	}
 
 	/**
 	 String comparisons using a "natural order" algorithm
 
-     - Parameter str1: The 1st String
-     - Parameter str2: The 2nd String
-     
+	 - Parameter str1: The 1st String
+	 - Parameter str2: The 2nd String
+
 	 - Returns: The String
 	 */
-    public func strnatcmp(str1: String, _ str2: String) -> Int {
-        if (str1.length > str2.length) {
-            return str1.length - str2.length
-        } else if (str1.length < str2.length) {
-            return str1.length - str2.length
-        } else {
-            return 0
-        }
-    }
+	public func strnatcmp(str1: String, _ str2: String) -> Int {
+		if (str1.length > str2.length) {
+			return str1.length - str2.length
+		} else if (str1.length < str2.length) {
+			return str1.length - str2.length
+		} else {
+			return 0
+		}
+	}
 
 	/**
 	 Binary safe case-insensitive string comparison of the first n characters
 
-     - Parameter str1: The 1st String
-     - Parameter str2: The 2nd String
+	 - Parameter str1: The 1st String
+	 - Parameter str2: The 2nd String
 
 	 - Returns: The String
 	 */
-    public func strncasecmp(str1: String, _ str2: String) -> Int {
-        if (str1.length > str2.length) {
-            return str1.length - str2.length
-        } else if (str1.length < str2.length) {
-            return str1.length - str2.length
-        } else {
-            if (str1 == str2) {
-                return 0
-            } else {
-                return 1
-            }
-        }
-    }
-    
+	public func strncasecmp(str1: String, _ str2: String) -> Int {
+		if (str1.length > str2.length) {
+			return str1.length - str2.length
+		} else if (str1.length < str2.length) {
+			return str1.length - str2.length
+		} else {
+			if (str1 == str2) {
+				return 0
+			} else {
+				return 1
+			}
+		}
+	}
+
 	/**
 	 Binary safe string comparison of the first n characters
 
-     - Parameter str1: The 1st String
-     - Parameter str2: The 2nd String
+	 - Parameter str1: The 1st String
+	 - Parameter str2: The 2nd String
 
 	 - Returns: The String
 	 */
-    public func strncmp(str1: String, _ str2: String) -> Int {
-        if (str1.length > str2.length) {
-            return str1.length - str2.length
-        } else if (str1.length < str2.length) {
-            return str1.length - str2.length
-        } else {
-            return 0
-        }
-    }
+	public func strncmp(str1: String, _ str2: String) -> Int {
+		if (str1.length > str2.length) {
+			return str1.length - str2.length
+		} else if (str1.length < str2.length) {
+			return str1.length - str2.length
+		} else {
+			return 0
+		}
+	}
 
 	/**
 	 Search a string for any of a set of characters (not done)
@@ -1369,42 +1374,42 @@ extension PHPFramework {
 	/**
 	 Find the position of the first occurrence of a substring in a string
 
-     - Parameter haystack: The String
-     - Parameter needle: String needed
-     - Parameter offset: the offset
-     
-     - Returns: Int / Bool(false)
+	 - Parameter haystack: The String
+	 - Parameter needle: String needed
+	 - Parameter offset: the offset
+
+	 - Returns: Int / Bool(false)
 
 	 - Returns: The String
 	 */
-    public func strpos(haystack: String, _ needle: String, _ offset: Int? = 0) -> Any {
-        if (offset < 0) {
-            var count    = haystack.length
-            for value in haystack.characters.reverse() {
-                if (count < offset!+haystack.length) {
-                    if (String(value) == needle) {
-                        return count-1
-                    }
-                }
-                count -= 1
-            }
-            
-            return false
-        } else {
-            var count = 0
-            for value in haystack.characters {
-                if (count > offset!) {
-                    if (String(value) == needle) {
-                        return count
-                    }
-                }
-                count += 1
-            }
-            
-            return false
-        }
-    }
-    
+	public func strpos(haystack: String, _ needle: String, _ offset: Int? = 0) -> Any {
+		if (offset < 0) {
+			var count = haystack.length
+			for value in haystack.characters.reverse() {
+				if (count < offset! + haystack.length) {
+					if (String(value) == needle) {
+						return count - 1
+					}
+				}
+				count -= 1
+			}
+
+			return false
+		} else {
+			var count = 0
+			for value in haystack.characters {
+				if (count > offset!) {
+					if (String(value) == needle) {
+						return count
+					}
+				}
+				count += 1
+			}
+
+			return false
+		}
+	}
+
 	/**
 	 Find the last occurrence of a character in a string
 
@@ -1456,36 +1461,36 @@ extension PHPFramework {
 	 Find the position of the last occurrence of a substring in a string
 
 	 - Parameter haystack: The String
-     - Parameter needle: String needed
-     - Parameter offset: the offset
+	 - Parameter needle: String needed
+	 - Parameter offset: the offset
 
 	 - Returns: Int / Bool(false)
 	 */
-    public func strrpos(haystack: String, _ needle: String, _ offset: Int? = 0) -> Any {
-        if (offset < 0) {
-            var count    = haystack.length
-            for value in haystack.characters.reverse() {
-                if (count < offset!+haystack.length) {
-                    if (String(value) == needle) {
-                        return count-1
-                    }
-                }
-                count -= 1
-            }
-            
-            return false
-        } else {
-            var count = 0
-            for value in haystack.characters {
-                if (count > offset!) {
-                    if (String(value) == needle) {
-                        return count
-                    }
-                }
-                count += 1
-            }
-            return false
-        }
+	public func strrpos(haystack: String, _ needle: String, _ offset: Int? = 0) -> Any {
+		if (offset < 0) {
+			var count = haystack.length
+			for value in haystack.characters.reverse() {
+				if (count < offset! + haystack.length) {
+					if (String(value) == needle) {
+						return count - 1
+					}
+				}
+				count -= 1
+			}
+
+			return false
+		} else {
+			var count = 0
+			for value in haystack.characters {
+				if (count > offset!) {
+					if (String(value) == needle) {
+						return count
+					}
+				}
+				count += 1
+			}
+			return false
+		}
 	}
 
 	/**
@@ -1496,14 +1501,14 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func strspn(str: String, _ find: String, _ ch1: Int? = 0, _ ch2: Int? = 0) -> Int {
-        // ... not true...
-//		if (ch1! == 0 || ch2! == 0) {
-			return 0
-//		} else {
-//			let count = substr(str, ch1!, ch2!)
-//			print("STRSPN = \(substr(str, ch1!, ch2!))")
-//			return count.length
-//		}
+		// ... not true...
+		// if (ch1! == 0 || ch2! == 0) {
+		return 0
+		// } else {
+		// let count = substr(str, ch1!, ch2!)
+		// print("STRSPN = \(substr(str, ch1!, ch2!))")
+		// return count.length
+		// }
 	}
 
 	/**
@@ -1518,7 +1523,7 @@ extension PHPFramework {
 	public func strstr(str: String, _ find: String, _ before: Bool? = false) -> String {
 
 		var exploded = php.explode(str, find)
-        
+
 		if (exploded.count < 1) {
 			return str
 		}
