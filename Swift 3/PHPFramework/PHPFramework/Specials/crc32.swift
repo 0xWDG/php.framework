@@ -138,12 +138,13 @@ struct BytesSequence: Sequence {
 		var offset: Int = 0
 		
 		return CRC_AnyGenerator {
+//          Swift 3 kills it
 //			let end = min(isOrderedBefore: Int(self.chunkSize-(self.data.count-offset)))
+//          let end = min(self.chunkSize, self.data.count - offset)
             
-//            let end = min(self.chunkSize, self.data.count - offset)
-
-//            let end = min(isOrderedBefore: (self.chunkSize, self.data.count - offset))
-            let end = 0
+            let calc = self.data.count - offset
+            let end = (self.chunkSize > calc) ? calc : self.chunkSize
+            
             
                 let result = self.data[offset..<(offset + end)]
                 offset += result.count

@@ -32,7 +32,7 @@
  File:    md5.swift
  Created: 29-FEB-2016
  Creator: Wesley de Groot | g: @wdg | t: @wesdegroot
- Issue:   N/A
+ Issue:   #11 (Swift 3)
  Prefix:  N/A
  ---------------------------------------------------
  */
