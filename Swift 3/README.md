@@ -1,6 +1,6 @@
 # php.framework
 
-<img src='https://raw.githubusercontent.com/wdg/php.framework/master/PHPFramework/PHPFramework/Assets/phpswift.png'>
+<img src='https://raw.githubusercontent.com/wdg/php.framework/master/Swift 2/PHPFramework/PHPFramework/Assets/phpswift.png'>
 
 **PHP In Swift**
 
