@@ -1,6 +1,6 @@
 # php.framework
 
-<img src='https://raw.githubusercontent.com/wdg/php.framework/master/Swift 2/PHPFramework/PHPFramework/Assets/phpswift.png'>
+<img src='https://raw.githubusercontent.com/wdg/php.framework/master/PHPFramework/PHPFramework/Assets/phpswift.png'>
 
 **PHP In Swift**
 
@@ -9,6 +9,9 @@
 For <a target='_blank' href='http://wdg.github.io/php.framework/'>documentation click here</a>
 
 [![Join the chat at https://gitter.im/wdg/php.framework](https://badges.gitter.im/wdg/php.framework.svg)](https://gitter.im/wdg/php.framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+## Current stable, and archived version
+we will move on to [the Swift 3 version](https://github.com/wdg/php.framework/tree/master/Swift 3).
 
 See:
 
