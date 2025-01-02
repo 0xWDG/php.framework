@@ -37,3 +37,4 @@ disabled_rules:
   - compiler_protocol_init
   - fatal_error_message
   - type_body_length
+  - todo # Use // TODO: is allowed
