@@ -23,8 +23,8 @@ import XCTest
  
  */
 class PHPFrameworkTests: XCTestCase {
-
-    let E: String = php.getcwd()
+    let php = PHPFramework(false)
+    let E: String = PHPFramework().getcwd()
     let PASS: String = "Tend"
     let FAIL: String = "FAIL"
 

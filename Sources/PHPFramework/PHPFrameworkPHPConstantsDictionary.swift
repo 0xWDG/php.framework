@@ -44,7 +44,7 @@ import Foundation
 
  *seperated otherwise Xcode will fail.*
  */
-@MainActor public let PHPAllConstants: [String: Any] = [
+public let PHPAllConstants: [String: Any] = [
 	"E_ERROR": E_ERROR,
 	"E_RECOVERABLE_ERROR": E_RECOVERABLE_ERROR,
 	"E_WARNING": E_WARNING,

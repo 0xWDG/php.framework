@@ -136,7 +136,7 @@ extension PHPFramework {
 
 	 - Returns: A Static list, a *Dictionary*
 	 */
-    @MainActor public func get_defined_constants(_ cat: Bool = false) -> [String: Any] {
+    public func get_defined_constants(_ cat: Bool = false) -> [String: Any] {
         if cat {
             print("parameter not supported")
         }
@@ -277,7 +277,9 @@ extension PHPFramework {
 	 */
 	public func getopt() -> String {
 		#if os(OSX)
-		return Process.arguments
+        return ""
+        // TODO: Fix this for Swift 5+
+		// return Process.arguments.flatMap{ $0 }.joined(separator: " ")
 		#else
 		return ""
 		#endif

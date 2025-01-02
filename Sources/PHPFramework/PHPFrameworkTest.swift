@@ -14,7 +14,7 @@ import Foundation
 
  PHPTest is a alias of PHPFrameworkTests()
  */
-@MainActor public let PHPTest = PHPFrameworkTests()
+public let PHPTest = PHPFrameworkTests()
 
 /**
  **PHP.Framework** \
@@ -29,9 +29,9 @@ import Foundation
  Please see a `.swift` file for more information about how it works
 
  */
-@MainActor
 public class PHPFrameworkTests {
-	let E: String = php.getcwd()
+    let php = PHPFramework()
+	let E: String = PHPFramework().getcwd()
 	let PASS: String = "Tend"
 	let FAIL: String = "FAIL"
 

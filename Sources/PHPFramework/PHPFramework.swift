@@ -39,29 +39,6 @@
 import Foundation
 // import CommonCrypto
 
-// if Simulator then Debugmode = on
-#if targetEnvironment(simulator)
-	/**
-	 **PHP.Framework** \
-	 *PHP In Swift*\
-	 global php variable **(Simulator version)**
-	 *with debugging enabled*
-
-	 - Returns: the php framework
-	 */
-    @MainActor public let php = PHPFramework(true)
-#else
-	/**
-	 **PHP.Framework** \
-	 *PHP In Swift*
-	 global php variable **(Production version)**
-	 *with debugging disabled*
-
-	 - Returns: the php framework
-	 */
-    @MainActor public let php = PHPFramework(false)
-#endif
-
 /**
  **PHP.Framework** \
  *PHP In Swift*
@@ -129,7 +106,7 @@ public class PHPFramework {
 	 */
 	public func base64_encode(_ s: String) -> String {
 		guard let plainData = (s as NSString).data(using: String.Encoding.utf8.rawValue) else {
-			fatalError()
+			fatalError("Failed to convert the string to data")
 		}
 
         let base64String = plainData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
