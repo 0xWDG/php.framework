@@ -1,0 +1,39 @@
+excluded:
+  - "*resource_bundle_accessor*" # SwiftPM Generated
+  - ".build/*"
+
+opt_in_rules:
+  # - missing_docs
+  # - empty_count
+  # - empty_string
+  - toggle_bool
+  - unused_optional_binding
+  - valid_ibinspectable
+  - modifier_order
+  - first_where
+  - fatal_error_message
+  - force_unwrapping
+
+disabled_rules:
+  - identifier_name
+  - function_body_length
+  - shorthand_operator
+  - line_length
+  - force_cast
+  - unused_optional_binding
+  - force_unwrapping
+  - switch_case_alignment
+  - implicit_getter
+  - file_length
+  - for_where
+  - type_name
+  - closure_parameter_position
+  - unused_enumerated
+  - inclusive_language # PHP Uses "Master" and "Slave"
+  - legacy_random # Ported from Swift 4
+  - cyclomatic_complexity
+  - force_try
+  - orphaned_doc_comment
+  - compiler_protocol_init
+  - fatal_error_message
+  - type_body_length
