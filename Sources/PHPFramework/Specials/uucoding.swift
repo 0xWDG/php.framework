@@ -31,7 +31,7 @@
 // ---------------------------------------------------
 // File:    uucoding.swift
 // Created: 15-MAY-2016
-// Creator: Wesley de Groot | g: @wdg | t: @wesdegroot
+// Creator: Wesley de Groot | @0xWDG
 // Issue:   N/A
 // Prefix:  N/A
 // ---------------------------------------------------

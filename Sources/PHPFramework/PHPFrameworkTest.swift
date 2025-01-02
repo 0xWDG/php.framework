@@ -1,10 +1,15 @@
+//  _____    _    _   _____    ______                                           _
+// |  __ \  | |  | | |  __ \  |  ____|                                         | |
+// | |__) | | |__| | | |__) | | |__ _ __ __ _ _ __ ___   _____      _____  _ __| | __
+// |  ___/  |  __  | |  ___/  |  __| '__/ _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
+// | |      | |  | | | |      | |  | | | (_| | | | | | |  __/\ V  V / (_) | |  |   <
+// |_|      |_|  |_| |_|      |_|  |_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
 //
-//  PHPFrameworkTest.swift
-//  PHPFramework
-//
-//  Created by Wesley de Groot on 05-02-16.
-//  Copyright © 2016 WDGWV. All rights reserved.
-//
+// File:    PHPFrameworkTest.swift
+// Created: 05-FEB-2016
+// Creator: Wesley de Groot | @0xWDG
+// Issue:   N/A
+// Prefix:  N/A
 
 import Foundation
 

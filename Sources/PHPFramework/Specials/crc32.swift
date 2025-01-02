@@ -31,7 +31,7 @@
  ---------------------------------------------------
  File:    crc32.swift
  Created: 15-JAN-2016
- Creator: Wesley de Groot | g: @wdg | t: @wesdegroot
+ Creator: Wesley de Groot | @0xWDG
  Issue:   #1 (String Functions)
  Prefix:  N/A
  ---------------------------------------------------
