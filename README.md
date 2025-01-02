@@ -1,6 +1,6 @@
-# php.framework
+# PHPFramework
 
-<img src='https://raw.githubusercontent.com/0xWDG/php.framework/master/Swift 2/PHPFramework/PHPFramework/Assets/phpswift.png'>
+<img src='https://raw.githubusercontent.com/0xWDG/PHPFramework/master/Swift 2/PHPFramework/PHPFramework/Assets/phpswift.png'>
 
 **PHP In Swift**
 
@@ -20,11 +20,11 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/0xWDG/SwiftCronParser.git", branch: "main"),
+    .package(url: "https://github.com/0xWDG/PHPFramework.git", branch: "main"),
 ],
 targets: [
     .target(name: "MyTarget", dependencies: [
-        .product(name: "SwiftCronParser", package: "SwiftCronParser"),
+        .product(name: "PHPFramework", package: "PHPFramework"),
     ]),
 ]
 ```
@@ -40,14 +40,14 @@ targets: [
 
 <table>
 <tr><td>Status</td><td>TODO</td><td>Item</td></tr>
-<tr><td><ul><li>[x] 3924 of 3924</li></ul></td><td>0</td><td><a target='_blank' href='https://github.com/0xWDG/php.framework/issues/3'>Predefined Constants</a></td></tr>
-<tr><td><ul><li>[x] 57 of 57</li></ul></td><td>0</td><td><a target='_blank' href='https://github.com/0xWDG/php.framework/issues/2'>Supported PHP Options/info functions</a></td></tr>
-<tr><td><ul><li>[ ] 90 of 98</li></ul></td><td>8</td><td><a target='_blank' href='https://github.com/0xWDG/php.framework/issues/1'>Supported string functions</a></td></tr>
-<tr><td><ul><li>[ ] 3 of 79</li></ul></td><td>76</td><td><a target='_blank' href='https://github.com/0xWDG/php.framework/issues/4'>Supported Array Functions</a></td></tr>
-<tr><td><ul><li>[x] 34 of 34</li></ul></td><td>0</td><td><a target='_blank' href='https://github.com/0xWDG/php.framework/issues/5'>Supported Variable Functions</a></td></tr>
-<tr><td><ul><li>[ ] 0 of 51</li></ul></td><td>51</td><td><a target='_blank' href='https://github.com/0xWDG/php.framework/issues/6'>Supported DateTime Functions</a></td></tr>
-<tr><td><ul><li>[x] 9 of 9</li></ul></td><td>0</td><td><a target='_blank' href='https://github.com/0xWDG/php.framework/issues/7'>Supported Directory Functions</a></td></tr>
-<tr><td><ul><li>[ ] 0 of 81</li></ul></td><td>81</td><td><a target='_blank' href='https://github.com/0xWDG/php.framework/issues/8'>Supported FileSystem Functions</a></td></tr>
+<tr><td><ul><li>[x] 3924 of 3924</li></ul></td><td>0</td><td><a target='_blank' href='https://github.com/0xWDG/PHPFramework/issues/3'>Predefined Constants</a></td></tr>
+<tr><td><ul><li>[x] 57 of 57</li></ul></td><td>0</td><td><a target='_blank' href='https://github.com/0xWDG/PHPFramework/issues/2'>Supported PHP Options/info functions</a></td></tr>
+<tr><td><ul><li>[ ] 90 of 98</li></ul></td><td>8</td><td><a target='_blank' href='https://github.com/0xWDG/PHPFramework/issues/1'>Supported string functions</a></td></tr>
+<tr><td><ul><li>[ ] 3 of 79</li></ul></td><td>76</td><td><a target='_blank' href='https://github.com/0xWDG/PHPFramework/issues/4'>Supported Array Functions</a></td></tr>
+<tr><td><ul><li>[x] 34 of 34</li></ul></td><td>0</td><td><a target='_blank' href='https://github.com/0xWDG/PHPFramework/issues/5'>Supported Variable Functions</a></td></tr>
+<tr><td><ul><li>[ ] 0 of 51</li></ul></td><td>51</td><td><a target='_blank' href='https://github.com/0xWDG/PHPFramework/issues/6'>Supported DateTime Functions</a></td></tr>
+<tr><td><ul><li>[x] 9 of 9</li></ul></td><td>0</td><td><a target='_blank' href='https://github.com/0xWDG/PHPFramework/issues/7'>Supported Directory Functions</a></td></tr>
+<tr><td><ul><li>[ ] 0 of 81</li></ul></td><td>81</td><td><a target='_blank' href='https://github.com/0xWDG/PHPFramework/issues/8'>Supported FileSystem Functions</a></td></tr>
 <tr><td><hr></td><td><hr></td><td><hr></td></tr>
 <tr><td><ul><li>[ ] 193 of 409</li></ul></td><td>216</td><td>Functions total build (± 44%)</td></tr>
 </table>
