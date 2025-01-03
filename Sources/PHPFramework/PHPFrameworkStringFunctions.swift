@@ -1334,13 +1334,6 @@ extension PHPFramework {
 
 	 */
 	public func strpbrk(_ haystack: String, _ char_list: String) -> Any {
-//        let x = Darwin.strpbrk(haystack, char_list)
-//
-//        if (x != nil) {
-//            let _ret = String(cString: Darwin.strpbrk(haystack, char_list))
-//            return _ret
-//        }
-
 		return false
 	}
 
@@ -1867,20 +1860,15 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func wordwrap(_ str: String, _ width: Int = 75, _ breaks: String = "\n", _ cut: Bool = false) -> String {
-		// string wordwrap ( string $str [, int $width = 75 [, string $break = "\n" [, bool $cut = false ]]] )
 		var myCount: Int = 0
 		var myString: String = ""
 
 		// Map to array!
 		var StringToArray: [String] = [String]()
-		let x = str.map { StringToArray.append(String($0)) }
-
-		// Noop to ignore stupid swift not used errors
-		noop(x)
+        let x: [()] = str.map { StringToArray.append(String($0)) }
 
 		for i in (0 ..< StringToArray.count) {
 			myString = myString + StringToArray[i]
-//            myString = myString.stringByAppendingString(StringToArray[i])
 
 			if myCount >= width {
 				if cut {
