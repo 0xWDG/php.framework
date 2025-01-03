@@ -75,7 +75,8 @@ extension PHPFramework {
 	 - Returns: the string with backslashes
 	 */
 	public func addslashes(_ str: String!) -> String {
-		return str.replacingOccurrences(of: "\\", with: "\\\\")
+		return str
+            .replacingOccurrences(of: "\\", with: "\\\\")
 			.replacingOccurrences(of: "'", with: "\\'")
 			.replacingOccurrences(of: "\"", with: "\\\"")
 			.replacingOccurrences(of: "\0", with: "\\\0")
@@ -303,17 +304,7 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func hex2bin(_ str: String) -> Int {
-		// print("Sorry this function is not done")
-		//
-		// return str
-		// let scanner = NSScanner(string: String(str))
-		// var result : UInt32 = 0
-		// if scanner.scanHexInt(&result) {
-		// return Int(result)
-		// }
 		return Int(strtoul(str, nil, 16))
-		// return Int(str, radix: 16)! // Can couse for crash if not a binary number
-		// return 0
 	}
 
 	/**

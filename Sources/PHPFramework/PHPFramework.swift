@@ -42,7 +42,7 @@ public class PHPFramework {
 
 	 PHPFramework name
 	 */
-	public let product: String = "PHP.Framework"
+	public let product: String = "PHPFramework"
 
 	/**
 	 **PHP.Framework** \
@@ -90,17 +90,16 @@ public class PHPFramework {
 	/**
 	 Decode a string using Base64
 
-	 - Parameter s: the encoded string
+	 - Parameter string: the encoded string
 
 	 - Returns: the decoded string
 	 */
-	public func base64_decode(_ s: String) -> String {
-        if let decodedData = Data(base64Encoded: s, options: .ignoreUnknownCharacters) {
-
-            let decodedString = NSString(data: decodedData, encoding: String.Encoding.utf8.rawValue)
-
-            return String(decodedString ?? "Failed")
+	public func base64_decode(_ string: String) -> String {
+        if let decodedData = Data(base64Encoded: string, options: .ignoreUnknownCharacters),
+            let decodedString = String(data: decodedData, encoding: .utf8) {
+            return decodedString
 		}
+
 		return "Failed"
 	}
 
