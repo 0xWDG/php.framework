@@ -11,7 +11,7 @@
 [![Swift Package Manager](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://swift.org/package-manager)
 ![License](https://img.shields.io/github/license/0xWDG/PHPFramework)
 
-\* Please note, this project contains a lot of Swift4 code, i started this project when i started Swift around 9-10 years ago, the quality is sub-optimal.
+\* Please note, this project contains a lot of Swift4 code, i started this project when i started Swift around 8 years ago, the quality is sub-optimal.
 In 2025 I made it a SPM Package, and i'll try to get some more things working, I appreciate any help you can provide!
 
 ## Requirements
