@@ -103,7 +103,8 @@ extension PHPFramework {
 	}
 
 	/**
-	 Computes the difference of arrays with additional index check which is performed by a user supplied callback function (**Not Done**)
+	 Computes the difference of arrays with additional index check 
+     which is performed by a user supplied callback function (**Not Done**)
 
 	 - Parameter arr: The Array<String>
 
@@ -211,7 +212,8 @@ extension PHPFramework {
 	}
 
 	/**
-	 Computes the intersection of arrays with additional index check, compares indexes by a callback function (**Not Done**)
+	 Computes the intersection of arrays with additional index check, compares indexes by a callback function
+      (**Not Done**)
 
 	 - Parameter arr: The Array<String>
 
@@ -499,7 +501,8 @@ extension PHPFramework {
 	}
 
 	/**
-	 Computes the difference of arrays with additional index check, compares data and indexes by a callback function (**Not Done**)
+	 Computes the difference of arrays with additional index check, 
+     compares data and indexes by a callback function (**Not Done**)
 
 	 - Parameter arr: The Array<String>
 
@@ -535,7 +538,8 @@ extension PHPFramework {
 	}
 
 	/**
-	 Computes the intersection of arrays with additional index check, compares data and indexes by separate callback functions (**Not Done**)
+	 Computes the intersection of arrays with additional index check,
+      compares data and indexes by separate callback functions (**Not Done**)
 
 	 - Parameter arr: The Array<String>
 

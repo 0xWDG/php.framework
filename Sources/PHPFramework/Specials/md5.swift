@@ -79,9 +79,7 @@ extension String {
      - Returns: MD5 hashed string
 	 */
     public var md5: String {
-        get {
-            return MD5Hashing().md5(self)
-        }
+        return MD5Hashing().md5(self)
     }
 }
 

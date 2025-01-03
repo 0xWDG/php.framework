@@ -103,7 +103,11 @@ extension PHPFramework {
 		// }
 
 		do {
-            if let directoryUrls = try? FileManager.default.contentsOfDirectory(at: URL(string: dir)!, includingPropertiesForKeys: nil, options: FileManager.DirectoryEnumerationOptions.skipsSubdirectoryDescendants) {
+            if let directoryUrls = try? FileManager.default.contentsOfDirectory(
+                at: URL(string: dir)!,
+                includingPropertiesForKeys: nil,
+                options: FileManager.DirectoryEnumerationOptions.skipsSubdirectoryDescendants
+            ) {
 				for i in (0 ..< directoryUrls.count) {
                     _returnArray.append(directoryUrls[i].lastPathComponent)
 				}

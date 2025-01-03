@@ -45,7 +45,7 @@ import Foundation
 
  Levenshtein calculator class
  */
-public class calculateLevenshtein {
+public class CalculateLevenshtein {
 	/**
 	 Does nothing spectacular
 	 */

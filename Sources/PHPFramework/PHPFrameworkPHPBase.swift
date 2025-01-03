@@ -479,7 +479,11 @@ extension PHPFramework {
 
 	 - Returns: Bool true/false
 	 */
-	public func version_compare(_ smallerVersion: String, _ largerVersion: String, _ compareOperator: String = "==") -> Bool {
+	public func version_compare(
+        _ smallerVersion: String,
+        _ largerVersion: String,
+        _ compareOperator: String = "=="
+    ) -> Bool {
 		if compareOperator != "==" {
 			print("Compare operator is not supported")
 		}

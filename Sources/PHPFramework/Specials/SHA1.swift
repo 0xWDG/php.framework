@@ -46,9 +46,7 @@ extension String {
 	 - Returns: sha1 hashed string
 	 */
 	public var sha1: String {
-		get {
-			return self
-		}
+		return self
 	}
 }
 

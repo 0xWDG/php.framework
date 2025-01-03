@@ -278,13 +278,9 @@ public extension String {
 		]
 	}
 
-	/**
-	 get string length
-	 */
+	/// get string length
     var length: Int {
-		get {
-			return self.count
-		}
+		return self.count
 	}
 
 	/**
@@ -307,7 +303,11 @@ public extension String {
 	 - Returns: Replaced string
 	 */
     func replace(_ target: String, withString: String) -> String {
-        return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
+        return self.replacingOccurrences(
+            of: target, with: withString,
+            options: NSString.CompareOptions.literal,
+            range: nil
+        )
 	}
 
     /**
@@ -319,7 +319,12 @@ public extension String {
      - Returns: Replaced string
      */
     func ireplace(_ target: String, withString: String) -> String {
-        return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.caseInsensitive, range: nil)
+        return self.replacingOccurrences(
+            of: target,
+            with: withString,
+            options: NSString.CompareOptions.caseInsensitive,
+            range: nil
+        )
     }
 
 	/**
@@ -359,10 +364,8 @@ public extension String {
 	 - Returns: The ranged string
 	 */
     subscript(i: Int) -> Character {
-		get {
-			let index = self.index(self.startIndex, offsetBy: i)
-			return self[index]
-		}
+		let index = self.index(self.startIndex, offsetBy: i)
+        return self[index]
 	}
 
 	/**
@@ -373,12 +376,10 @@ public extension String {
 	 - Returns: The ranged string.
 	 */
     subscript(r: Range<Int>) -> String {
-		get {
-			let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
-			let endIndex = self.index(self.startIndex, offsetBy: r.upperBound - 1)
+		let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
+		let endIndex = self.index(self.startIndex, offsetBy: r.upperBound - 1)
 
-			return String(self[startIndex..<endIndex])
-		}
+		return String(self[startIndex..<endIndex])
 	}
 
     /**
@@ -389,12 +390,10 @@ public extension String {
      - Returns: The ranged string.
      */
     subscript(r: CountableClosedRange<Int>) -> String {
-        get {
-            let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
-            let endIndex = self.index(self.startIndex, offsetBy: r.upperBound)
+        let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
+        let endIndex = self.index(self.startIndex, offsetBy: r.upperBound)
 
-            return String(self[startIndex..<endIndex])
-        }
+        return String(self[startIndex..<endIndex])
     }
 
 	/**
@@ -403,7 +402,8 @@ public extension String {
 	 - parameter left:  The left bookend
 	 - parameter right: The right bookend
 
-	 - returns: The string between the two bookends, or nil if the bookends cannot be found, the bookends are the same or appear contiguously.
+	 - returns: The string between the two bookends, 
+                or nil if the bookends cannot be found, the bookends are the same or appear contiguously.
 	 */
 	func between(_ left: String, _ right: String) -> String? {
         if let leftRange = range(of: left) {
@@ -422,7 +422,12 @@ public extension String {
 		let source = clean(" ", allOf: "-", "_")
 		if source.contains(" ") {
 			let first = source.suffix(from: source.index(source.startIndex, offsetBy: 1))
-			let cammel = NSString(format: "%@", (source as NSString).capitalized.replacingOccurrences(of: " ", with: "", options: [], range: nil)) as String
+			let cammel = NSString(
+                format: "%@",
+                (source as NSString)
+                    .capitalized
+                    .replacingOccurrences(of: " ", with: "", options: [], range: nil)
+            ) as String
 			let rest = String(cammel.dropFirst())
 			return "\(first)\(rest)"
 		} else {
@@ -533,10 +538,7 @@ public extension String {
 	}
 
 	func isNumeric() -> Bool {
-		if let _ = NumberFormatter().number(from: self) {
-			return true
-		}
-		return false
+		return NumberFormatter().number(from: self) != nil
 	}
 
 	func join<S: Sequence>(_ elements: S) -> String {
@@ -603,7 +605,7 @@ public extension String {
         var ret = ""
 
         for _ in stride(from: 0, to: n, by: 1) {
-            ret = ret + self
+            ret += self
         }
 
         return ret
@@ -674,7 +676,10 @@ public extension String {
 	 - Returns: Right trimmed string
 	 */
 	func trimmedRight() -> String {
-        if let range = rangeOfCharacter(from: CharacterSet.whitespacesAndNewlines.inverted, options: NSString.CompareOptions.backwards) {
+        if let range = rangeOfCharacter(
+            from: CharacterSet.whitespacesAndNewlines.inverted,
+            options: NSString.CompareOptions.backwards
+        ) {
 			return String(self[startIndex..<range.upperBound])
 		}
 
@@ -731,7 +736,8 @@ public extension String {
 	}
 
 	/**
-	 Returns a new string made by replacing in the `String` all HTML character entity references with the corresponding character.
+	 Returns a new string made by replacing in the `String` 
+     all HTML character entity references with the corresponding character.
 
 	 - Returns: the decoded HTML
 	 */
@@ -779,12 +785,8 @@ public extension String {
 		_tempString = _tempString.replace("&", withString: "&amp;")
 
 		// Loop trough the HTMLEntities.
-		for (index, value) in HTMLEntities.characterEntities {
-			// Ignore the "&".
-			if String(value) != "&" {
-				// Replace val, with index.
-				_tempString = _tempString.replace(String(value), withString: index)
-			}
+		for (index, value) in HTMLEntities.characterEntities where String(value) != "&" {
+			_tempString = _tempString.replace(String(value), withString: index)
 		}
 
 		// return and be happy

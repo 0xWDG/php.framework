@@ -44,9 +44,7 @@ import Foundation
 
 extension String {
 	public var crc32: String {
-		get {
-			return String(generateCRC32(s: self))
-		}
+		return String(generateCRC32(s: self))
 	}
 }
 

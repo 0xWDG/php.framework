@@ -52,7 +52,24 @@ extension PHPFrameworkTests {
 	}
 
 	func test_count_chars() {
-		XCTAssertEqual(php.count_chars("x"), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+		XCTAssertEqual(
+            php.count_chars("x"),
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0
+            ]
+        )
 	}
 
 	func test_crc32() {
@@ -220,8 +237,15 @@ extension PHPFrameworkTests {
 	}
 
 	func test_str_getcsv() {
-		let csv = "hi;i;am;random;data" + PHP_EOL + "data;i;am;random;!" + PHP_EOL + "h;e;l;l;o" + PHP_EOL + "i;j;u;s;t" + PHP_EOL + "c;a;l;l;e" + PHP_EOL + "d;t;o;s;a" + PHP_EOL + "y;.;.;.;." + PHP_EOL + "h;e;l;l;o"
-		XCTAssertEqual(php.str_getcsv(csv, ";") as [String], ["hi", "i", "am", "random", "data\r\ndata", "i", "am", "random", "!\r\nh", "e", "l", "l", "o\r\ni", "j", "u", "s", "t\r\nc", "a", "l", "l", "e\r\nd", "t", "o", "s", "a\r\ny", ".", ".", ".", ".\r\nh", "e", "l", "l", "o"])
+		let csv = "hi;i;am;random;data" + PHP_EOL + "data;i;am;random;!" + PHP_EOL + "h;e;l;l;o" +
+        PHP_EOL + "i;j;u;s;t" +  PHP_EOL + "c;a;l;l;e" + PHP_EOL + "d;t;o;s;a" + PHP_EOL + "y;.;.;.;." +
+        PHP_EOL + "h;e;l;l;o"
+
+		XCTAssertEqual(
+            php.str_getcsv(csv, ";") as [String],
+            ["hi", "i", "am", "random", "data\r\ndata", "i", "am", "random", "!\r\nh", "e", "l", "l",
+            "o\r\ni", "j", "u", "s", "t\r\nc", "a", "l", "l", "e\r\nd", "t", "o", "s", "a\r\ny", ".",
+            ".", ".", ".\r\nh", "e", "l", "l", "o"])
 	}
 
 	func test_str_ireplace() {
@@ -287,7 +311,12 @@ extension PHPFrameworkTests {
 	}
 
 	func test_strip_tags() {
-		XCTAssertEqual(php.strip_tags("<b>Hello</b> this is <a href='http://github.com/wdg/php.framework' target='_blank'>php.framework</a>"), "Hello this is php.framework")
+		XCTAssertEqual(
+            php.strip_tags(
+                "<b>Hello</b> this is <a href='http://github.com/0xWDG/PHPFramework' target='_blank'>PHPFramework</a>"
+            ),
+            "Hello this is PHPFramework"
+        )
 	}
 
 	func test_stripcslashes() {

@@ -67,7 +67,8 @@ extension PHPFramework {
 	/**
 	 Quote string with slashes
 
-	 Returns a string with backslashes before characters that need to be escaped. These characters are single quote ('), double quote ("), backslash (\) and NUL (the NULL byte).
+	 Returns a string with backslashes before characters that need to be escaped.
+     These characters are single quote ('), double quote ("), backslash (\) and NUL (the NULL byte).
 
 	 - Parameter str: the string
 
@@ -138,10 +139,10 @@ extension PHPFramework {
 		var newString: String = ""
 
 		for character in str {
-			newString = newString + String(character)
+			newString += String(character)
 
 			if myCount == (length - 1) {
-				newString = newString + end!
+				newString += end!
 				myCount = 0
 			} else {
 				myCount += 1
@@ -196,7 +197,19 @@ extension PHPFramework {
 	 - Returns: Array Int (255 x 0)
 	 */
 	public func count_chars(_ str: String) -> [Int] {
-		return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+		return [
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        ]
 	}
 
 	/**
@@ -316,7 +329,12 @@ extension PHPFramework {
 
 	 - Returns: The String
 	 */
-	public func html_entity_decode(_ str: String, _ flags: Int? = 0, _ encoding: Int? = 0, _ double_encode: Bool? = false) -> String {
+	public func html_entity_decode(
+        _ str: String,
+        _ flags: Int? = 0,
+        _ encoding: Int? = 0,
+        _ double_encode: Bool? = false
+    ) -> String {
 		return str.decodeHTML()
 	}
 
@@ -330,7 +348,12 @@ extension PHPFramework {
 
 	 - Returns: The String
 	 */
-	public func htmlentities(_ str: String, _ flags: Int? = 0, _ encoding: Int? = 0, _ double_encode: Bool? = false) -> String {
+	public func htmlentities(
+        _ str: String,
+        _ flags: Int? = 0,
+        _ encoding: Int? = 0,
+        _ double_encode: Bool? = false
+    ) -> String {
 		return str.encodeHTML()
 	}
 
@@ -344,7 +367,12 @@ extension PHPFramework {
 
 	 - Returns: The String
 	 */
-	public func htmlspecialchars_decode(_ str: String, _ flags: Int? = 0, _ encoding: Int? = 0, _ double_encode: Bool? = false) -> String {
+	public func htmlspecialchars_decode(
+        _ str: String,
+        _ flags: Int? = 0,
+        _ encoding: Int? = 0,
+        _ double_encode: Bool? = false
+    ) -> String {
 		return str.decodeHTML()
 	}
 
@@ -358,7 +386,12 @@ extension PHPFramework {
 
 	 - Returns: The String
 	 */
-	public func htmlspecialchars(_ str: String, _ flags: Int? = 0, _ encoding: Int? = 0, _ double_encode: Bool? = false) -> String {
+	public func htmlspecialchars(
+        _ str: String,
+        _ flags: Int? = 0,
+        _ encoding: Int? = 0,
+        _ double_encode: Bool? = false
+    ) -> String {
 		print("Sorry this function is not done")
 
 		return str.encodeHTML()
@@ -408,7 +441,7 @@ extension PHPFramework {
 	 - Returns: The String
 	 */
 	public func levenshtein(_ aStr: String, _ bStr: String) -> Int {
-		return calculateLevenshtein().calc(aStr, bStr)
+		return CalculateLevenshtein().calc(aStr, bStr)
 	}
 
 	/**
@@ -587,7 +620,7 @@ extension PHPFramework {
 
 		let exploded_data = str.components(separatedBy: "&")
 
-		for (_, val) in exploded_data.enumerated() {
+		for val in exploded_data {
 			let data = val.components(separatedBy: "=")
 
 			if data[0].endsWith("[]") { // IS ARRAY
@@ -597,7 +630,7 @@ extension PHPFramework {
 
 					let arr: [String] = tempy[_arrayName] as! Array // otherwise stupid swift crashes if we convert in the for loop.
 
-					for (_, v) in arr.enumerated() {
+					for v in arr {
 						x.append(v)
 					}
 
@@ -803,7 +836,12 @@ extension PHPFramework {
 
 	 - Returns: The String
 	 */
-	public func str_getcsv(_ str: String, _ delimiter: String? = ",", enclosure: String? = "\"", escape: String? = "\\") -> [String] {
+	public func str_getcsv(
+        _ str: String,
+        _ delimiter: String? = ",",
+        enclosure: String? = "\"",
+        escape: String? = "\\"
+    ) -> [String] {
 		return explode(str, delimiter!)
 	}
 
@@ -829,7 +867,12 @@ extension PHPFramework {
 	 */
 	// string str_pad ( string $input , int $pad_length [, string $pad_string = " " [, int $pad_type = STR_PAD_RIGHT ]] )
 
-	public func str_pad(_ input: String, _ length: Int, _ pad_string: String? = " ", pad_type: Int? = STR_PAD_RIGHT) -> String {
+	public func str_pad(
+        _ input: String,
+        _ length: Int,
+        _ pad_string: String? = " ",
+        pad_type: Int? = STR_PAD_RIGHT
+    ) -> String {
 		var _mutated: String = input
 
 		switch pad_type! {
@@ -846,23 +889,24 @@ extension PHPFramework {
 			// Add padding afterwards...
 			// (steps % 2 == 0) checks if it is even or odd, if odd then right +1
 			for _ in 0 ..< steps_right + ((steps % 2 == 0) ? 0 : 1) {
-				_mutated = _mutated + pad_string!
+				_mutated += pad_string!
 			}
-			case STR_PAD_LEFT:
+		case STR_PAD_LEFT:
 			let steps = length - ((pad_string?.length)! + input.length) + 1
-
 			for _ in 0 ..< steps {
 				_mutated = "\(pad_string!)\(_mutated)"
 			}
-			case STR_PAD_RIGHT:
+		case STR_PAD_RIGHT:
 			let steps = length - ((pad_string?.length)! + input.length) + 1
 
 			for _ in 0 ..< steps {
-				_mutated = _mutated + pad_string!
+			    _mutated += pad_string!
 			}
-			default:
+
+		default:
 			print("ERROR")
 		}
+
 		return _mutated
 	}
 
@@ -878,7 +922,7 @@ extension PHPFramework {
 		var newString: String = ""
 
 		for _ in 0 ..< times {
-			newString = newString + str
+			newString += str
 		}
 
 		return newString
@@ -968,7 +1012,8 @@ extension PHPFramework {
 	 - Parameter str: The String
 	 - Parameter format: 0 - returns the number of words found \
 	 1 - returns an array containing all the words found inside the string \
-	 2 - returns an associative array, where the key is the numeric position of the word inside the string and the value is the actual word itself (**Not supported**)
+	 2 - returns an associative array, where the key is the numeric position of the \ 
+     word inside the string and the value is the actual word itself (**Not supported**)
 	 - Parameter charlist: *Not supported*.
 
 	 - Returns: The count of the words
@@ -978,10 +1023,8 @@ extension PHPFramework {
 			let temporaryReadArray: [String] = self.explode(str, " ")
 			var temporaryWriteArray: [String] = [String]()
 
-			for i in 0 ..< temporaryReadArray.count {
-				if temporaryReadArray[i] != "" {
-					temporaryWriteArray.append(temporaryReadArray[i])
-				}
+			for i in 0 ..< temporaryReadArray.count where temporaryReadArray[i] != "" {
+				temporaryWriteArray.append(temporaryReadArray[i])
 			}
 
 			if mode == 1 {
@@ -1075,12 +1118,9 @@ extension PHPFramework {
 		if start ?? 0 >= 0 {
 			for cS in subject {
 				if count >= start ?? 0 {
-
-					for cM in mask {
-						if String(cS) == String(cM) {
-							// Found at count.
-							return count
-						}
+					for cM in mask where String(cS) == String(cM) {
+						// Found at count.
+						return count
 					}
 				}
 
@@ -1098,14 +1138,9 @@ extension PHPFramework {
 			}
 
 			for cS in subject.reversed() {
-
 				if count >= abs(start!) {
-
-					for cM in mask {
-						if String(cS) == String(cM) {
-							// Found at count.
-							return count - abs(start!)
-						}
+					for cM in mask where String(cS) == String(cM) {
+						return count - abs(start!)
 					}
 				}
 
@@ -1125,7 +1160,10 @@ extension PHPFramework {
 	 */
 	public func strip_tags(_ str: String) -> String {
 		do {
-            let regex: NSRegularExpression = try NSRegularExpression(pattern: "<.*?>", options: NSRegularExpression.Options.caseInsensitive)
+            let regex: NSRegularExpression = try NSRegularExpression(
+                pattern: "<.*?>",
+                options: NSRegularExpression.Options.caseInsensitive
+            )
 			let range = NSRange(location: 0, length: str.count)
 			let htmlLessString: String = regex.stringByReplacingMatches(in: str, options: [], range: range, withTemplate: "")
 			return htmlLessString
@@ -1479,10 +1517,8 @@ extension PHPFramework {
 			}
 
 			for look in inputString {
-				for fs in mask {
-					if String(look) == String(fs) {
-						count += 1
-					}
+				for fs in mask where String(look) == String(fs) {
+					count += 1
 				}
 			}
 		}
@@ -1788,10 +1824,10 @@ extension PHPFramework {
 		let splitted: Array = str.split(" ")
 		var newString: String = ""
 		for i in 0 ..< splitted.count {
-			newString = newString + (String(splitted[i][0]).uppercased() + String(splitted[i][1 ... (splitted[i].length)]))
+			newString += (String(splitted[i][0]).uppercased() + String(splitted[i][1 ... (splitted[i].length)]))
 
 			if i < splitted.count - 1 {
-				newString = newString + " "
+				newString += " "
 			}
 		}
 
@@ -1858,17 +1894,17 @@ extension PHPFramework {
         let x: [()] = str.map { StringToArray.append(String($0)) }
 
 		for i in (0 ..< StringToArray.count) {
-			myString = myString + StringToArray[i]
+			myString += StringToArray[i]
 
 			if myCount >= width {
 				if cut {
 					// We'd like to cut always.
-					myString = myString + breaks
+					myString += breaks
 					myCount = 0
 				} else {
 					// Only cut on a whitespace, or a dot!
 					if StringToArray[i] == " " || StringToArray[i] == "." {
-						myString = myString + breaks
+						myString += breaks
 						myCount = 0
 					}
 				}

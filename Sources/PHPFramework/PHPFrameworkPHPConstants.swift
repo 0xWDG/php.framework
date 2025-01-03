@@ -34,7 +34,8 @@ public let E_WARNING: Int = 2
 public let E_PARSE: Int = 4
 
 /// Run-time notices. 
-/// Indicate that the script encountered something that could indicate an error, but could also happen in the normal course of running a script.
+/// Indicate that the script encountered something that could indicate an error,
+/// but could also happen in the normal course of running a script.
 /// Value of the constant: 8
 public let E_NOTICE: Int = 8
 
@@ -217,7 +218,8 @@ public let PHP_MAXPATHLEN: Int = 1024
 public let PHP_INT_MAX: Int64 = Int64.max
 
 /// The smallest integer supported in this build of PHP.
-/// Usually int(-2147483648) in 32 bit systems and int(-9223372036854775808) in 64 bit systems. Usually, PHP_INT_MIN === ~PHP_INT_MAX.
+/// Usually int(-2147483648) in 32 bit systems and int(-9223372036854775808) in 64 bit systems.
+/// Usually, PHP_INT_MIN === ~PHP_INT_MAX.
 public let PHP_INT_MIN: Int64 = Int64.min
 
 /// The size of an integer in bytes in this build of PHP.
@@ -605,6 +607,7 @@ public let OPENSSL_PKCS1_OAEP_PADDING: Int = 4
 // TODO: Add documentation for constant.
 /// Global usage for PHP's static constants
 public let OPENSSL_DEFAULT_STREAM_CIPHERS: String = "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128:AES256:HIGH:!SSLv2:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!RC4:!ADH"
+// swiftlint:disable:previous line_length
 
 // TODO: Add documentation for constant.
 /// Global usage for PHP's static constants
@@ -6211,10 +6214,12 @@ public let MYSQLI_REFRESH_THREADS: Int = 32
 // TODO: Add documentation for constant.
 /// Global usage for PHP's static constants
 public let MYSQLI_REFRESH_SLAVE: Int = 64
+// swiftlint:disable:previous inclusive_language
 
 // TODO: Add documentation for constant.
 /// Global usage for PHP's static constants
 public let MYSQLI_REFRESH_MASTER: Int = 128
+// swiftlint:disable:previous inclusive_language
 
 // TODO: Add documentation for constant.
 /// Global usage for PHP's static constants
