@@ -25,7 +25,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_change_key_case(_ arr: [String]) -> Any {
+    func array_change_key_case(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -37,7 +37,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_chunk(_ arr: [String]) -> Any {
+    func array_chunk(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -49,7 +49,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_column(_ arr: [String]) -> Any {
+    func array_column(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -61,7 +61,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_combine(_ arr: [String]) -> Any {
+    func array_combine(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -73,7 +73,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_count_values(_ arr: [String]) -> Any {
+    func array_count_values(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -85,7 +85,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_diff_assoc(_ arr: [String]) -> Any {
+    func array_diff_assoc(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -97,7 +97,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_diff_key(_ arr: [String]) -> Any {
+    func array_diff_key(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -109,7 +109,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_diff_uassoc(_ arr: [String]) -> Any {
+    func array_diff_uassoc(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -121,7 +121,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_diff_ukey(_ arr: [String]) -> Any {
+    func array_diff_ukey(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -133,7 +133,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_diff(_ arr: [String]) -> Any {
+    func array_diff(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -145,7 +145,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_fill_keys(_ arr: [String]) -> Any {
+    func array_fill_keys(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -157,7 +157,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_fill(_ arr: [String]) -> Any {
+    func array_fill(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -169,7 +169,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_filter(_ arr: [String]) -> Any {
+    func array_filter(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -181,7 +181,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_flip(_ arr: [String]) -> Any {
+    func array_flip(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -193,7 +193,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_intersect_assoc(_ arr: [String]) -> Any {
+    func array_intersect_assoc(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -205,7 +205,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_intersect_key(_ arr: [String]) -> Any {
+    func array_intersect_key(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -217,7 +217,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_intersect_uassoc(_ arr: [String]) -> Any {
+    func array_intersect_uassoc(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -229,7 +229,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_intersect_ukey(_ arr: [String]) -> Any {
+    func array_intersect_ukey(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -241,7 +241,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_intersect(_ arr: [String]) -> Any {
+    func array_intersect(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -253,7 +253,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_key_exists(_ arr: [String]) -> Any {
+    func array_key_exists(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -265,7 +265,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_keys(_ arr: [String]) -> Any {
+    func array_keys(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -277,7 +277,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_map(_ arr: [String]) -> Any {
+    func array_map(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -289,7 +289,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_merge_recursive(_ arr: [String]) -> Any {
+    func array_merge_recursive(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -301,7 +301,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_merge(_ arr: [String]) -> Any {
+    func array_merge(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -313,7 +313,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_multisort(_ arr: [String]) -> Any {
+    func array_multisort(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -325,7 +325,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_pad(_ arr: [String]) -> Any {
+    func array_pad(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -337,7 +337,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_pop(_ arr: [String]) -> Any {
+    func array_pop(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -349,7 +349,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_product(_ arr: [String]) -> Any {
+    func array_product(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -361,7 +361,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_push(_ arr: [String]) -> Any {
+    func array_push(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -373,7 +373,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_rand(_ arr: [String]) -> Any {
+    func array_rand(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -385,7 +385,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_reduce(_ arr: [String]) -> Any {
+    func array_reduce(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -397,7 +397,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_replace_recursive(_ arr: [String]) -> Any {
+    func array_replace_recursive(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -409,7 +409,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_replace(_ arr: [String]) -> Any {
+    func array_replace(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -421,7 +421,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_reverse(_ arr: [String]) -> Any {
+    func array_reverse(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -433,7 +433,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_search(_ arr: [String]) -> Any {
+    func array_search(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -445,7 +445,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_shift(_ arr: [String]) -> Any {
+    func array_shift(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -457,7 +457,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_slice(_ arr: [String]) -> Any {
+    func array_slice(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -469,7 +469,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_splice(_ arr: [String]) -> Any {
+    func array_splice(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -481,7 +481,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_sum(_ arr: [String]) -> Any {
+    func array_sum(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -493,7 +493,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_udiff_assoc(_ arr: [String]) -> Any {
+    func array_udiff_assoc(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -505,7 +505,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_udiff_uassoc(_ arr: [String]) -> Any {
+    func array_udiff_uassoc(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -517,7 +517,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_udiff(_ arr: [String]) -> Any {
+    func array_udiff(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -529,7 +529,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_uintersect_assoc(_ arr: [String]) -> Any {
+    func array_uintersect_assoc(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -541,7 +541,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_uintersect_uassoc(_ arr: [String]) -> Any {
+    func array_uintersect_uassoc(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -553,7 +553,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_uintersect(_ arr: [String]) -> Any {
+    func array_uintersect(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -565,7 +565,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_unique(_ arr: [String]) -> Any {
+    func array_unique(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -577,7 +577,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_unshift(_ arr: [String]) -> Any {
+    func array_unshift(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -589,7 +589,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_values(_ arr: [String]) -> Any {
+    func array_values(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -601,7 +601,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_walk_recursive(_ arr: [String]) -> Any {
+    func array_walk_recursive(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -613,7 +613,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array_walk(_ arr: [String]) -> Any {
+    func array_walk(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -625,7 +625,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func array(_ arr: [String]) -> Any {
+    func array(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -637,7 +637,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func arsort(_ arr: [String]) -> Any {
+    func arsort(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -649,7 +649,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func asort(_ arr: [String]) -> Any {
+    func asort(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -661,7 +661,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func compact(_ arr: [String]) -> Any {
+    func compact(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -673,7 +673,7 @@ extension PHPFramework {
 
 	 - Returns: Integer of array count
 	 */
-	public func count(_ arr: [Any]) -> Int {
+    func count(_ arr: [Any]) -> Int {
 		return arr.count
 	}
 
@@ -684,7 +684,7 @@ extension PHPFramework {
 
 	 - Returns: Integer of Dictionary count
 	 */
-	public func count(_ dict: [String: Any]) -> Int {
+    func count(_ dict: [String: Any]) -> Int {
 		return dict.count
 	}
 
@@ -695,7 +695,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func current(_ arr: [String]) -> Any {
+    func current(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -707,7 +707,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func each(_ arr: [String]) -> Any {
+    func each(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -719,7 +719,7 @@ extension PHPFramework {
 
 	 - Returns: the element on the last position
 	 */
-	public func end(_ arr: [Any]) -> Any {
+    func end(_ arr: [Any]) -> Any {
 		return arr[arr.count]
 	}
 
@@ -730,7 +730,7 @@ extension PHPFramework {
 
 	 - Returns: the element on the last position
 	 */
-	public func end(_ dict: [String: Any]) -> Any {
+    func end(_ dict: [String: Any]) -> Any {
         return Array(dict.values).last ?? Bool(false) as Any
 	}
 
@@ -741,7 +741,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func extract(_ arr: [String]) -> Any {
+    func extract(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -753,7 +753,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func in_array(_ arr: [String]) -> Any {
+    func in_array(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -765,7 +765,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func key_exists(_ arr: [String]) -> Any {
+    func key_exists(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -777,7 +777,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func key(_ arr: [String]) -> Any {
+    func key(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -789,7 +789,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func krsort(_ arr: [String]) -> Any {
+    func krsort(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -801,7 +801,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func ksort(_ arr: [String]) -> Any {
+    func ksort(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -813,7 +813,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func list(_ arr: [String]) -> Any {
+    func list(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -825,7 +825,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func natcasesort(_ arr: [String]) -> Any {
+    func natcasesort(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -837,7 +837,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func natsort(_ arr: [String]) -> Any {
+    func natsort(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -849,7 +849,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func next(_ arr: [String]) -> Any {
+    func next(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -861,7 +861,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func pos(_ arr: [String]) -> Any {
+    func pos(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -873,7 +873,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func prev(_ arr: [String]) -> Any {
+    func prev(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -885,7 +885,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func range(_ arr: [String]) -> Any {
+    func range(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -897,7 +897,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func reset(_ arr: [String]) -> Any {
+    func reset(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -909,7 +909,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func rsort(_ arr: [String]) -> Any {
+    func rsort(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -921,7 +921,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func shuffle(_ arr: [String]) -> Any {
+    func shuffle(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -933,7 +933,7 @@ extension PHPFramework {
 
 	 - Returns: Integer of array count
 	 */
-	public func sizeof(_ arr: [Any]) -> Int {
+    func sizeof(_ arr: [Any]) -> Int {
 		return count(arr)
 	}
 
@@ -944,7 +944,7 @@ extension PHPFramework {
 
 	 - Returns: Integer of Dictionary count
 	 */
-	public func sizeof(_ dict: [String: Any]) -> Int {
+    func sizeof(_ dict: [String: Any]) -> Int {
 		return count(dict)
 	}
 
@@ -955,7 +955,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func sort(_ arr: [String]) -> Any {
+    func sort(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -967,7 +967,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func uasort(_ arr: [String]) -> Any {
+    func uasort(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -979,7 +979,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func uksort(_ arr: [String]) -> Any {
+    func uksort(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}
@@ -991,7 +991,7 @@ extension PHPFramework {
 
 	 - Returns: Something
 	 */
-	public func usort(_ arr: [String]) -> Any {
+    func usort(_ arr: [String]) -> Any {
 		print("Sorry this function is not done")
 		return false
 	}

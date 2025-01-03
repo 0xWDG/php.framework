@@ -59,7 +59,12 @@ extension PHPFramework {
 	 - Returns: Document directory
 	 */
 	public func getcwd() -> String {
-        let documentDirectoryURL = try! FileManager().url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let documentDirectoryURL = try! FileManager().url(
+            for: .documentDirectory,
+            in: .userDomainMask,
+            appropriateFor: nil,
+            create: true
+        )
         return documentDirectoryURL.relativePath
 	}
 

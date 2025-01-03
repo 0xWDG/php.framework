@@ -281,7 +281,7 @@ public extension String {
 	/**
 	 get string length
 	 */
-	public var length: Int {
+    var length: Int {
 		get {
 			return self.count
 		}
@@ -294,7 +294,7 @@ public extension String {
 
 	 - Returns: true/false
 	 */
-	public func contains(_ s: String) -> Bool {
+    func contains(_ s: String) -> Bool {
 		return self.range(of: s) != nil ? true : false
 	}
 
@@ -306,7 +306,7 @@ public extension String {
 
 	 - Returns: Replaced string
 	 */
-	public func replace(_ target: String, withString: String) -> String {
+    func replace(_ target: String, withString: String) -> String {
         return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
 	}
 
@@ -318,7 +318,7 @@ public extension String {
      
      - Returns: Replaced string
      */
-    public func ireplace(_ target: String, withString: String) -> String {
+    func ireplace(_ target: String, withString: String) -> String {
         return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.caseInsensitive, range: nil)
     }
 
@@ -358,7 +358,7 @@ public extension String {
 
 	 - Returns: The ranged string
 	 */
-	public subscript(i: Int) -> Character {
+    subscript(i: Int) -> Character {
 		get {
 			let index = self.index(self.startIndex, offsetBy: i)
 			return self[index]
@@ -372,7 +372,7 @@ public extension String {
 
 	 - Returns: The ranged string.
 	 */
-	public subscript(r: Range<Int>) -> String {
+    subscript(r: Range<Int>) -> String {
 		get {
 			let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
 			let endIndex = self.index(self.startIndex, offsetBy: r.upperBound - 1)
@@ -388,7 +388,7 @@ public extension String {
      
      - Returns: The ranged string.
      */
-    public subscript(r: CountableClosedRange<Int>) -> String {
+    subscript(r: CountableClosedRange<Int>) -> String {
         get {
             let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
             let endIndex = self.index(self.startIndex, offsetBy: r.upperBound)
@@ -771,7 +771,7 @@ public extension String {
 
 	 - Returns: the encoded HTML
 	 */
-	public func encodeHTML() -> String {
+    func encodeHTML() -> String {
 		// Ok, this feels weird.
 		var _tempString = self
 
@@ -796,7 +796,7 @@ public extension String {
 
 	 - Returns: the HTMLEntities.
 	 */
-	public func getHTMLEntities() -> [String: Character] {
+    func getHTMLEntities() -> [String: Character] {
 		// PHP, Shame on you. but here you'll go.
 		return HTMLEntities.characterEntities
 	}

@@ -1519,7 +1519,7 @@ extension PHPFramework {
 	 */
 	public func strstr(_ str: String, _ find: String, _ before: Bool? = false) -> String {
 
-		var exploded = explode(str, find)
+		let exploded = explode(str, find)
 
 		if exploded.count < 1 {
 			return str

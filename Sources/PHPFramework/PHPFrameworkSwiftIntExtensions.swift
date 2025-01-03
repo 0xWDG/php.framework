@@ -12,7 +12,7 @@
 
 import Foundation
 
-extension Int {
+public extension Int {
     func toString(_ x: Int) -> String {
         return String(format: "%2X", self)
     }

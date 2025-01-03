@@ -107,7 +107,7 @@ extension PHPFramework {
 
 	 - Returns: PHPAllConstants: Dictionary<String, Any>
 	 */
-    @MainActor public func get_defined_vars() -> [String: Any] {
+    public func get_defined_vars() -> [String: Any] {
 		return PHPAllConstants
 	}
 
