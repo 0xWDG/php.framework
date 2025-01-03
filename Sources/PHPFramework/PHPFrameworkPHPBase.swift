@@ -1,9 +1,8 @@
-//  _____    _    _   _____    ______                                           _
-// |  __ \  | |  | | |  __ \  |  ____|                                         | |
-// | |__) | | |__| | | |__) | | |__ _ __ __ _ _ __ ___   _____      _____  _ __| | __
-// |  ___/  |  __  | |  ___/  |  __| '__/ _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
-// | |      | |  | | | |      | |  | | | (_| | | | | | |  __/\ V  V / (_) | |  |   <
-// |_|      |_|  |_| |_|      |_|  |_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
+//
+// PHP Framework
+// PHPFramework is a collection of the most common PHP functions, implemented in Swift.
+//
+// https://github.com/0xWDG/PHPFramework
 //
 // File:    PHPFrameworkDirectory.swift
 // Created: 15-JAN-2016
