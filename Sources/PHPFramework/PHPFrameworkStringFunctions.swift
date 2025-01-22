@@ -100,7 +100,7 @@ extension PHPFramework {
 	}
 
 	/**
-	 Alias of rtrim
+	 Alias of ``rtrim(_:_:)``
 
 	 chrs includes standard:
 
@@ -410,7 +410,7 @@ extension PHPFramework {
 	}
 
 	/**
-	 Alias of implode
+	 Alias of ``implode(_:_:)``
 
 	 - Parameter glue: The glue
 	 - Parameter arr: The array to implode
@@ -1061,7 +1061,7 @@ extension PHPFramework {
 	}
 
 	/**
-	 Alias of strstr
+	 Alias of ``strstr(_:_:_:)``
 
 	 - Parameter str: The String
 	 - Parameter find: find
