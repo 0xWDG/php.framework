@@ -706,6 +706,17 @@ extension PHPFramework {
 	}
 
 	/**
+	 is_writable
+
+	 - Parameter fh: String
+
+	 - Returns: Any
+	 */
+	public func is_writable(_ fh: String) -> Bool {
+		return false
+	}
+	
+	/**
 	 Alias of ``is_writable(_:)``
 
 	 - Parameter fh: String
@@ -973,6 +984,17 @@ extension PHPFramework {
 	public func rmdir(_ fh: String) -> Bool {
 		print("Not done")
 
+		return false
+	}
+
+	/**
+	 **Unsupported** stream_set_write_buffer
+
+	 - Parameter fh: Any...
+
+	 - Returns: false
+	 */
+	public func stream_set_write_buffer(_ fh: Any ...) -> Bool {
 		return false
 	}
 
