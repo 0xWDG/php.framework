@@ -170,11 +170,9 @@ extension PHPFramework {
 		return 1
 	}
 
-	/**
-	 **Dummy** Alias of get_included_files
-
-	 - Returns: Array
-	 */
+	/// **Dummy** Alias of ``get_included_files``
+	///
+	/// - Returns: Array
 	public func get_required_files() -> [String] {
 		return get_included_files()
 	}
@@ -188,11 +186,8 @@ extension PHPFramework {
 		return 1
 	}
 
-	/**
-	 Gets the value of an environment variable
-
-	 **Alias of getopt**
-	 */
+	/// Gets the value of an environment variable
+	/// Alias of ``getopt``
 	public func getenv() -> String {
 		return getopt()
 	}
@@ -267,12 +262,10 @@ extension PHPFramework {
 		return 1
 	}
 
-	/**
-	 **Dummy** Alias of ini_set
-
-	 - Parameter someThing: Any
-	 - Parameter someOtherThing: Any
-	 */
+	/// **Dummy** Alias of ``ini_set``
+	///
+	/// - Parameter someThing: Any
+	/// - Parameter someOtherThing: Any
 	public func ini_alter(_ someThing: Any? = "", _ SomeOtherThing: Any? = "") {}
 
 	/**
