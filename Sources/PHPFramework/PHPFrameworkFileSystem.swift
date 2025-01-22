@@ -171,7 +171,7 @@ extension PHPFramework {
 	 - Returns: Any
 	 */
 	public func diskfreespace(_ fh: String? = "") -> Int64? {
-		return disk_free_space(fh: fh)
+		return disk_free_space(fh)
 	}
 
 	/**
@@ -507,9 +507,7 @@ extension PHPFramework {
 	 - Returns: Any
 	 */
 	public func fputs(_ fh: String) -> Bool {
-		print("Not done")
-
-		return false
+		return fwrite(fh)
 	}
 
 	/**
@@ -715,9 +713,7 @@ extension PHPFramework {
 	 - Returns: Any
 	 */
 	public func iswriteable(_ fh: String) -> Bool {
-		print("Not done")
-
-		return false
+		return is_writable(fh)
 	}
 
 	/**
@@ -988,7 +984,7 @@ extension PHPFramework {
 	 - Returns: false
 	 */
 	public func set_file_buffer(_ fh: Any ...) -> Bool {
-		return false
+		return stream_set_write_buffer(fh)
 	}
 
 	/**
