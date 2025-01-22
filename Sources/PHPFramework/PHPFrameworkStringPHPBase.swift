@@ -259,7 +259,7 @@ extension PHPFramework {
     }
 
     /**
-     Alias of get_included_files (Not done)
+     Alias of ``PHPFramework.get_included_files`` (Not done)
      
      - Parameter String: The input string
      
@@ -379,7 +379,7 @@ extension PHPFramework {
     }
 
     /**
-     Alias of ini_set (Not done)
+     Alias of ``PHPFramework.ini_set`` (Not done)
      
      - Parameter String: The input string
      
@@ -439,7 +439,7 @@ extension PHPFramework {
     }
 
     /**
-     Alias of set_magic_quotes_runtime (Not done)
+     Alias of ``set_magic_quotes_runtime`` (Not done)
      
      - Parameter String: The input string
      
