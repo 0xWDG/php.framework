@@ -312,7 +312,7 @@ extension PHPFramework {
 	public func ini_set(_ someThing: Any? = "", _ SomeOtherThing: Any? = "") {}
 
 	/**
-	 **Dummy** Alias of set_magic_quotes_runtime
+	 **Dummy** Alias of ``set_magic_quotes_runtime``
 
 	 - Parameter someThing: Any
 	 */
