@@ -61,7 +61,7 @@ extension PHPFramework {
 	}
 
 	/**
-	 Alias of floatval
+	 Alias of ``floatval(_:)``
 
 	 - Parameter testVar: Any Variable
 
@@ -92,7 +92,7 @@ extension PHPFramework {
 
 	/**
 	 Get float value of a variable\
-	 *alias of intval*
+	 Alias of ``intval(_:)``
 
 	 - Parameter testVar: Any Variable
 
@@ -189,7 +189,7 @@ extension PHPFramework {
 	}
 
 	/**
-	 Alias of is_float
+	 Alias of ``is_float(_:)``
 
 	 - Parameter testVar: Any Variable
 
@@ -222,7 +222,7 @@ extension PHPFramework {
 	}
 
 	/**
-	 Alias of is_int
+	 Alias of ``is_int(_:)``
 
 	 - Parameter testVar: Any Variable
 
@@ -233,7 +233,7 @@ extension PHPFramework {
 	}
 
 	/**
-	 Alias of is_int
+	 Alias of ``is_int(_:)``
 
 	 - Parameter testVar: Any Variable
 
@@ -282,7 +282,7 @@ extension PHPFramework {
 	}
 
 	/**
-	 Alias of is_float
+	 Alias of ``is_float(_:)``
 
 	 - Parameter testVar: Any Variable
 
