@@ -763,7 +763,7 @@ extension PHPFramework {
 	}
 
 	/**
-	 Alias of array_key_exists (**Not Done**)
+	 Alias of ``array_key_exists(_:)``
 
 	 - Parameter arr: The Array<String>
 
@@ -859,7 +859,7 @@ extension PHPFramework {
 	}
 
 	/**
-	 Alias of current (**Not Done**)
+	 Alias of ``current(_:)``
 
 	 - Parameter arr: The Array<String>
 
@@ -931,7 +931,7 @@ extension PHPFramework {
 	}
 
 	/**
-	 Alias of count
+	 Alias of ``count(_:)``
 
 	 - Parameter arr: The Array<Any>
 
@@ -942,7 +942,7 @@ extension PHPFramework {
 	}
 
 	/**
-	 Alias of count
+	 Alias of ``count(_:)``
 
 	 - Parameter dict: Dictionary<String, Any>
 
