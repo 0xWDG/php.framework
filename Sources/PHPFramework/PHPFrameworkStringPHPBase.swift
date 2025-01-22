@@ -259,7 +259,7 @@ extension PHPFramework {
     }
 
     /**
-     Alias of ``PHPFramework.get_included_files`` (Not done)
+     Alias of ``get_included_files()``
      
      - Parameter String: The input string
      
