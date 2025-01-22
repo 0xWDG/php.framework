@@ -715,7 +715,7 @@ extension PHPFramework {
 	public func is_writable(_ fh: String) -> Bool {
 		return false
 	}
-	
+
 	/**
 	 Alias of ``is_writable(_:)``
 
