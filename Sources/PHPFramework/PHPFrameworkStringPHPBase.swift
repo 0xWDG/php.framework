@@ -379,7 +379,7 @@ extension PHPFramework {
     }
 
     /**
-     Alias of ``PHPFramework.ini_set`` (Not done)
+     Alias of ``ini_set(_:_:)``
      
      - Parameter String: The input string
      
@@ -439,7 +439,7 @@ extension PHPFramework {
     }
 
     /**
-     Alias of ``set_magic_quotes_runtime`` (Not done)
+     Alias of ``set_magic_quotes_runtime(_:)`` (Not done)
      
      - Parameter String: The input string
      
