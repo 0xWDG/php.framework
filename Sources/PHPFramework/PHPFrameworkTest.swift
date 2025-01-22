@@ -16,7 +16,7 @@ import Foundation
  **PHP.Framework** \
  *PHP In Swift*
 
- PHPTest is a alias of PHPFrameworkTests()
+ PHPTest is a alias of ``PHPFrameworkTests``
  */
 public let PHPTest = PHPFrameworkTests()
 
