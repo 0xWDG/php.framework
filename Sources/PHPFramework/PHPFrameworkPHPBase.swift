@@ -170,7 +170,7 @@ extension PHPFramework {
 		return 1
 	}
 
-	/// **Dummy** Alias of ``get_included_files``
+	/// Alias of ``get_included_files()``
 	///
 	/// - Returns: Array
 	public func get_required_files() -> [String] {
@@ -187,7 +187,7 @@ extension PHPFramework {
 	}
 
 	/// Gets the value of an environment variable
-	/// Alias of ``getopt``
+	/// Alias of ``getopt()``
 	public func getenv() -> String {
 		return getopt()
 	}
@@ -262,11 +262,13 @@ extension PHPFramework {
 		return 1
 	}
 
-	/// **Dummy** Alias of ``ini_set``
+	/// Alias of ``ini_set(_:_:)``
 	///
 	/// - Parameter someThing: Any
 	/// - Parameter someOtherThing: Any
-	public func ini_alter(_ someThing: Any? = "", _ SomeOtherThing: Any? = "") {}
+	public func ini_alter(_ someThing: Any? = "", _ SomeOtherThing: Any? = "") {
+		self.ini_set(someThing, SomeOtherThing)
+	}
 
 	/**
 	 **Dummy** Gets all configuration options
@@ -305,7 +307,7 @@ extension PHPFramework {
 	public func ini_set(_ someThing: Any? = "", _ SomeOtherThing: Any? = "") {}
 
 	/**
-	 **Dummy** Alias of ``set_magic_quotes_runtime``
+	 **Dummy** Alias of ``set_magic_quotes_runtime(_:)``
 
 	 - Parameter someThing: Any
 	 */
